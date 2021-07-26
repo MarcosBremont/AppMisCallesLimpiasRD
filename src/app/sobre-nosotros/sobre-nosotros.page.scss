@@ -1,0 +1,37 @@
+.css-button {
+    width: 150px;
+    margin: auto;
+
+	font-family: Arial;
+	color: #FFFFFF;
+	font-size: 15px;
+	border-radius: 26px;
+	border: 3px #248946 solid;
+	background: linear-gradient(180deg, #24cc64 5%, #24cc64 100%);
+	text-shadow: 0px 1px 1px #528ecc;
+	box-shadow: inset 3px -9px 39px -20px rgba(36, 204, 100, 0.54);
+	cursor: pointer;
+	display: block;
+	align-items: center;
+    padding: 10px;
+    text-align: center;
+}
+.css-button:hover {
+	background: linear-gradient(180deg, #24cc64 5%, #24cc64 100%);
+}
+.css-button-icon {
+	padding: 2px;
+	border-right: 1px solid rgba(255, 255, 255, 0.16);
+}
+.css-button-icon i {
+	position: relative;
+	font-size: 33px;
+}
+// .css-button-text {
+// 	padding: 13px 11px;
+// }
+// .css-button-text span{
+// 	display: block;
+// 	position: relative;
+// 	left: -6px;
+// }
