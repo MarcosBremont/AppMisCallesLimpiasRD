@@ -27,14 +27,12 @@
       <ion-item (click)="showAlert(i)" button detail="false">
           <img src="assets/imagenes/basura.png" class="imagen">
 
-
-
           <div class="reportes--datos">
-              <!-- <ion-label>&nbsp;<strong>#: {{reporte.cod_reporte}}&nbsp;</strong> </ion-label>  -->
-              <!-- <ion-label>&nbsp;{{reporte.ubicacion}}</ion-label> -->
+            <ion-label style="color: #569CD6;">&nbsp;{{reporte.ubicacion}}</ion-label>
+
               <ion-label class="reportes--datos--ubicacion" id="{{'cod_reportessssss' + i}}"> </ion-label>
               <div class="reportes--datos__latlong">
-                  <ion-label>&nbsp;Latitud & Lngitud:</ion-label>
+                  <ion-label>&nbsp;Latitud & Longitud</ion-label>
                   <ion-label style="color: #569CD6;">&nbsp;{{reporte.lat}}, {{reporte.lng}}</ion-label>
               </div>
 

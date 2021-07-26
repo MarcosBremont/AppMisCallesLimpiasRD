@@ -2,6 +2,8 @@ import { RecompensasService } from '../Services/recompensas.service';
 import {ActualizarpuntosService} from '../Services/actualizarpuntos.service'
 import { Component, OnInit,  ViewChild, ElementRef } from '@angular/core';
 import { AlertController } from '@ionic/angular';
+import { IonLoaderService } from '../Services/ion-loader.service';
+
 import { interval, Subscription } from 'rxjs';
 import {RegistroReciboService} from '../Services/registrorecibo.service';
 import { MispuntosService } from '../Services/mispuntos.service';
@@ -21,6 +23,7 @@ export class RecompensasPage implements OnInit {
 
 
   constructor(
+    private ionLoaderService: IonLoaderService,
     public servicio:RecompensasService, 
     public servicioPuntos: MispuntosService,
     public servicioActualizarPuntos:ActualizarpuntosService,
@@ -157,12 +160,14 @@ export class RecompensasPage implements OnInit {
       cod_usuarios = this.cod_usuario;
       puntos_acumulados = resultado;
 
- 
+      this.ionLoaderService.simpleLoader();
+
  
   //Creamos los datos del recibo e insertamos los datos en la tabla Recibos
   this.servicioActualizarPuntos.ActualizarPuntos(this.cod_puntos,puntos_acumulados,cod_usuarios).subscribe((data)=>{
     this.datos=data;
     if(this.datos.respuesta=="OK"){
+      this.ionLoaderService.dismissLoader();
         alert('¡Enhorabuena!, su recompensa ha sido procesada');
         this.registroRecibo.IngresarRecibo(this.cod_usuario,this.cod_recompensas).subscribe((data)=>{
           this.datos = data; 
@@ -180,7 +185,7 @@ export class RecompensasPage implements OnInit {
       console.log('No funcionó')
     }
     
-    
+
   })
 
       

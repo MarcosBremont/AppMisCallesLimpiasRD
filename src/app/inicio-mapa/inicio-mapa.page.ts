@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 // import { base64StringToBlob } from 'blob-util';
 // import { Base64 } from '@ionic-native/base64/ngx';
-
+import { IonLoaderService } from '../Services/ion-loader.service';
 import { RegistroReporteService } from '../Services/registro-reporte.service';
 import { DatosnecesarioService } from '../Services/datosnecesario.service';
 import { LocationService } from '../Services/location.service';
@@ -35,13 +35,15 @@ export class InicioMapaPage implements OnInit {
   ubicacion;
   lat;
   lng;
-  fotos;
+  fotos = null;
   cod_usuario;
-
+  isBtnCamaraVisible = false;
+  isBtnRegistroVisible = false;
   //Prueba
 cod_nivel;
 
-
+btnCamara;
+btnRegistro
   usuario;
   currentImage: any;
 
@@ -53,8 +55,10 @@ cod_nivel;
   value:any;
   latitude: any = '0';
   longitud: any = '0';
+  nombrecalle: any;
   constructor( 
     // private base64: Base64,
+    private ionLoaderService: IonLoaderService,
     public servicio2:DatosnecesarioService,
     public servicio3:RegistroReporteService,
     public LocationService:LocationService,
@@ -85,10 +89,12 @@ cod_nivel;
         this.currentImage =  imageData;
         this.Reportar()
         this.ImgAlert();
+        this.VerificarSiHayFoto();
       }, (err) => {
         // Handle error
         console.log("Camera issue:" + err);
       });
+
     }
   
 
@@ -102,10 +108,27 @@ cod_nivel;
 
 
     async ngOnInit() {
+      this.VerificarSiHayFoto();
     await this.platform.ready();
     this.onload();
     await this.loadMap();
     await this.localizar()
+
+    
+    }
+    
+    
+    
+    VerificarSiHayFoto(){
+      if (this.currentImage != null) {
+     this.isBtnRegistroVisible = true;
+     this.isBtnCamaraVisible = true;
+
+      } else {
+        this.isBtnRegistroVisible = false;
+        this.isBtnCamaraVisible = true;
+
+      }  
     }
 
     loadMap() {
@@ -120,7 +143,7 @@ cod_nivel;
         camera: {
           target: {
             lat: -2.1537488,
-            lng: -79.8883037
+            lng: -79.8883037,
           },
           zoom: 18,
           tilt: 30
@@ -151,7 +174,7 @@ cod_nivel;
   
       // Presentamos el componente creado en el paso anterior
       await this.loading.present();
-  
+ 
       // Ejecutamos el método getMyLocation de nuestra propiedad de clase
       // map
       // para obtener nuestra ubicación actual
@@ -174,9 +197,8 @@ cod_nivel;
             // snippet: "This plugin is awesome!",
             position: location.latLng,
             animation: GoogleMapsAnimation.BOUNCE
-          });
-  
-          // Mostramos un InfoWindow
+
+          });          // Mostramos un InfoWindow
           marker.showInfoWindow();
   
           // Podemos configurar un evento que se ejecute cuando
@@ -194,11 +216,13 @@ cod_nivel;
     }
   
     Reportar() {
+      // var urlGoogleStreetName = "https://maps.googleapis.com/maps/api/geocode/json?latlng=40.714224,-73.961452&key=YOUR_API_KEY";
       this.LocationService.getPosition().then(pos => {
+        console.log(pos)
           this.latitude = pos.lat;
           this.longitud = pos.lng;
-      });
 }
+      );}
 
   // Función que muestra un Toast en la parte inferior
   // de la pantalla
@@ -245,12 +269,23 @@ cod_nivel;
   
 
   onRegistroReporte(){
+
+    this.ionLoaderService.simpleLoader();
+
+    this.servicio3.StreetNameGoogle(this.latitude,this.longitud).subscribe((data)=>{
+      this.datos = data;
+      this.nombrecalle = this.datos.results[1].formatted_address;
+      console.log(this.nombrecalle)
+
+
     let cod_usuario, ubicacion, lat, lng, fotos;
     cod_usuario = Variableglobal.cod_usuario;
-    ubicacion = "Jarabacoa";
+    ubicacion = this.nombrecalle;
     lat = this.latitude;
     lng = this.longitud;
     fotos = this.currentImage; 
+
+    
     let datos = {
       "ubicacion": ubicacion,
       "lat": lat,
@@ -265,16 +300,20 @@ cod_nivel;
       if (this.datos == true)
       {
         this.SuccesAlert();
+        
         // this.onLimpiar();
       }
       else
       {
         this.ErrorAlert();
       }
-     
+      this.ionLoaderService.dismissLoader();
+
     },
     (error)=>{
       alert("Error ");
     });
+  });
   }
+  
 }

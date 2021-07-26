@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Variableglobal } from '../variableglobal';
 import { Camera, CameraOptions } from '@ionic-native/camera/ngx';
+import { IonLoaderService } from '../Services/ion-loader.service';
 
 import { AlertController } from '@ionic/angular';
 import { GuardardatosperfilService } from '../Services/guardardatosperfil.service';
@@ -35,7 +36,9 @@ export class MiPerfilPage implements OnInit {
   lbl_usuario2: string = Variableglobal.cod_usuario;
   fotohtml: string = Variableglobal.foto_usuario;  
 
-  constructor(public servicio:GuardardatosperfilService, public alertController: AlertController,private camera: Camera) { 
+  constructor(public servicio:GuardardatosperfilService, public alertController: AlertController,private camera: Camera, private ionLoaderService: IonLoaderService,
+    ) { 
+    
     this.cod_usuario = Variableglobal.cod_usuario;
     this.nombre_usuario = Variableglobal.nombre_usuario; 
     this.correo_Usuario = Variableglobal.correo_Usuario;
@@ -103,6 +106,7 @@ async ErrorAlert() {
   
   
   OnGuardarPerfil(){
+    this.ionLoaderService.simpleLoader();
     this.cod_usuario = Variableglobal.cod_usuario;
     this.correo_Usuario = this.txt_correo_Usuario;
     this.cedula_usuario = this.txt_Cedula_Usuario;
@@ -123,6 +127,7 @@ async ErrorAlert() {
       this.datos = data;
       if (this.datos == true)
       {
+        this.ionLoaderService.dismissLoader();
         this.SuccessAlert();
       }
       else
@@ -134,6 +139,8 @@ async ErrorAlert() {
     (error)=>{
       this.ErrorAlert();
     });
+    
+
   }
   public toggleTextPassword(): void{
     this.isActiveToggleTextPassword = (this.isActiveToggleTextPassword==true)?false:true;

@@ -8,6 +8,7 @@ import { AlertController } from '@ionic/angular';
 import { first } from 'rxjs/operators';
 import { NgForm } from '@angular/forms';
 import { NavController} from '@ionic/angular';
+import { IonLoaderService } from '../Services/ion-loader.service';
 
 import { Platform, LoadingController, ToastController } from "@ionic/angular";
 import { InicioMapaPage } from '../inicio-mapa/inicio-mapa.page';
@@ -26,6 +27,7 @@ export class LoginPage implements OnInit {
   isActiveToggleTextPassword: Boolean = true;
 
   constructor(
+    private ionLoaderService: IonLoaderService,
     public servicio2:DatosnecesarioService, 
     public menuCtrl: MenuController,
     public servicio:LoginService,
@@ -79,6 +81,7 @@ export class LoginPage implements OnInit {
   }
   onIniciarSesion(){
     this.onload();
+    // this.ionLoaderService.simpleLoader();
 
     try
     {
@@ -101,6 +104,8 @@ export class LoginPage implements OnInit {
             this.menuCtrl.enable(true);
            
             this.router.navigate(['/inicio-mapa']);
+            this.ionLoaderService.dismissLoader();
+
           }
           else
           {
@@ -117,6 +122,7 @@ export class LoginPage implements OnInit {
     {
       alert("Error: " + ex.message)
     }
+
   }
  
   public toggleTextPassword(): void{

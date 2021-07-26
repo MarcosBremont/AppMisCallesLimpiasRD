@@ -1,0 +1,477 @@
+(function () {
+  function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+  function _defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } }
+
+  function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _defineProperties(Constructor.prototype, protoProps); if (staticProps) _defineProperties(Constructor, staticProps); return Constructor; }
+
+  (self["webpackChunkMisCalleslimpiasRD"] = self["webpackChunkMisCalleslimpiasRD"] || []).push([["src_app_login_login_module_ts"], {
+    /***/
+    73468: function _(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
+      "use strict";
+
+      __webpack_require__.r(__webpack_exports__);
+      /* harmony export */
+
+
+      __webpack_require__.d(__webpack_exports__, {
+        /* harmony export */
+        "LoginService": function LoginService() {
+          return (
+            /* binding */
+            _LoginService
+          );
+        }
+        /* harmony export */
+
+      });
+      /* harmony import */
+
+
+      var tslib__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(
+      /*! tslib */
+      64762);
+      /* harmony import */
+
+
+      var _angular_core__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(
+      /*! @angular/core */
+      37716);
+      /* harmony import */
+
+
+      var _angular_common_http__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(
+      /*! @angular/common/http */
+      91841);
+      /* harmony import */
+
+
+      var _ionic_angular__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(
+      /*! @ionic/angular */
+      80476);
+
+      var _LoginService = /*#__PURE__*/function () {
+        function LoginService(http, platform) {
+          _classCallCheck(this, LoginService);
+
+          this.http = http;
+        }
+
+        _createClass(LoginService, [{
+          key: "IniciarSesion",
+          value: function IniciarSesion(usuario, clave) {
+            return this.http.get("http://api.miscalleslimpiasrd.tecnolora.com/api/miscalleslimpiasrd/iniciarsesion?usuario=" + usuario + "&clave=" + clave + "");
+          }
+        }]);
+
+        return LoginService;
+      }();
+
+      _LoginService.ctorParameters = function () {
+        return [{
+          type: _angular_common_http__WEBPACK_IMPORTED_MODULE_0__.HttpClient
+        }, {
+          type: _ionic_angular__WEBPACK_IMPORTED_MODULE_1__.Platform
+        }];
+      };
+
+      _LoginService = (0, tslib__WEBPACK_IMPORTED_MODULE_2__.__decorate)([(0, _angular_core__WEBPACK_IMPORTED_MODULE_3__.Injectable)({
+        providedIn: 'root'
+      })], _LoginService);
+      /***/
+    },
+
+    /***/
+    45393: function _(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
+      "use strict";
+
+      __webpack_require__.r(__webpack_exports__);
+      /* harmony export */
+
+
+      __webpack_require__.d(__webpack_exports__, {
+        /* harmony export */
+        "LoginPageRoutingModule": function LoginPageRoutingModule() {
+          return (
+            /* binding */
+            _LoginPageRoutingModule
+          );
+        }
+        /* harmony export */
+
+      });
+      /* harmony import */
+
+
+      var tslib__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(
+      /*! tslib */
+      64762);
+      /* harmony import */
+
+
+      var _angular_core__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(
+      /*! @angular/core */
+      37716);
+      /* harmony import */
+
+
+      var _angular_router__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(
+      /*! @angular/router */
+      39895);
+      /* harmony import */
+
+
+      var _login_page__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(
+      /*! ./login.page */
+      66825);
+
+      var routes = [{
+        path: '',
+        component: _login_page__WEBPACK_IMPORTED_MODULE_0__.LoginPage
+      }];
+
+      var _LoginPageRoutingModule = function LoginPageRoutingModule() {
+        _classCallCheck(this, LoginPageRoutingModule);
+      };
+
+      _LoginPageRoutingModule = (0, tslib__WEBPACK_IMPORTED_MODULE_1__.__decorate)([(0, _angular_core__WEBPACK_IMPORTED_MODULE_2__.NgModule)({
+        imports: [_angular_router__WEBPACK_IMPORTED_MODULE_3__.RouterModule.forChild(routes)],
+        exports: [_angular_router__WEBPACK_IMPORTED_MODULE_3__.RouterModule]
+      })], _LoginPageRoutingModule);
+      /***/
+    },
+
+    /***/
+    80107: function _(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
+      "use strict";
+
+      __webpack_require__.r(__webpack_exports__);
+      /* harmony export */
+
+
+      __webpack_require__.d(__webpack_exports__, {
+        /* harmony export */
+        "LoginPageModule": function LoginPageModule() {
+          return (
+            /* binding */
+            _LoginPageModule
+          );
+        }
+        /* harmony export */
+
+      });
+      /* harmony import */
+
+
+      var tslib__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(
+      /*! tslib */
+      64762);
+      /* harmony import */
+
+
+      var _angular_core__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(
+      /*! @angular/core */
+      37716);
+      /* harmony import */
+
+
+      var _angular_common__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(
+      /*! @angular/common */
+      38583);
+      /* harmony import */
+
+
+      var _angular_forms__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(
+      /*! @angular/forms */
+      3679);
+      /* harmony import */
+
+
+      var _ionic_angular__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(
+      /*! @ionic/angular */
+      80476);
+      /* harmony import */
+
+
+      var _login_routing_module__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(
+      /*! ./login-routing.module */
+      45393);
+      /* harmony import */
+
+
+      var _login_page__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(
+      /*! ./login.page */
+      66825);
+
+      var _LoginPageModule = function LoginPageModule() {
+        _classCallCheck(this, LoginPageModule);
+      };
+
+      _LoginPageModule = (0, tslib__WEBPACK_IMPORTED_MODULE_2__.__decorate)([(0, _angular_core__WEBPACK_IMPORTED_MODULE_3__.NgModule)({
+        imports: [_angular_common__WEBPACK_IMPORTED_MODULE_4__.CommonModule, _angular_forms__WEBPACK_IMPORTED_MODULE_5__.FormsModule, _ionic_angular__WEBPACK_IMPORTED_MODULE_6__.IonicModule, _login_routing_module__WEBPACK_IMPORTED_MODULE_0__.LoginPageRoutingModule],
+        declarations: [_login_page__WEBPACK_IMPORTED_MODULE_1__.LoginPage]
+      })], _LoginPageModule);
+      /***/
+    },
+
+    /***/
+    66825: function _(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
+      "use strict";
+
+      __webpack_require__.r(__webpack_exports__);
+      /* harmony export */
+
+
+      __webpack_require__.d(__webpack_exports__, {
+        /* harmony export */
+        "LoginPage": function LoginPage() {
+          return (
+            /* binding */
+            _LoginPage
+          );
+        }
+        /* harmony export */
+
+      });
+      /* harmony import */
+
+
+      var tslib__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(
+      /*! tslib */
+      64762);
+      /* harmony import */
+
+
+      var _raw_loader_login_page_html__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(
+      /*! !raw-loader!./login.page.html */
+      76770);
+      /* harmony import */
+
+
+      var _login_page_scss__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(
+      /*! ./login.page.scss */
+      21339);
+      /* harmony import */
+
+
+      var _angular_core__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(
+      /*! @angular/core */
+      37716);
+      /* harmony import */
+
+
+      var _Services_datosnecesario_service__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(
+      /*! ../Services/datosnecesario.service */
+      99736);
+      /* harmony import */
+
+
+      var _Services_Login_service__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(
+      /*! ../Services/Login.service */
+      73468);
+      /* harmony import */
+
+
+      var _ionic_angular__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(
+      /*! @ionic/angular */
+      80476);
+      /* harmony import */
+
+
+      var _angular_router__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(
+      /*! @angular/router */
+      39895);
+      /* harmony import */
+
+
+      var _Services_ion_loader_service__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(
+      /*! ../Services/ion-loader.service */
+      35014);
+      /* harmony import */
+
+
+      var _variableglobal__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(
+      /*! ../variableglobal */
+      13296);
+
+      var _LoginPage = /*#__PURE__*/function () {
+        function LoginPage(ionLoaderService, servicio2, menuCtrl, servicio, toastCtrl, alertController, router, navCtrl) {
+          _classCallCheck(this, LoginPage);
+
+          this.ionLoaderService = ionLoaderService;
+          this.servicio2 = servicio2;
+          this.menuCtrl = menuCtrl;
+          this.servicio = servicio;
+          this.toastCtrl = toastCtrl;
+          this.alertController = alertController;
+          this.router = router;
+          this.navCtrl = navCtrl;
+          this.isActiveToggleTextPassword = true;
+        }
+
+        _createClass(LoginPage, [{
+          key: "ngOnInit",
+          value: function ngOnInit() {}
+        }, {
+          key: "ErrorAlert",
+          value: function ErrorAlert() {
+            return (0, tslib__WEBPACK_IMPORTED_MODULE_6__.__awaiter)(this, void 0, void 0, /*#__PURE__*/regeneratorRuntime.mark(function _callee() {
+              var alert;
+              return regeneratorRuntime.wrap(function _callee$(_context) {
+                while (1) {
+                  switch (_context.prev = _context.next) {
+                    case 0:
+                      _context.next = 2;
+                      return this.alertController.create({
+                        cssClass: 'my-custom-class',
+                        header: 'Error',
+                        message: 'Usuario o Contraseña Incorrecta.',
+                        buttons: ['OK']
+                      });
+
+                    case 2:
+                      alert = _context.sent;
+                      _context.next = 5;
+                      return alert.present();
+
+                    case 5:
+                    case "end":
+                      return _context.stop();
+                  }
+                }
+              }, _callee, this);
+            }));
+          }
+        }, {
+          key: "ionViewWillEnter",
+          value: function ionViewWillEnter() {
+            this.menuCtrl.enable(false);
+          }
+        }, {
+          key: "onload",
+          value: function onload() {
+            var _this = this;
+
+            try {
+              this.servicio2.obtenerDatosNecesarios(this.usuario).subscribe(function (data) {
+                _this.datos = data; // console.log(data)
+              }, function (error) {
+                // alert(error);
+                alert("Error: " + error.message);
+              });
+            } catch (error) {
+              alert("Error: " + error.message);
+            }
+          }
+        }, {
+          key: "onVerificarPantallas",
+          value: function onVerificarPantallas() {}
+        }, {
+          key: "onIniciarSesion",
+          value: function onIniciarSesion() {
+            var _this2 = this;
+
+            this.onload();
+            this.ionLoaderService.simpleLoader();
+
+            try {
+              var usuario, clave, respuestas;
+              usuario = this.usuario;
+              clave = this.clave;
+              this.servicio.IniciarSesion(usuario, clave).subscribe(function (data) {
+                _this2.datos = data;
+
+                if (_this2.datos.respuesta == "OK") {
+                  _variableglobal__WEBPACK_IMPORTED_MODULE_5__.Variableglobal.cod_usuario = _this2.datos.cod_usuario;
+                  _variableglobal__WEBPACK_IMPORTED_MODULE_5__.Variableglobal.nombre_usuario = usuario;
+                  _variableglobal__WEBPACK_IMPORTED_MODULE_5__.Variableglobal.correo_Usuario = _this2.datos.correo_Usuario;
+                  _variableglobal__WEBPACK_IMPORTED_MODULE_5__.Variableglobal.cedula_usuario = _this2.datos.cedula_usuario;
+                  _variableglobal__WEBPACK_IMPORTED_MODULE_5__.Variableglobal.telefono_Usuario = _this2.datos.telefono_Usuario;
+                  _variableglobal__WEBPACK_IMPORTED_MODULE_5__.Variableglobal.clave = _this2.datos.clave;
+                  _variableglobal__WEBPACK_IMPORTED_MODULE_5__.Variableglobal.foto_usuario = _this2.datos.foto_usuario;
+
+                  _this2.menuCtrl.enable(true);
+
+                  _this2.router.navigate(['/inicio-mapa']);
+
+                  _this2.ionLoaderService.dismissLoader();
+                } else {
+                  _this2.ErrorAlert();
+                }
+              }, function (error) {
+                alert("Error: " + error.message);
+                alert("Error: " + error.message);
+              });
+            } catch (ex) {
+              alert("Error: " + ex.message);
+            }
+          }
+        }, {
+          key: "toggleTextPassword",
+          value: function toggleTextPassword() {
+            this.isActiveToggleTextPassword = this.isActiveToggleTextPassword == true ? false : true;
+          }
+        }, {
+          key: "getType",
+          value: function getType() {
+            return this.isActiveToggleTextPassword ? 'password' : 'text';
+          }
+        }]);
+
+        return LoginPage;
+      }();
+
+      _LoginPage.ctorParameters = function () {
+        return [{
+          type: _Services_ion_loader_service__WEBPACK_IMPORTED_MODULE_4__.IonLoaderService
+        }, {
+          type: _Services_datosnecesario_service__WEBPACK_IMPORTED_MODULE_2__.DatosnecesarioService
+        }, {
+          type: _ionic_angular__WEBPACK_IMPORTED_MODULE_7__.MenuController
+        }, {
+          type: _Services_Login_service__WEBPACK_IMPORTED_MODULE_3__.LoginService
+        }, {
+          type: _ionic_angular__WEBPACK_IMPORTED_MODULE_7__.ToastController
+        }, {
+          type: _ionic_angular__WEBPACK_IMPORTED_MODULE_7__.AlertController
+        }, {
+          type: _angular_router__WEBPACK_IMPORTED_MODULE_8__.Router
+        }, {
+          type: _ionic_angular__WEBPACK_IMPORTED_MODULE_7__.NavController
+        }];
+      };
+
+      _LoginPage = (0, tslib__WEBPACK_IMPORTED_MODULE_6__.__decorate)([(0, _angular_core__WEBPACK_IMPORTED_MODULE_9__.Component)({
+        selector: 'app-login',
+        template: _raw_loader_login_page_html__WEBPACK_IMPORTED_MODULE_0__["default"],
+        styles: [_login_page_scss__WEBPACK_IMPORTED_MODULE_1__["default"]]
+      })], _LoginPage);
+      /***/
+    },
+
+    /***/
+    21339: function _(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
+      "use strict";
+
+      __webpack_require__.r(__webpack_exports__);
+      /* harmony default export */
+
+
+      __webpack_exports__["default"] = "\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IiIsImZpbGUiOiJsb2dpbi5wYWdlLnNjc3MifQ== */";
+      /***/
+    },
+
+    /***/
+    76770: function _(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
+      "use strict";
+
+      __webpack_require__.r(__webpack_exports__);
+      /* harmony default export */
+
+
+      __webpack_exports__["default"] = "<ion-content>\r\n\r\n  <ion-card-header>\r\n    <ion-card-title></ion-card-title>\r\n  </ion-card-header>\r\n  <div class=\"contenedor\">\r\n  <ion-card-content style=\"width: 100%; padding: 10px;\">\r\n    <div>\r\n      <img style=\"width: 120px;;margin:auto;display:block\" src=\"assets/imagenes/MisCallesLimpiasRDCircle.png\">\r\n    </div>\r\n\r\n<div class=\"login--inputs\">\r\n\r\n  <ion-item>\r\n    <ion-input placeholder=\"Usuario\" maxlength=\"50\" [(ngModel)]=\"usuario\" ></ion-input>\r\n  </ion-item>\r\n<!-- Prueba -->\r\n  <ion-item>\r\n      <ion-input placeholder=\"Contraseña\" [type]=\"getType()\" [(ngModel)]=\"clave\" ></ion-input>\r\n      <ion-icon style=\"align-items: flex-end;\" name=\"eye\" (click)=\"toggleTextPassword()\"></ion-icon>\r\n  </ion-item>\r\n\r\n</div>\r\n \r\n  <div class=\"login--contraseña\">\r\n    <ion-label><a href=\"./olvide-mi-contrasena\">¿Olvidaste tu contraseña?</a></ion-label>\r\n  </div>\r\n  \r\n  <div class=\"boton-login\">\r\n    \r\n    <ion-button expand=\"block\" (click)=\"onIniciarSesion()\">Iniciar Sesion</ion-button>\r\n  </div>\r\n  \r\n  <div class=\"ion-text-center\" style=\"margin:auto; width:75%; padding-top: 20px;\">\r\n    <ion-label>¿No tienes una cuenta?</ion-label>\r\n    <ion-label><a  href=\"./registro\"> Registrate aqui</a></ion-label>\r\n    </div>\r\n\r\n  </ion-card-content>\r\n  </div>\r\n</ion-content>\r\n";
+      /***/
+    }
+  }]);
+})();
+//# sourceMappingURL=src_app_login_login_module_ts-es5.js.map
