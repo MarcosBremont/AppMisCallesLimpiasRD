@@ -56,6 +56,10 @@ const routes: Routes = [
   {
     path: 'recompensas',
     loadChildren: () => import('./recompensas/recompensas.module').then( m => m.RecompensasPageModule)
+  },
+  {
+    path: 'terminosycondiciones',
+    loadChildren: () => import('./terminosycondiciones/terminosycondiciones.module').then( m => m.TerminosycondicionesPageModule)
   }
 ];
 

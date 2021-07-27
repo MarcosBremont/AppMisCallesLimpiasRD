@@ -7,12 +7,13 @@
   <ion-card-content style="width: 100%; padding: 10px;">
     <div>
       <img style="width: 120px;;margin:auto;display:block" src="assets/imagenes/MisCallesLimpiasRDCircle.png">
+      <ion-label class="centrar" style="font-weight: bold; font-size: 22px;">Iniciar Sesion</ion-label>
     </div>
 
-<div class="login--inputs">
+<div class="login--inputs" style="margin-top: 15px; margin-right: 15px;">
 
   <ion-item>
-    <ion-input placeholder="Usuario" maxlength="50" [(ngModel)]="usuario" ></ion-input>
+    <ion-input  placeholder="Usuario" maxlength="50" [(ngModel)]="usuario" ></ion-input>
   </ion-item>
 <!-- Prueba -->
   <ion-item>
@@ -36,6 +37,13 @@
     <ion-label><a  href="./registro"> Registrate aqui</a></ion-label>
     </div>
 
+    
   </ion-card-content>
-  </div>
+</div>
+<div style="margin-top: 240px; text-align: center;">
+  <ion-label style="font-size: 14px;">Iniciando sesion aceptas los</ion-label>
+  <ion-label style="font-size: 14px;"><a  href="./terminosycondiciones"> terminos y condiciones</a></ion-label>
+
+
+</div>
 </ion-content>
