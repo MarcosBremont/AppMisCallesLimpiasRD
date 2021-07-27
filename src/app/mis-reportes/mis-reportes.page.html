@@ -1,57 +1,56 @@
 <ion-header [translucent]="true">
-  <ion-toolbar>
-      <ion-buttons slot="start">
-          <ion-menu-button></ion-menu-button>
-      </ion-buttons>
-      <ion-title>Mis Reportes</ion-title>
-  </ion-toolbar>
+    <ion-toolbar>
+        <ion-buttons slot="start">
+            <ion-menu-button></ion-menu-button>
+        </ion-buttons>
+        <ion-title>Mis Reportes</ion-title>
+    </ion-toolbar>
 </ion-header>
 
 
 <ion-content class="contenedor--reportes">
 
-  <!-- <img  [src]="currentImage" *ngIf="currentImage"> -->
-  <ion-item class="reportes-header">
-      <ion-label>
-          ---
-      </ion-label>
-      <ion-label class="ubicacion">
-          Ubicación
-      </ion-label>
-      <ion-label class="codigo">
-          Código
-      </ion-label>
-  </ion-item>
-  <ion-list class="reportes" *ngFor="let reporte of reportes; let i = index">
+    <!-- <img  [src]="currentImage" *ngIf="currentImage"> -->
+    <ion-item class="reportes-header">
+        <ion-label>
+            ---
+        </ion-label>
+        <ion-label class="ubicacion">
+            Ubicación
+        </ion-label>
+        <ion-label class="codigo">
+            Código
+        </ion-label>
+    </ion-item>
+    <ion-list class="reportes" *ngFor="let reporte of reportes; let i = index">
 
-      <ion-item (click)="showAlert(i)" button detail="false">
-          <img src="assets/imagenes/basura.png" class="imagen">
+        <ion-item (click)="showAlert(i)" button detail="false">
+            <div class="imagen-codigo">
+                <ion-label class="codigo" id="{{'cod_reporte' + i}}"> {{reporte.cod_reporte}} </ion-label>
+                <img src="assets/imagenes/basura.png" class="imagen">
+            </div>
 
-          <div class="reportes--datos">
-            <ion-label style="color: #569CD6;">&nbsp;{{reporte.ubicacion}}</ion-label>
-
-              <ion-label class="reportes--datos--ubicacion" id="{{'cod_reportessssss' + i}}"> </ion-label>
-              <div class="reportes--datos__latlong">
-                  <ion-label>&nbsp;Latitud & Longitud</ion-label>
-                  <ion-label style="color: #569CD6;">&nbsp;{{reporte.lat}}, {{reporte.lng}}</ion-label>
-              </div>
-
-              <ion-label class="reportes--datos__codigo" id="{{'cod_reporte' + i}}"> {{reporte.cod_reporte}} </ion-label>
-
-          </div>
-          <!-- <ion-input [value]="title"></ion-input> -->
-      </ion-item>
-  </ion-list>
+            <div class="reportes--datos">
+                <p style="color: #569CD6;">&nbsp;{{reporte.ubicacion}}</p>
+                <p class="lat_long" style="color: #569CD6;">&nbsp;{{reporte.lat}}, {{reporte.lng}}</p>
 
 
-  <!-- <ion-card >
+                <!-- <ion-label class="reportes--datos__codigo" id="{{'cod_reporte' + i}}"> {{reporte.cod_reporte}} </ion-label> -->
+
+            </div>
+            <!-- <ion-input [value]="title"></ion-input> -->
+        </ion-item>
+    </ion-list>
+
+
+    <!-- <ion-card >
 <ion-list class="reportes" *ngFor="let nivel of niveles">
  
 
 
 <ion-label   class="reportes--datos__codigo" > {{nivel.cod_nivel}} </ion-label> 
 <ion-input [value]="title"></ion-input> -->
-  <!-- </ion-item>
+    <!-- </ion-item>
 </ion-list>
 </ion-card> -->
 

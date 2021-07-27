@@ -371,8 +371,7 @@
           value: function onIniciarSesion() {
             var _this2 = this;
 
-            this.onload();
-            this.ionLoaderService.simpleLoader();
+            this.onload(); // this.ionLoaderService.simpleLoader();
 
             try {
               var usuario, clave, respuestas;

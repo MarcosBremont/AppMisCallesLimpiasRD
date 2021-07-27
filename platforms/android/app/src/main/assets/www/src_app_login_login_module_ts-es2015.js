@@ -202,7 +202,7 @@ let LoginPage = class LoginPage {
     }
     onIniciarSesion() {
         this.onload();
-        this.ionLoaderService.simpleLoader();
+        // this.ionLoaderService.simpleLoader();
         try {
             let usuario, clave, respuestas;
             usuario = this.usuario;
