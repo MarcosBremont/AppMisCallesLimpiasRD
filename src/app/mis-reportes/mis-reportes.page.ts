@@ -42,8 +42,8 @@ export class MisReportesPage implements OnInit {
 
  
   ngOnInit() {
-    // this.cod_usuario = Variableglobal.cod_usuario; HHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHDESCOMENTARHHHHHHHHHHHHHHHHHHHH
-    this.cod_usuario=1;
+     this.cod_usuario = Variableglobal.cod_usuario; 
+
     this.servicio.obtenerMisReportes(this.cod_usuario).subscribe((data)=>
     {this.reportes = data;},
       (error)=>{console.log(error);}

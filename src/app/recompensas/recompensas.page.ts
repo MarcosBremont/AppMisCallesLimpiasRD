@@ -172,16 +172,21 @@ export class RecompensasPage implements OnInit {
       cod_usuarios = this.cod_usuario;
       puntos_acumulados = resultado;
 
-      this.ionLoaderService.simpleLoader();
+      // this.ionLoaderService.simpleLoader(); No necesario en esta página
 
  
   //Creamos los datos del recibo e insertamos los datos en la tabla Recibos
   this.servicioActualizarPuntos.ActualizarPuntos(this.cod_puntos,puntos_acumulados,cod_usuarios).subscribe((data)=>{
     this.datos=data;
     if(this.datos.respuesta=="OK"){
+<<<<<<< HEAD
       this.ionLoaderService.dismissLoader();
       this.CanjeoRecompensaAlert();
         // alert('¡Enhorabuena!, su recompensa ha sido procesada');
+=======
+      // this.ionLoaderService.dismissLoader();  No necesario en esta página
+        alert('¡Enhorabuena!, su recompensa ha sido procesada');
+>>>>>>> 9710627888d27edfb5e991c7bb9b5411587c2b5f
         this.registroRecibo.IngresarRecibo(this.cod_usuario,this.cod_recompensas).subscribe((data)=>{
           this.datos = data; 
           console.log (this.datos);
