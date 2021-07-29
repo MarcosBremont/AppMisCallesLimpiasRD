@@ -470,7 +470,7 @@ InicioMapaPage = (0,tslib__WEBPACK_IMPORTED_MODULE_9__.__decorate)([
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony default export */ __webpack_exports__["default"] = ("#map_canvas {\n  width: 100%;\n  height: 100%;\n}\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbImluaWNpby1tYXBhLnBhZ2Uuc2NzcyJdLCJuYW1lcyI6W10sIm1hcHBpbmdzIjoiQUFBQTtFQUNJLFdBQUE7RUFDQSxZQUFBO0FBQ0oiLCJmaWxlIjoiaW5pY2lvLW1hcGEucGFnZS5zY3NzIiwic291cmNlc0NvbnRlbnQiOlsiI21hcF9jYW52YXMge1xuICAgIHdpZHRoOiAxMDAlO1xuICAgIGhlaWdodDogMTAwJTtcbiAgfSJdfQ== */");
+/* harmony default export */ __webpack_exports__["default"] = ("#map_canvas {\n  width: 100%;\n  height: 100%;\n}\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbImluaWNpby1tYXBhLnBhZ2Uuc2NzcyJdLCJuYW1lcyI6W10sIm1hcHBpbmdzIjoiQUFBQTtFQUNJLFdBQUE7RUFDQSxZQUFBO0FBQ0oiLCJmaWxlIjoiaW5pY2lvLW1hcGEucGFnZS5zY3NzIiwic291cmNlc0NvbnRlbnQiOlsiI21hcF9jYW52YXMge1xyXG4gICAgd2lkdGg6IDEwMCU7XHJcbiAgICBoZWlnaHQ6IDEwMCU7XHJcbiAgfSJdfQ== */");
 
 /***/ }),
 
@@ -482,7 +482,7 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony default export */ __webpack_exports__["default"] = ("<ion-header [translucent]=\"true\">\n  <ion-toolbar>\n      <ion-buttons slot=\"start\">\n          <ion-menu-button persistent=true></ion-menu-button>\n        </ion-buttons>\n        <ion-title>Inicio</ion-title>\n    </ion-toolbar>\n</ion-header>\n\n\n\n\n<ion-content>\n\n  <div id=\"map_canvas\" style=\"z-index: 1 !important; overflow: auto !important;\"></div>\n\n  <ion-fab vertical=\"bottom\" horizontal=\"start\" slot=\"fixed\">\n      \n      <ion-fab-button style=\"margin: 10px;\" [hidden]=\"!isBtnCamaraVisible\" (click)=\"takePicture()\">\n        <ion-icon name=\"camera\"></ion-icon>\n    </ion-fab-button>\n    \n          <ion-fab-button style=\"margin: 10px;\" [hidden]=\"!isBtnRegistroVisible\" (click)=\"onRegistroReporte()\">\n              <ion-icon name=\"checkmark\"></ion-icon>\n          </ion-fab-button>\n\n  </ion-fab>\n\n</ion-content>");
+/* harmony default export */ __webpack_exports__["default"] = ("<ion-header [translucent]=\"true\">\r\n  <ion-toolbar>\r\n      <ion-buttons slot=\"start\">\r\n          <ion-menu-button persistent=true></ion-menu-button>\r\n        </ion-buttons>\r\n        <ion-title>Inicio</ion-title>\r\n    </ion-toolbar>\r\n</ion-header>\r\n\r\n\r\n\r\n\r\n<ion-content>\r\n\r\n  <div id=\"map_canvas\" style=\"z-index: 1 !important; overflow: auto !important;\"></div>\r\n\r\n  <ion-fab vertical=\"bottom\" horizontal=\"start\" slot=\"fixed\">\r\n      \r\n      <ion-fab-button style=\"margin: 10px;\" [hidden]=\"!isBtnCamaraVisible\" (click)=\"takePicture()\">\r\n        <ion-icon name=\"camera\"></ion-icon>\r\n    </ion-fab-button>\r\n    \r\n          <ion-fab-button style=\"margin: 10px;\" [hidden]=\"!isBtnRegistroVisible\" (click)=\"onRegistroReporte()\">\r\n              <ion-icon name=\"checkmark\"></ion-icon>\r\n          </ion-fab-button>\r\n\r\n  </ion-fab>\r\n\r\n</ion-content>");
 
 /***/ })
 

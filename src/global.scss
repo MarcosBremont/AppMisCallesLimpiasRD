@@ -9,35 +9,38 @@
  * https://ionicframework.com/docs/layout/global-stylesheets
  */
 
+
 /* Core CSS required for Ionic components to work properly */
+
 @import "~@ionic/angular/css/core.css";
 
 /* Basic CSS for apps built with Ionic */
+
 @import "~@ionic/angular/css/normalize.css";
 @import "~@ionic/angular/css/structure.css";
 @import "~@ionic/angular/css/typography.css";
 @import '~@ionic/angular/css/display.css';
 
 /* Optional CSS utils that can be commented out */
+
 @import "~@ionic/angular/css/padding.css";
 @import "~@ionic/angular/css/float-elements.css";
 @import "~@ionic/angular/css/text-alignment.css";
 @import "~@ionic/angular/css/text-transformation.css";
 @import "~@ionic/angular/css/flex-utils.css";
 
-
 /** Entorno Web **/
 
+
 /*** BASE  ***/
+
 @import "app/scss/base/variables";
 @import "app/scss/base/utilidades";
 @import "app/scss/base/mixins";
 @import "app/scss/base/botones";
 @import "app/scss/base/globales";
 
-
 /*** UTILIDADES ***/
-
 
 @import "app/scss/layout/informate";
 @import "app/scss/layout/login";
@@ -45,5 +48,5 @@
 @import "app/scss/layout/mis-reportes";
 @import "app/scss/layout/recompensas";
 @import "app/scss/layout/sobre-nosotros";
-
 @import "app/scss/layout/bonos-recibos";
+@import "app/scss/layout/mensajeria"

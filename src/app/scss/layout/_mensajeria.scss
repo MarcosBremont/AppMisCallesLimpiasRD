@@ -1,0 +1,15 @@
+.mensajeria {
+    font-size: 1.8rem;
+    margin-right: 2rem;
+    // background-color: rgb(226, 226, 226);
+    margin-top: 3rem;
+    .mensajeria--elementos {
+        width: 100%;
+        color: black;
+        // background-color: rgb(226, 226, 226);
+        // opacity: 0.6;
+        ion-label {
+            padding-left: 1rem;
+        }
+    }
+}

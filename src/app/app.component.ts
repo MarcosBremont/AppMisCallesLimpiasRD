@@ -20,6 +20,8 @@ export class AppComponent {
     { title: 'Acerca de', url: '/sobre-nosotros', icon: 'reader' },
     { title: 'Mi Perfil', url: '/mi-perfil', icon: 'people' },
     { title: 'Mis Bonos', url: '/recibos-bonos', icon: 'receipt' },
+    
+    { title: 'Mis Mensajes', url: '/mensajeria', icon: 'mail-unread' },
   ];
    // public labels = ['Family', 'Friends', 'Notes', 'Work', 'Travel', 'Reminders'];
    myname: any;

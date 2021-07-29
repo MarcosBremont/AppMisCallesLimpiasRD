@@ -60,7 +60,11 @@ const routes: Routes = [
   {
     path: 'terminosycondiciones',
     loadChildren: () => import('./terminosycondiciones/terminosycondiciones.module').then( m => m.TerminosycondicionesPageModule)
+  },  {
+    path: 'mensajeria',
+    loadChildren: () => import('./mensajeria/mensajeria.module').then( m => m.MensajeriaPageModule)
   }
+
 ];
 
 @NgModule({

@@ -1480,21 +1480,80 @@ ion-header ion-toolbar ion-title {
 .ocultar {
   display: none;
 }
-.reportes .reportes--datos {
-  margin-left: 2rem;
+.contenedor--reportes {
+  width: 100%;
+  justify-content: space-between;
 }
-.reportes .reportes--datos p {
-  margin: 0;
-  font-size: 1.4rem;
-  font-weight: 700 !important;
-  color: #000000 !important;
-}
-.reportes .reportes--datos ion-label {
+.contenedor--reportes .reportes-header {
+  width: 100%;
+  display: flex;
   font-weight: 700;
-  color: #000000;
 }
-.reportes .reportes--datos .lat_long {
-  color: #6784dd !important;
+@media (min-width: 600px) {
+  .contenedor--reportes .reportes-header {
+    font-size: 2.1rem;
+  }
+}
+.contenedor--reportes .reportes-header ion-label {
+  font-weight: bold;
+}
+.contenedor--reportes .reportes-header .codigo {
+  text-align: end;
+  margin-right: 3%;
+}
+@media (min-width: 600px) {
+  .contenedor--reportes .reportes-header .codigo {
+    text-align: end;
+    margin-right: 6%;
+  }
+}
+@media (min-width: 600px) {
+  .contenedor--reportes .reportes-header .ubicacion {
+    padding-right: 6%;
+  }
+}
+.contenedor--reportes .reportes {
+  grid-template-columns: repeat(3, 1fr);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+@media (min-width: 600px) {
+  .contenedor--reportes .reportes .imagen {
+    width: 3rem;
+    padding-right: 5rem;
+  }
+}
+.contenedor--reportes .reportes .reportes--datos {
+  display: flex;
+  width: 100%;
+}
+@media (min-width: 600px) {
+  .contenedor--reportes .reportes .reportes--datos {
+    font-size: 1.7rem;
+  }
+}
+.contenedor--reportes .reportes .reportes--datos .reportes--datos__latlong {
+  width: auto;
+  margin: auto;
+  text-align: end;
+  margin-left: 20%;
+}
+@media (min-width: 600px) {
+  .contenedor--reportes .reportes .reportes--datos .reportes--datos__latlong {
+    margin-left: 20%;
+  }
+}
+.contenedor--reportes .reportes .reportes--datos .reportes--datos__codigo {
+  width: auto;
+  margin: auto;
+  margin-left: 10%;
+  text-align: end;
+}
+@media (min-width: 600px) {
+  .contenedor--reportes .reportes .reportes--datos .reportes--datos__codigo {
+    margin-right: 10%;
+  }
 }
 @media (min-width: 1024px) {
   .ion-card-nosotros {
