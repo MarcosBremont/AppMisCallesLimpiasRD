@@ -78,18 +78,32 @@ this.subscription = source.subscribe(val => this.VerificarCorreoElectronico());
   async SuccesAlert() {
     const alert = await this.alertController.create({
       cssClass: 'my-custom-class',
-      // header: 'Error',
+      header: '¡Enhorabuena!',
       message: 'Usuario Registrado con Exito.',
       buttons: ['OK']
     });
     await alert.present();
   }
 
+  onKeydown(event) {
+    if (event.keyCode === 32 ) {
+      return false;
+
+    }
+  }
+
+  omit_special_char(event)
+{   
+   var k;  
+   k = event.charCode;  //         k = event.keyCode;  (Both can be used)
+   return((k > 64 && k < 91) || (k > 96 && k < 123) || k == 8 || k == 32 || (k >= 48 && k <= 57)); 
+}
+
   async ElementosVaciosAlertas() {
     const alert = await this.alertController.create({
       cssClass: 'my-custom-class',
       header: 'Error al crear usuario',
-      message: 'hoho, hubo un error. Asegurese de llenar todos los campos',
+      message: 'Por favor, asegurese de llenar todos los campos.',
       buttons: ['OK']
     });
     await alert.present();

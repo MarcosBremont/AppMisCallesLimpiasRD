@@ -1,0 +1,30 @@
+.BtnClass {
+	box-shadow: 0px 10px 14px -7px #3e69e0;
+	background-color:#3c70ff;
+	border-radius:8px;
+	display:inline-block;
+	cursor:pointer;
+	color:#ffffff;
+	font-family:Trebuchet MS;
+	font-size:14px;
+	font-weight:bold;
+	padding:9px 90px;
+	text-decoration:none;
+	text-shadow:0px 1px 0px #3e69e0;
+}
+.BtnClass:hover {
+	background-color:#3e69e0;
+}
+.BtnClass:active {
+	position:relative;
+	top:1px;
+}
+
+.center {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100px;  
+}
+
+        

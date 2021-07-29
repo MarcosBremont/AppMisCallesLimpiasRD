@@ -7,42 +7,41 @@
   <ion-card-content style="width: 100%; padding: 10px;">
     <div>
       <img style="width: 120px;;margin:auto;display:block" src="assets/imagenes/MisCallesLimpiasRDCircle.png">
-      <ion-label class="centrar" style="font-weight: bold; font-size: 22px;">Iniciar Sesion</ion-label>
+      <ion-label class="centrar" style="font-weight: bold; font-size: 22px;">INICIAR SESIÓN</ion-label>
     </div>
 
 <div class="login--inputs" style="margin-top: 15px; margin-right: 15px;">
 
   <ion-item>
-    <ion-input  placeholder="Usuario" maxlength="50" [(ngModel)]="usuario" ></ion-input>
+    <ion-input oninput="this.value = this.value.toUpperCase()" (keypress)="omit_special_char($event)" (keydown)="onKeydown($event)"  (keypress)="omit_special_char($event)" placeholder="Usuario" maxlength="50" [(ngModel)]="usuario" ></ion-input>
   </ion-item>
 <!-- Prueba -->
   <ion-item>
-      <ion-input placeholder="Contraseña" [type]="getType()" [(ngModel)]="clave" ></ion-input>
+      <ion-input oninput="this.value = this.value.toUpperCase()" (keypress)="omit_special_char($event)" placeholder="Contraseña" (keypress)="omit_special_char($event)" (keydown)="onKeydown($event)" [type]="getType()" [(ngModel)]="clave" ></ion-input>
       <ion-icon style="align-items: flex-end;" name="eye" (click)="toggleTextPassword()"></ion-icon>
   </ion-item>
 
 </div>
  
   <div class="login--contraseña">
-    <ion-label><a href="./olvide-mi-contrasena">¿Olvidaste tu contraseña?</a></ion-label>
+    <ion-label style="margin-left: 24px;"><a href="./olvide-mi-contrasena">¿Olvidaste tu contraseña?</a></ion-label>
   </div>
   
   <div class="boton-login">
-    
-    <ion-button expand="block" (click)="onIniciarSesion()">Iniciar Sesion</ion-button>
+    <ion-button expand="block" style="font-size: 14px; font-weight: bold;" (click)="onIniciarSesion()">Iniciar Sesión</ion-button>
   </div>
   
   <div class="ion-text-center" style="margin:auto; width:75%; padding-top: 20px;">
-    <ion-label>¿No tienes una cuenta?</ion-label>
-    <ion-label><a  href="./registro"> Registrate aqui</a></ion-label>
+    <ion-label style="font-size: 16px; ">¿No tienes una cuenta?</ion-label>
+    <ion-label style="font-size: 16px; "><a  href="./registro"> Registrate aqui</a></ion-label>
     </div>
 
     
   </ion-card-content>
 </div>
-<div style="margin-top: 240px; text-align: center;">
-  <ion-label style="font-size: 14px;">Iniciando sesion aceptas los</ion-label>
-  <ion-label style="font-size: 14px;"><a  href="./terminosycondiciones"> terminos y condiciones</a></ion-label>
+<div style="margin-top: 20px; text-align: center;">
+  <ion-label style="font-size: 16px;">Iniciando sesion aceptas los</ion-label>
+  <ion-label style="font-size: 16px;"><a  href="./terminosycondiciones"> terminos y condiciones</a></ion-label>
 
 
 </div>

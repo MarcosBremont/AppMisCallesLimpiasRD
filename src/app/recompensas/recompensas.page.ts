@@ -9,6 +9,7 @@ import {RegistroReciboService} from '../Services/registrorecibo.service';
 import { MispuntosService } from '../Services/mispuntos.service';
 import { Variableglobal } from '../variableglobal';
 import { Router } from "@angular/router"; 
+import { ThisReceiver } from '@angular/compiler';
 
 
 @Component({
@@ -65,6 +66,17 @@ export class RecompensasPage implements OnInit {
     
 
     
+  }
+
+  
+  async CanjeoRecompensaAlert() {
+    const alert = await this.alertController.create({
+      cssClass: 'my-custom-class',
+      header: '¡Enhorabuena!',
+      message: 'Su recompensa ha sido procesada, para obtenerla por favor dirigirse a su punto de cambio mas cercano.',
+      buttons: ['OK']
+    });
+    await alert.present();
   }
 
   async SuccesAlert() {
@@ -168,7 +180,8 @@ export class RecompensasPage implements OnInit {
     this.datos=data;
     if(this.datos.respuesta=="OK"){
       this.ionLoaderService.dismissLoader();
-        alert('¡Enhorabuena!, su recompensa ha sido procesada');
+      this.CanjeoRecompensaAlert();
+        // alert('¡Enhorabuena!, su recompensa ha sido procesada');
         this.registroRecibo.IngresarRecibo(this.cod_usuario,this.cod_recompensas).subscribe((data)=>{
           this.datos = data; 
           console.log (this.datos);

@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Variableglobal } from '../variableglobal';
 import { Camera, CameraOptions } from '@ionic-native/camera/ngx';
 import { IonLoaderService } from '../Services/ion-loader.service';
+import { Router } from "@angular/router"; 
 
 import { AlertController } from '@ionic/angular';
 import { GuardardatosperfilService } from '../Services/guardardatosperfil.service';
@@ -36,7 +37,7 @@ export class MiPerfilPage implements OnInit {
   lbl_usuario2: string = Variableglobal.cod_usuario;
   fotohtml: string = Variableglobal.foto_usuario;  
 
-  constructor(public servicio:GuardardatosperfilService, public alertController: AlertController,private camera: Camera, private ionLoaderService: IonLoaderService,
+  constructor(public servicio:GuardardatosperfilService, private router:Router, public alertController: AlertController,private camera: Camera, private ionLoaderService: IonLoaderService,
     ) { 
     
     this.cod_usuario = Variableglobal.cod_usuario;
@@ -129,6 +130,8 @@ async ErrorAlert() {
       {
         this.ionLoaderService.dismissLoader();
         this.SuccessAlert();
+        this.router.navigate(['/login']);
+
       }
       else
       {

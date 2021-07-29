@@ -79,9 +79,25 @@ export class LoginPage implements OnInit {
   onVerificarPantallas(){
     
   }
+
+  onKeydown(event) {
+    if (event.keyCode === 32 ) {
+      return false;
+
+    }
+  }
+
+  omit_special_char(event)
+{   
+   var k;  
+   k = event.charCode;  //         k = event.keyCode;  (Both can be used)
+   return((k > 64 && k < 91) || (k > 96 && k < 123) || k == 8 || k == 32 || (k >= 48 && k <= 57)); 
+}
+
+
   onIniciarSesion(){
     this.onload();
-    // this.ionLoaderService.simpleLoader();
+    this.ionLoaderService.simpleLoader();
 
     try
     {
@@ -103,23 +119,27 @@ export class LoginPage implements OnInit {
             Variableglobal.foto_usuario = this.datos.foto_usuario;
             this.menuCtrl.enable(true);
            
-            this.router.navigate(['/inicio-mapa']);
             this.ionLoaderService.dismissLoader();
+            this.router.navigate(['/inicio-mapa']);
 
           }
           else
           {
+            this.ionLoaderService.dismissLoader();
+
             this.ErrorAlert()
+
           }
          
         },
         (error)=>{
-          alert("Error: " + error.message)
+          this.ionLoaderService.dismissLoader();
           alert("Error: " + error.message)
         });
     }
     catch(ex)
     {
+      this.ionLoaderService.dismissLoader();
       alert("Error: " + ex.message)
     }
 

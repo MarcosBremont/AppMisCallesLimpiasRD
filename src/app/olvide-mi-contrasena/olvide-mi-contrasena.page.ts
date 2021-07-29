@@ -35,9 +35,7 @@ export class OlvideMiContrasenaPage implements OnInit {
     email = this.email;
     subject = "RESTABLECIMIENTO DE CONTRASEÑA";
     message = "Hola, se solicito un restablecimiento de contraseña para tu cuenta: " + this.email + "<p></p>" +
-    " Si tú no realizaste la solicitud de cambio de contraseña, ignora este correo. <p></p>" +
-    "su nueva contraseña es: " + this.datos.clave
-
+    " Si tú no realizaste la solicitud de cambio de contraseña, entra a tu cuenta con esta contraseña " + this.datos.clave + " y cambiala. <p></p>"
   
 
     this.servicio1.EnviarCorreo(email,subject, message).subscribe((data)=>{
@@ -131,7 +129,6 @@ export class OlvideMiContrasenaPage implements OnInit {
    
     let email
     email = this.email;
-    console.log(this.result)
     this.servicio.UContrasenaOlvidada(email,this.result).subscribe((data)=>{
       this.datos = data;
       if (this.datos.respuesta == "OK")
