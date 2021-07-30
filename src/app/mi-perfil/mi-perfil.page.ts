@@ -60,6 +60,39 @@ export class MiPerfilPage implements OnInit {
     this.obtenerFotoPerfil(this.cod_usuario)
   }
 
+  onKeydown(event) {
+    if (event.keyCode === 32 ) {
+      return false;
+
+    }
+  }
+
+  omit_special_char(event)
+{   
+   var k;  
+   k = event.charCode;  //         k = event.keyCode;  (Both can be used)
+   return((k > 64 && k < 91) || (k > 96 && k < 123) || k == 8 || k == 32 || (k >= 48 && k <= 57)); 
+}
+
+public restrictNumeric(e) {
+  let input;
+  if (e.metaKey || e.ctrlKey) {
+
+    return true;
+  }
+  if (e.which === 32) {
+   return false;
+  }
+  if (e.which === 0) {
+   return true;
+  }
+  if (e.which < 33) {
+    return true;
+  }
+  input = String.fromCharCode(e.which);
+  return !!/[\d\s]/.test(input);
+
+ }
 
   obtenerFotoPerfil(cod_usuario){
     cod_usuario = Variableglobal.cod_usuario

@@ -511,15 +511,14 @@
                 console.log(resultado);
                 var cod_usuarios, puntos_acumulados;
                 cod_usuarios = this.cod_usuario;
-                puntos_acumulados = resultado;
-                this.ionLoaderService.simpleLoader(); //Creamos los datos del recibo e insertamos los datos en la tabla Recibos
+                puntos_acumulados = resultado; // this.ionLoaderService.simpleLoader(); No necesario en esta página
+                //Creamos los datos del recibo e insertamos los datos en la tabla Recibos
 
                 this.servicioActualizarPuntos.ActualizarPuntos(this.cod_puntos, puntos_acumulados, cod_usuarios).subscribe(function (data) {
                   _this2.datos = data;
 
                   if (_this2.datos.respuesta == "OK") {
-                    _this2.ionLoaderService.dismissLoader();
-
+                    // this.ionLoaderService.dismissLoader();  No necesario en esta página
                     alert('¡Enhorabuena!, su recompensa ha sido procesada');
 
                     _this2.registroRecibo.IngresarRecibo(_this2.cod_usuario, _this2.cod_recompensas).subscribe(function (data) {

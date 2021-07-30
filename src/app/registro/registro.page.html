@@ -16,15 +16,15 @@
 </ion-item> -->
 
       <ion-item>
-          <ion-input placeholder="Nombre de Usuario" maxlength="30" id="nombre" [(ngModel)]="usuario"></ion-input>
+        <ion-input oninput="this.value = this.value.toUpperCase()" required placeholder="Nombre de Usuario" maxlength="30" id="nombre" (keypress)="omit_special_char($event)" (keydown)="onKeydown($event)" [(ngModel)]="usuario"></ion-input>
+    </ion-item>
+
+      <ion-item>
+          <ion-input oninput="this.value = this.value.toUpperCase()" placeholder="Email" maxlength="100" (ngModelChange)="VerificarCorreoElectronico()" [(ngModel)]="email" id="email"></ion-input>
       </ion-item>
 
       <ion-item>
-          <ion-input placeholder="Email" maxlength="100" (ngModelChange)="VerificarCorreoElectronico()" [(ngModel)]="email" id="email"></ion-input>
-      </ion-item>
-
-      <ion-item>
-          <ion-input [type]="getType()" [(ngModel)]="clave" id="password" maxlengh="50" placeholder="Contraseña"></ion-input>
+          <ion-input oninput="this.value = this.value.toUpperCase()" [type]="getType()" [(ngModel)]="clave" id="password" maxlengh="50" placeholder="Contraseña"></ion-input>
           <ion-icon name="eye" (click)="toggleTextPassword()"></ion-icon>
       </ion-item>
 
@@ -33,13 +33,13 @@
       </ion-item>
 
       <ion-item>
-          <ion-input type="tel" [(ngModel)]="telefono" mask="(000) 000-0000" (keypress)="restrictNumeric($event)" maxlength="14" placeholder="Teléfono" id="telefono"></ion-input>
-      </ion-item>
+        <ion-input type="tel" [(ngModel)]="telefono" required mask="(000) 000-0000" (keypress)="restrictNumeric($event)" maxlength="10" placeholder="Teléfono" id="telefono"></ion-input>      
+    </ion-item>
 
       <ion-label style="color: brown; padding-left: 13px;" [ngStyle]="{'color': (labelVisibility)? 'transparent': 'red'}">¡Este correo ya existe!</ion-label>
 
       <div style="margin:auto; width:80%; padding-top: 40px;">
-          <ion-button expand="block" [disabled]="btnDisabled" [ngStyle]="{'color': (btnDisabled)? '#BDBEBD': 'white'}" (click)="onRegistroUsuario()">Registrarme</ion-button>
+          <ion-button expand="block" style="font-weight: bold;" [disabled]="btnDisabled" [ngStyle]="{'color': (btnDisabled)? '#BDBEBD': 'white'}" (click)="onRegistroUsuario()">Registrarme</ion-button>
           <img style="width:150%;" src="assets/imagenes/Roads.png">
       </div>
   </div>

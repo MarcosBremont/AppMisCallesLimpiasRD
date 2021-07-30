@@ -132,6 +132,14 @@ const routes = [
     {
         path: 'recompensas',
         loadChildren: () => Promise.all(/*! import() */[__webpack_require__.e("common"), __webpack_require__.e("src_app_recompensas_recompensas_module_ts")]).then(__webpack_require__.bind(__webpack_require__, /*! ./recompensas/recompensas.module */ 67763)).then(m => m.RecompensasPageModule)
+    },
+    {
+        path: 'terminosycondiciones',
+        loadChildren: () => __webpack_require__.e(/*! import() */ "src_app_terminosycondiciones_terminosycondiciones_module_ts").then(__webpack_require__.bind(__webpack_require__, /*! ./terminosycondiciones/terminosycondiciones.module */ 53737)).then(m => m.TerminosycondicionesPageModule)
+    },
+    {
+        path: 'mensajeria',
+        loadChildren: () => Promise.all(/*! import() */[__webpack_require__.e("common"), __webpack_require__.e("src_app_mensajeria_mensajeria_module_ts")]).then(__webpack_require__.bind(__webpack_require__, /*! ./mensajeria/mensajeria.module */ 7071)).then(m => m.MensajeriaPageModule)
     }
 ];
 let AppRoutingModule = class AppRoutingModule {
@@ -187,6 +195,7 @@ let AppComponent = class AppComponent {
             { title: 'Acerca de', url: '/sobre-nosotros', icon: 'reader' },
             { title: 'Mi Perfil', url: '/mi-perfil', icon: 'people' },
             { title: 'Mis Bonos', url: '/recibos-bonos', icon: 'receipt' },
+            { title: 'Mis Mensajes', url: '/mensajeria', icon: 'mail-unread' },
         ];
         platform.ready().then(() => {
             // this.onVerificarPantalla() ;
@@ -619,7 +628,7 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony default export */ __webpack_exports__["default"] = ("<ion-app>\r\n  <ion-split-pane contentId=\"main-content\">\r\n    <ion-menu contentId=\"main-content\" type=\"overlay\">\r\n      <ion-content>\r\n        <ion-list id=\"inbox-list\">\r\n          <ion-menu-toggle auto-hide=\"false\" *ngFor=\"let p of appPages; let i = index\">\r\n            <ion-item routerDirection=\"root\" [routerLink]=\"[p.url]\" lines=\"none\" detail=\"false\" routerLinkActive=\"selected\">\r\n              <ion-icon slot=\"start\" [ios]=\"p.icon + '-outline'\" [md]=\"p.icon + '-sharp'\"></ion-icon>\r\n              <ion-label>{{ p.title }}</ion-label>\r\n            </ion-item>\r\n          </ion-menu-toggle>\r\n        </ion-list>\r\n\r\n        <ion-list id=\"labels-list\" style=\"width: 120px; margin: auto;\">\r\n          <!-- <a href=\"./login\" class=\"LogoutButton\">Logout</a> -->\r\n          <a href=\"#\" class=\"BtnCerrarSesion\">Cerrar Sesión</a>          \r\n          <!-- <ion-label><a href=\"./login\"> Logout </a></ion-label> -->\r\n        </ion-list>\r\n      </ion-content>\r\n    </ion-menu>\r\n    <ion-router-outlet id=\"main-content\"></ion-router-outlet>\r\n  </ion-split-pane>\r\n</ion-app>\r\n");
+/* harmony default export */ __webpack_exports__["default"] = ("<ion-app>\r\n  <ion-split-pane contentId=\"main-content\">\r\n    <ion-menu contentId=\"main-content\" type=\"overlay\">\r\n      <ion-content>\r\n        <ion-list id=\"inbox-list\">\r\n          <ion-menu-toggle auto-hide=\"false\" *ngFor=\"let p of appPages; let i = index\">\r\n            <ion-item routerDirection=\"root\" [routerLink]=\"[p.url]\" lines=\"none\" detail=\"false\" routerLinkActive=\"selected\">\r\n              <ion-icon slot=\"start\" [ios]=\"p.icon + '-outline'\" [md]=\"p.icon + '-sharp'\"></ion-icon>\r\n              <ion-label>{{ p.title }}</ion-label>\r\n            </ion-item>\r\n          </ion-menu-toggle>\r\n        </ion-list>\r\n\r\n        <ion-list id=\"labels-list\" style=\"width: 180px; margin: auto;\">\r\n          <!-- <a href=\"./login\" class=\"LogoutButton\">Logout</a> -->\r\n          <!-- <a href=\"#\" class=\"BtnCerrarSesion\">Cerrar Sesión</a>  -->\r\n          <ion-button  href=\"./login\" expand=\"block\" style=\"font-weight: bold;\" >CERRAR SESIÓN</ion-button>\r\n         \r\n          <!-- <ion-label><a href=\"./login\"> Logout </a></ion-label> -->\r\n        </ion-list>\r\n      </ion-content>\r\n    </ion-menu>\r\n    <ion-router-outlet id=\"main-content\"></ion-router-outlet>\r\n  </ion-split-pane>\r\n</ion-app>\r\n");
 
 /***/ })
 

@@ -32,6 +32,8 @@ ion-chip {
             margin: 0 auto;
 
             img {
+                width: 160px;
+                height: 160px;
                 display: block;
                 border-radius: 50%;
                 position: absolute;
@@ -46,7 +48,6 @@ ion-chip {
 .card-body {
     background-color: #ffffff;
     padding: 30px;
-    height: calc(100vh - (200px + 56px));
     overflow: hidden;
 
     .user-meta {

@@ -217,6 +217,16 @@ let OlvideMiContrasenaPage = class OlvideMiContrasenaPage {
     }
     ngOnInit() {
     }
+    onKeydown(event) {
+        if (event.keyCode === 32) {
+            return false;
+        }
+    }
+    omit_special_char(event) {
+        var k;
+        k = event.charCode; //         k = event.keyCode;  (Both can be used)
+        return ((k > 64 && k < 91) || (k > 96 && k < 123) || k == 8 || k == 32 || (k >= 48 && k <= 57));
+    }
     CorreoSuccess() {
         return (0,tslib__WEBPACK_IMPORTED_MODULE_5__.__awaiter)(this, void 0, void 0, function* () {
             const alert = yield this.alertController.create({
@@ -340,7 +350,7 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony default export */ __webpack_exports__["default"] = ("<ion-content>\r\n  <!-- Back button with a default href -->\r\n  <ion-header>\r\n    <ion-toolbar>\r\n        <ion-buttons slot=\"start\">\r\n            <ion-back-button defaultHref=\"login\"></ion-back-button>\r\n        </ion-buttons>\r\n        <ion-title style=\"color: #1A202E; font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; font-size:16;\">Restablecer contraseña</ion-title>\r\n    </ion-toolbar>\r\n</ion-header>\r\n\r\n\r\n\r\n<div style=\"padding: 15px;\">\r\n  <!-- <ion-label style=\"color: #1A202E; font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; font-size:20px;\"><strong>Restablecer Contraseña</strong></ion-label> <br> -->\r\n  <br><span style=\"color: #647081; text-justify: auto; font-size: 14px;\">Introduzca el email asociado a su cuenta y le enviaremos un correo su nueva contraseña</span>\r\n</div>\r\n<ion-label style=\"color: #647081; padding: 15px;\">Email</ion-label><br>\r\n<div style=\"padding: 5px;\">\r\n\r\n\r\n  <ion-card>\r\n      <!-- Agregar id para validar si está vacio -->\r\n      <ion-input style=\"border-radius: 5px;\" maxlength=\"100\" [(ngModel)]=\"email\" id=\"emailContenido\"></ion-input>\r\n  </ion-card>\r\n\r\n</div>\r\n\r\n\r\n<div style=\"margin:auto; width:95%; padding-top: 20px;\">\r\n\r\n  <ion-button expand=\"block\" (click)=\"onOlvideMiContrasena()\">Enviar Contraseña</ion-button>\r\n\r\n</div>\r\n\r\n\r\n</ion-content>\r\n");
+/* harmony default export */ __webpack_exports__["default"] = ("<ion-content>\r\n  <!-- Back button with a default href -->\r\n  <ion-header>\r\n    <ion-toolbar>\r\n        <ion-buttons slot=\"start\">\r\n            <ion-back-button defaultHref=\"login\"></ion-back-button>\r\n        </ion-buttons>\r\n        <ion-title style=\"color: #1A202E; font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; font-size:16;\">Restablecer contraseña</ion-title>\r\n    </ion-toolbar>\r\n</ion-header>\r\n\r\n\r\n\r\n<div style=\"padding-left: 15px;padding-right: 15px; padding-bottom: 15px;\">\r\n  <!-- <ion-label style=\"color: #1A202E; font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; font-size:20px;\"><strong>Restablecer Contraseña</strong></ion-label> <br> -->\r\n  <br><span style=\"color: #647081; text-justify: auto; font-size: 14px;\">Introduzca el email asociado a su cuenta y le enviaremos un correo su nueva contraseña</span>\r\n</div>\r\n<ion-label style=\"color: #647081; padding: 15px; font-weight: bold;\">EMAIL</ion-label><br>\r\n\r\n\r\n\r\n<div style=\"padding: 5px;\">\r\n  <ion-card>\r\n      <!-- Agregar id para validar si está vacio -->\r\n      <ion-input oninput=\"this.value = this.value.toUpperCase()\" style=\"border-radius: 5px;\" maxlength=\"100\" [(ngModel)]=\"email\" id=\"emailContenido\"></ion-input>\r\n  </ion-card>\r\n</div>\r\n\r\n\r\n<div style=\"margin:auto; width:95%; padding-top: 20px;\">\r\n\r\n  <ion-button expand=\"block\"  style=\"font-weight: bold;\" (click)=\"onOlvideMiContrasena()\">Enviar Contraseña</ion-button>\r\n\r\n</div>\r\n\r\n\r\n</ion-content>\r\n");
 
 /***/ })
 
