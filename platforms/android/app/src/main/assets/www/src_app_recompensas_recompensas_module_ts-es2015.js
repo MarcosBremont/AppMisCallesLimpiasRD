@@ -221,23 +221,45 @@ let RecompensasPage = class RecompensasPage {
         this.servicioActualizarPuntos.ActualizarPuntos(this.cod_puntos, this.cod_usuario, this.puntosAcumulados)
             .subscribe((data) => { this.recompensas = data; }, (error) => { console.log(error); });
     }
-    SuccesAlert() {
+    AlertaRecompensaCambiada() {
         return (0,tslib__WEBPACK_IMPORTED_MODULE_8__.__awaiter)(this, void 0, void 0, function* () {
             const alert = yield this.alertController.create({
                 cssClass: 'my-custom-class',
-                // header: 'Error',
-                message: 'Usuario Registrado con Exito.',
+                header: '¡Enhorabuena!',
+                message: 'Su recompensa ha sido procesada con exito',
                 buttons: ['OK']
             });
             yield alert.present();
         });
     }
-    ErrorAlert() {
+    AlertaDeExceder() {
         return (0,tslib__WEBPACK_IMPORTED_MODULE_8__.__awaiter)(this, void 0, void 0, function* () {
             const alert = yield this.alertController.create({
                 cssClass: 'my-custom-class',
                 header: 'Error',
-                message: 'Usuario o Contraseña Incorrecta.',
+                message: 'El artículo seleccionado excede la cantidad de puntos acumulados',
+                buttons: ['OK']
+            });
+            yield alert.present();
+        });
+    }
+    AlertaDeError() {
+        return (0,tslib__WEBPACK_IMPORTED_MODULE_8__.__awaiter)(this, void 0, void 0, function* () {
+            const alert = yield this.alertController.create({
+                cssClass: 'my-custom-class',
+                header: 'Error',
+                message: 'En estos momentos no se puede realizar dicha acción',
+                buttons: ['OK']
+            });
+            yield alert.present();
+        });
+    }
+    AlertaRecuerdeCambiar() {
+        return (0,tslib__WEBPACK_IMPORTED_MODULE_8__.__awaiter)(this, void 0, void 0, function* () {
+            const alert = yield this.alertController.create({
+                cssClass: 'my-custom-class',
+                header: 'Error',
+                message: 'Recuerde seleccionar la recompensa a cambiar',
                 buttons: ['OK']
             });
             yield alert.present();
@@ -268,7 +290,7 @@ let RecompensasPage = class RecompensasPage {
         if (i == ultimoCaracterBoton && this.articuloSeleccionado == true) {
             //Condición que valida si los puntos de la recompensa exceden los puntos que tenemos
             if (precioInt > puntosInt) {
-                alert('El artículo seleccionado excede la cantidad de puntos acumulados');
+                this.AlertaDeExceder();
                 return;
             }
             //Confirma antes de procesar el cambio de recompensa por puntos
@@ -284,24 +306,24 @@ let RecompensasPage = class RecompensasPage {
                     this.datos = data;
                     if (this.datos.respuesta == "OK") {
                         // this.ionLoaderService.dismissLoader();  No necesario en esta página
-                        alert('¡Enhorabuena!, su recompensa ha sido procesada');
+                        this.AlertaRecompensaCambiada();
                         this.registroRecibo.IngresarRecibo(this.cod_usuario, this.cod_recompensas).subscribe((data) => {
                             this.datos = data;
                             console.log(this.datos);
                             document.getElementById('puntos').innerHTML = resultado + "";
                         }, (error) => {
-                            alert(error);
+                            this.AlertaDeError();
                         });
                     }
                     else {
-                        console.log('No funcionó');
+                        this.AlertaDeError();
                     }
                 });
             }
         }
         //Condición que devuelvel mensaje cuando no se marca ningún checkbox
         else {
-            alert('Recuerde seleccionar la recompensa a cambiar.');
+            this.AlertaRecuerdeCambiar();
             return;
         }
         // this.router.navigate(['/login']); 

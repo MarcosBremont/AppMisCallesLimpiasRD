@@ -700,8 +700,8 @@
                       _context6.next = 2;
                       return this.alertController.create({
                         cssClass: 'my-custom-class',
-                        header: 'Enhorabuena!',
-                        message: 'Reporte guardado con exito.',
+                        header: '¡Enhorabuena!',
+                        message: 'Reporte enviado con exito.',
                         buttons: ['OK']
                       });
 

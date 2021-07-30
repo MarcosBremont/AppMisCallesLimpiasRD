@@ -67,24 +67,46 @@ export class RecompensasPage implements OnInit {
     
   }
 
-  async SuccesAlert() {
+  async AlertaRecompensaCambiada() {
     const alert = await this.alertController.create({
       cssClass: 'my-custom-class',
-      // header: 'Error',
-      message: 'Usuario Registrado con Exito.',
+      header: '¡Enhorabuena!',
+      message: 'Su recompensa ha sido procesada con exito',
       buttons: ['OK']
     });
     await alert.present();
   }
-  async ErrorAlert() {
+  async AlertaDeExceder() {
     const alert = await this.alertController.create({
       cssClass: 'my-custom-class',
       header: 'Error',
-      message: 'Usuario o Contraseña Incorrecta.',
+      message: 'El artículo seleccionado excede la cantidad de puntos acumulados',
       buttons: ['OK']
     });
     await alert.present();
   }
+
+
+  async AlertaDeError() {
+    const alert = await this.alertController.create({
+      cssClass: 'my-custom-class',
+      header: 'Error',
+      message: 'En estos momentos no se puede realizar dicha acción',
+      buttons: ['OK']
+    });
+    await alert.present();
+  }
+
+  async AlertaRecuerdeCambiar() {
+    const alert = await this.alertController.create({
+      cssClass: 'my-custom-class',
+      header: 'Error',
+      message: 'Recuerde seleccionar la recompensa a cambiar',
+      buttons: ['OK']
+    });
+    await alert.present();
+  }
+
 
  //Temporalmente tanto el cod_punto y cod_usuarios le asignaremos el 1 hasta poder generarlo de forma dinámica
 
@@ -145,7 +167,7 @@ export class RecompensasPage implements OnInit {
 
     //Condición que valida si los puntos de la recompensa exceden los puntos que tenemos
       if(precioInt > puntosInt){
-        alert('El artículo seleccionado excede la cantidad de puntos acumulados');
+        this.AlertaDeExceder();
         return;
 
         }
@@ -168,7 +190,7 @@ export class RecompensasPage implements OnInit {
     this.datos=data;
     if(this.datos.respuesta=="OK"){
       // this.ionLoaderService.dismissLoader();  No necesario en esta página
-        alert('¡Enhorabuena!, su recompensa ha sido procesada');
+        this.AlertaRecompensaCambiada();
         this.registroRecibo.IngresarRecibo(this.cod_usuario,this.cod_recompensas).subscribe((data)=>{
           this.datos = data; 
           console.log (this.datos);
@@ -177,12 +199,12 @@ export class RecompensasPage implements OnInit {
           
         },
         (error)=>{
-          alert(error);
+          this.AlertaDeError();
         });
         
     }
     else{
-      console.log('No funcionó')
+     this.AlertaDeError();
     }
     
 
@@ -194,7 +216,7 @@ export class RecompensasPage implements OnInit {
     }
     //Condición que devuelvel mensaje cuando no se marca ningún checkbox
     else{
-      alert('Recuerde seleccionar la recompensa a cambiar.');
+      this.AlertaRecuerdeCambiar();
       return;
     }
     // this.router.navigate(['/login']); 

@@ -395,8 +395,8 @@ let InicioMapaPage = class InicioMapaPage {
         return (0,tslib__WEBPACK_IMPORTED_MODULE_9__.__awaiter)(this, void 0, void 0, function* () {
             const alert = yield this.alertController.create({
                 cssClass: 'my-custom-class',
-                header: 'Enhorabuena!',
-                message: 'Reporte guardado con exito.',
+                header: '¡Enhorabuena!',
+                message: 'Reporte enviado con exito.',
                 buttons: ['OK']
             });
             yield alert.present();

@@ -413,8 +413,8 @@
             });
           }
         }, {
-          key: "SuccesAlert",
-          value: function SuccesAlert() {
+          key: "AlertaRecompensaCambiada",
+          value: function AlertaRecompensaCambiada() {
             return (0, tslib__WEBPACK_IMPORTED_MODULE_8__.__awaiter)(this, void 0, void 0, /*#__PURE__*/regeneratorRuntime.mark(function _callee() {
               var alert;
               return regeneratorRuntime.wrap(function _callee$(_context) {
@@ -424,8 +424,8 @@
                       _context.next = 2;
                       return this.alertController.create({
                         cssClass: 'my-custom-class',
-                        // header: 'Error',
-                        message: 'Usuario Registrado con Exito.',
+                        header: '¡Enhorabuena!',
+                        message: 'Su recompensa ha sido procesada con exito',
                         buttons: ['OK']
                       });
 
@@ -443,8 +443,8 @@
             }));
           }
         }, {
-          key: "ErrorAlert",
-          value: function ErrorAlert() {
+          key: "AlertaDeExceder",
+          value: function AlertaDeExceder() {
             return (0, tslib__WEBPACK_IMPORTED_MODULE_8__.__awaiter)(this, void 0, void 0, /*#__PURE__*/regeneratorRuntime.mark(function _callee2() {
               var alert;
               return regeneratorRuntime.wrap(function _callee2$(_context2) {
@@ -455,7 +455,7 @@
                       return this.alertController.create({
                         cssClass: 'my-custom-class',
                         header: 'Error',
-                        message: 'Usuario o Contraseña Incorrecta.',
+                        message: 'El artículo seleccionado excede la cantidad de puntos acumulados',
                         buttons: ['OK']
                       });
 
@@ -470,6 +470,66 @@
                   }
                 }
               }, _callee2, this);
+            }));
+          }
+        }, {
+          key: "AlertaDeError",
+          value: function AlertaDeError() {
+            return (0, tslib__WEBPACK_IMPORTED_MODULE_8__.__awaiter)(this, void 0, void 0, /*#__PURE__*/regeneratorRuntime.mark(function _callee3() {
+              var alert;
+              return regeneratorRuntime.wrap(function _callee3$(_context3) {
+                while (1) {
+                  switch (_context3.prev = _context3.next) {
+                    case 0:
+                      _context3.next = 2;
+                      return this.alertController.create({
+                        cssClass: 'my-custom-class',
+                        header: 'Error',
+                        message: 'En estos momentos no se puede realizar dicha acción',
+                        buttons: ['OK']
+                      });
+
+                    case 2:
+                      alert = _context3.sent;
+                      _context3.next = 5;
+                      return alert.present();
+
+                    case 5:
+                    case "end":
+                      return _context3.stop();
+                  }
+                }
+              }, _callee3, this);
+            }));
+          }
+        }, {
+          key: "AlertaRecuerdeCambiar",
+          value: function AlertaRecuerdeCambiar() {
+            return (0, tslib__WEBPACK_IMPORTED_MODULE_8__.__awaiter)(this, void 0, void 0, /*#__PURE__*/regeneratorRuntime.mark(function _callee4() {
+              var alert;
+              return regeneratorRuntime.wrap(function _callee4$(_context4) {
+                while (1) {
+                  switch (_context4.prev = _context4.next) {
+                    case 0:
+                      _context4.next = 2;
+                      return this.alertController.create({
+                        cssClass: 'my-custom-class',
+                        header: 'Error',
+                        message: 'Recuerde seleccionar la recompensa a cambiar',
+                        buttons: ['OK']
+                      });
+
+                    case 2:
+                      alert = _context4.sent;
+                      _context4.next = 5;
+                      return alert.present();
+
+                    case 5:
+                    case "end":
+                      return _context4.stop();
+                  }
+                }
+              }, _callee4, this);
             }));
           }
         }, {
@@ -501,7 +561,7 @@
             if (i == ultimoCaracterBoton && this.articuloSeleccionado == true) {
               //Condición que valida si los puntos de la recompensa exceden los puntos que tenemos
               if (precioInt > puntosInt) {
-                alert('El artículo seleccionado excede la cantidad de puntos acumulados');
+                this.AlertaDeExceder();
                 return;
               } //Confirma antes de procesar el cambio de recompensa por puntos
 
@@ -519,23 +579,23 @@
 
                   if (_this2.datos.respuesta == "OK") {
                     // this.ionLoaderService.dismissLoader();  No necesario en esta página
-                    alert('¡Enhorabuena!, su recompensa ha sido procesada');
+                    _this2.AlertaRecompensaCambiada();
 
                     _this2.registroRecibo.IngresarRecibo(_this2.cod_usuario, _this2.cod_recompensas).subscribe(function (data) {
                       _this2.datos = data;
                       console.log(_this2.datos);
                       document.getElementById('puntos').innerHTML = resultado + "";
                     }, function (error) {
-                      alert(error);
+                      _this2.AlertaDeError();
                     });
                   } else {
-                    console.log('No funcionó');
+                    _this2.AlertaDeError();
                   }
                 });
               }
             } //Condición que devuelvel mensaje cuando no se marca ningún checkbox
             else {
-              alert('Recuerde seleccionar la recompensa a cambiar.');
+              this.AlertaRecuerdeCambiar();
               return;
             } // this.router.navigate(['/login']); 
 

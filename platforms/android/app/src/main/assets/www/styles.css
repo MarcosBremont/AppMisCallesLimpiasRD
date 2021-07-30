@@ -1533,3 +1533,15 @@ ion-header ion-toolbar ion-title {
     font-size: 2.1rem;
   }
 }
+.mensajeria {
+  font-size: 1.8rem;
+  margin-right: 2rem;
+  margin-top: 3rem;
+}
+.mensajeria .mensajeria--elementos {
+  width: 100%;
+  color: black;
+}
+.mensajeria .mensajeria--elementos ion-label {
+  padding-left: 1rem;
+}

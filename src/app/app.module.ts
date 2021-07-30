@@ -4,6 +4,7 @@ import { RouteReuseStrategy } from '@angular/router';
 import { DatosnecesarioService } from './Services/datosnecesario.service';
 import { LoginService } from './Services/Login.service';
 import { Router } from "@angular/router"; 
+import { Ng2ImgMaxModule } from 'ng2-img-max';
 
 import { IonicModule, IonicRouteStrategy } from '@ionic/angular';
 

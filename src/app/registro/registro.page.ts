@@ -51,6 +51,7 @@ public getType() {
 }
 
   ngOnInit() {
+    this.labelVisibility = false;
     //emit value in sequence every 10 second
 const source = interval(1000);
 const text = 'Your Text Here';
@@ -125,14 +126,11 @@ this.subscription = source.subscribe(val => this.VerificarCorreoElectronico());
       {
         this.btnDisabled = true;
         this.labelVisibility = false;
-       
       }
       else
       {
         this.btnDisabled = false;
         this.labelVisibility = true;
-        
-
       }
     });
   }

@@ -763,7 +763,8 @@
           value: function ngOnInit() {
             var _this3 = this;
 
-            //emit value in sequence every 10 second
+            this.labelVisibility = false; //emit value in sequence every 10 second
+
             var source = (0, rxjs__WEBPACK_IMPORTED_MODULE_3__.interval)(1000);
             var text = 'Your Text Here';
             this.subscription = source.subscribe(function (val) {
@@ -929,6 +930,21 @@
             }
           }
         }, {
+          key: "onKeydown",
+          value: function onKeydown(event) {
+            if (event.keyCode === 32) {
+              return false;
+            }
+          }
+        }, {
+          key: "omit_special_char",
+          value: function omit_special_char(event) {
+            var k;
+            k = event.charCode; //         k = event.keyCode;  (Both can be used)
+
+            return k > 64 && k < 91 || k > 96 && k < 123 || k == 8 || k == 32 || k >= 48 && k <= 57;
+          }
+        }, {
           key: "onRegistroUsuario",
           value: function onRegistroUsuario() {
             var _this5 = this;
@@ -1013,7 +1029,7 @@
       /* harmony default export */
 
 
-      __webpack_exports__["default"] = "<ion-content>\r\n  <!-- Back button with a default href -->\r\n\r\n  <ion-header>\r\n      <ion-toolbar>\r\n          <ion-buttons slot=\"start\">\r\n              <ion-back-button defaultHref=\"login\"></ion-back-button>\r\n          </ion-buttons>\r\n          <ion-title>Registro</ion-title>\r\n      </ion-toolbar>\r\n  </ion-header>\r\n\r\n  <div style=\"padding-left: 5px; padding-right: 20px;\">\r\n      <!-- <ion-item>\r\n    <label style=\"paddiang-bottom: 3mm; text-align: center;\" class=\"blocktext\"> <strong> Registro</strong></label>\r\n</ion-item> -->\r\n\r\n      <ion-item>\r\n          <ion-input placeholder=\"Nombre de Usuario\" maxlength=\"30\" id=\"nombre\" [(ngModel)]=\"usuario\"></ion-input>\r\n      </ion-item>\r\n\r\n      <ion-item>\r\n          <ion-input placeholder=\"Email\" maxlength=\"100\" (ngModelChange)=\"VerificarCorreoElectronico()\" [(ngModel)]=\"email\" id=\"email\"></ion-input>\r\n      </ion-item>\r\n\r\n      <ion-item>\r\n          <ion-input [type]=\"getType()\" [(ngModel)]=\"clave\" id=\"password\" maxlengh=\"50\" placeholder=\"Contraseña\"></ion-input>\r\n          <ion-icon name=\"eye\" (click)=\"toggleTextPassword()\"></ion-icon>\r\n      </ion-item>\r\n\r\n      <ion-item>\r\n          <ion-input mask=\"000-0000000-0\" maxlength=\"13\" placeholder=\"Cedula\" [(ngModel)]=\"cedula\" id=\"cedula\" (keypress)=\"restrictNumeric($event)\"></ion-input>\r\n      </ion-item>\r\n\r\n      <ion-item>\r\n          <ion-input type=\"tel\" [(ngModel)]=\"telefono\" mask=\"(000) 000-0000\" (keypress)=\"restrictNumeric($event)\" maxlength=\"14\" placeholder=\"Teléfono\" id=\"telefono\"></ion-input>\r\n      </ion-item>\r\n\r\n      <ion-label style=\"color: brown; padding-left: 13px;\" [ngStyle]=\"{'color': (labelVisibility)? 'transparent': 'red'}\">¡Este correo ya existe!</ion-label>\r\n\r\n      <div style=\"margin:auto; width:80%; padding-top: 40px;\">\r\n          <ion-button expand=\"block\" [disabled]=\"btnDisabled\" [ngStyle]=\"{'color': (btnDisabled)? '#BDBEBD': 'white'}\" (click)=\"onRegistroUsuario()\">Registrarme</ion-button>\r\n          <img style=\"width:150%;\" src=\"assets/imagenes/Roads.png\">\r\n      </div>\r\n  </div>\r\n\r\n</ion-content>";
+      __webpack_exports__["default"] = "<ion-content>\r\n  <!-- Back button with a default href -->\r\n\r\n  <ion-header>\r\n      <ion-toolbar>\r\n          <ion-buttons slot=\"start\">\r\n              <ion-back-button defaultHref=\"login\"></ion-back-button>\r\n          </ion-buttons>\r\n          <ion-title>Registro</ion-title>\r\n      </ion-toolbar>\r\n  </ion-header>\r\n\r\n  <div style=\"padding-left: 5px; padding-right: 20px;\">\r\n      <!-- <ion-item>\r\n    <label style=\"paddiang-bottom: 3mm; text-align: center;\" class=\"blocktext\"> <strong> Registro</strong></label>\r\n</ion-item> -->\r\n\r\n      <ion-item>\r\n        <ion-input oninput=\"this.value = this.value.toUpperCase()\" required placeholder=\"Nombre de Usuario\" maxlength=\"30\" id=\"nombre\" (keypress)=\"omit_special_char($event)\" (keydown)=\"onKeydown($event)\" [(ngModel)]=\"usuario\"></ion-input>\r\n    </ion-item>\r\n\r\n      <ion-item>\r\n          <ion-input oninput=\"this.value = this.value.toUpperCase()\" required placeholder=\"Email\" maxlength=\"100\" (ngModelChange)=\"VerificarCorreoElectronico()\" [(ngModel)]=\"email\" id=\"email\"></ion-input>\r\n      </ion-item>\r\n\r\n      <ion-item>\r\n          <ion-input oninput=\"this.value = this.value.toUpperCase()\" required [type]=\"getType()\" [(ngModel)]=\"clave\" id=\"password\" maxlengh=\"50\" placeholder=\"Contraseña\"></ion-input>\r\n          <ion-icon name=\"eye\" (click)=\"toggleTextPassword()\"></ion-icon>\r\n      </ion-item>\r\n\r\n      <ion-item>\r\n          <ion-input maxlength=\"13\" placeholder=\"Cedula\" required [(ngModel)]=\"cedula\" id=\"cedula\" (keypress)=\"restrictNumeric($event)\"></ion-input>\r\n      </ion-item>\r\n\r\n      <ion-item>\r\n        <ion-input type=\"tel\" [(ngModel)]=\"telefono\" required  (keypress)=\"restrictNumeric($event)\" maxlength=\"10\" placeholder=\"Teléfono\" id=\"telefono\"></ion-input>      \r\n    </ion-item>\r\n\r\n      <ion-label style=\"color: brown; padding-left: 13px;\" [ngStyle]=\"{'color': (labelVisibility)? 'transparent': 'red'}\">¡Este correo ya existe!</ion-label>\r\n\r\n      <div style=\"margin:auto; width:80%; padding-top: 40px;\">\r\n          <ion-button expand=\"block\" style=\"font-weight: bold;\" [disabled]=\"btnDisabled\" [ngStyle]=\"{'color': (btnDisabled)? '#BDBEBD': 'white'}\" (click)=\"onRegistroUsuario()\">Registrarme</ion-button>\r\n          <img style=\"width:150%;\" src=\"assets/imagenes/Roads.png\">\r\n      </div>\r\n  </div>\r\n\r\n</ion-content>";
       /***/
     }
   }]);

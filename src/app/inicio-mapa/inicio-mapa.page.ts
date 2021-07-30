@@ -260,8 +260,8 @@ btnRegistro
   async SuccesAlert() {
     const alert = await this.alertController.create({
       cssClass: 'my-custom-class',
-      header: 'Enhorabuena!',
-      message: 'Reporte guardado con exito.',
+      header: '¡Enhorabuena!',
+      message: 'Reporte enviado con exito.',
       buttons: ['OK']
     });
     await alert.present();

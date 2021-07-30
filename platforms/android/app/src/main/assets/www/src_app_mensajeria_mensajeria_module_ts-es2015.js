@@ -23,11 +23,11 @@ let MensajeriaService = class MensajeriaService {
     }
     MostrarMensajes(cod_usuario) {
         // return this.http.get("http://api.miscalleslimpiasrd.tecnolora.com/api/MisCallesLimpiasRD/consultarrecibosporid?cod_usuario="+cod_usuario+"");
-        return this.http.get("http://localhost:53059/api/MisCallesLimpiasRD/ConsultarMensajes?cod_usuario=" + cod_usuario + "");
+        return this.http.get("http://api.miscalleslimpiasrd.tecnolora.com/api/MisCallesLimpiasRD/ConsultarMensajes?cod_usuario=" + cod_usuario + "");
     }
     RegistrarMensajes(cod_usuario, mensaje) {
         // return this.http.get("http://api.miscalleslimpiasrd.tecnolora.com/api/MisCallesLimpiasRD/consultarrecibosporid?cod_usuario="+cod_usuario+"");
-        return this.http.get("http://localhost:53059/api/MisCallesLimpiasRD/RegistrarMensajesErrorAceptacion?cod_usuario=" + cod_usuario + " &mensajes=" + mensaje);
+        return this.http.get("http://api.miscalleslimpiasrd.tecnolora.com/api/MisCallesLimpiasRD/RegistrarMensajesErrorAceptacion?cod_usuario=" + cod_usuario + " &mensajes=" + mensaje);
     }
 };
 MensajeriaService.ctorParameters = () => [
@@ -153,7 +153,7 @@ let MensajeriaPage = class MensajeriaPage {
         this.cod_usuario = _variableglobal__WEBPACK_IMPORTED_MODULE_3__.Variableglobal.cod_usuario;
     }
     ngOnInit() {
-        this.servicio.MostrarMensajes(this.cod_usuario)
+        this.servicio.MostrarMensajes(1)
             .subscribe((data) => { this.Mensajes = data; }, (error) => { console.log(error); });
     }
 };
@@ -192,7 +192,7 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony default export */ __webpack_exports__["default"] = ("<ion-header [translucent]=\"true\">\r\n\r\n    <ion-toolbar class=\"toolbar\">\r\n        <ion-buttons slot=\"start\">\r\n            <ion-menu-button></ion-menu-button>\r\n        </ion-buttons>\r\n\r\n        <ion-title>Mensajería</ion-title>\r\n    </ion-toolbar>\r\n\r\n</ion-header>\r\n\r\n<ion-content [fullscreen]=\"true\" class=\"contenedor-recibos\">\r\n    <ion-header collapse=\"condense\">\r\n        <ion-toolbar>\r\n            <ion-title size=\"large\">Mis Bonos</ion-title>\r\n        </ion-toolbar>\r\n    </ion-header>\r\n    <ion-list>\r\n\r\n        <ion-item *ngFor=\"let mensaje of Mensajes\">\r\n\r\n            <ion-card>\r\n\r\n                <ion-label class=\"contenedor-recibos--label\">\r\n                    {{mensaje.cod_mensaje}}\r\n                </ion-label>\r\n\r\n                <div class=\"contenedor-recibos--label contenedor-recibos--label__codigo\">\r\n                    <ion-label slot=\"end\">\r\n                        {{mensaje.mensajes}}\r\n\r\n                    </ion-label>\r\n\r\n                </div>\r\n                <div class=\"contenedor-recibos--label contenedor-recibos--label__codigo\">\r\n                    <ion-label slot=\"end\">\r\n                        {{mensaje.fecha}}\r\n                    </ion-label>\r\n\r\n                </div>\r\n            </ion-card>\r\n\r\n        </ion-item>\r\n\r\n    </ion-list>\r\n</ion-content>");
+/* harmony default export */ __webpack_exports__["default"] = ("<ion-header [translucent]=\"true\">\r\n\r\n    <ion-toolbar class=\"toolbar\">\r\n        <ion-buttons slot=\"start\">\r\n            <ion-menu-button></ion-menu-button>\r\n        </ion-buttons>\r\n\r\n        <ion-title>Mensajería</ion-title>\r\n    </ion-toolbar>\r\n\r\n</ion-header>\r\n\r\n<ion-content [fullscreen]=\"true\" class=\"contenedor-recibos\">\r\n    <ion-header collapse=\"condense\">\r\n        <ion-toolbar>\r\n            <ion-title size=\"large\">Mis Bonos</ion-title>\r\n        </ion-toolbar>\r\n    </ion-header>\r\n    <ion-list class=\"mensajeria\">\r\n\r\n        <ion-item class=\"mensajeria--elementos\" *ngFor=\"let mensaje of Mensajes\">\r\n\r\n            <ion-card class=\"mensajeria--elementos\">\r\n\r\n                <ion-label class=\"contenedor-recibos--label\">\r\n                    {{mensaje.cod_mensaje}}\r\n                </ion-label>\r\n\r\n                <div class=\"contenedor-recibos--label contenedor-recibos--label__codigo\">\r\n                    <ion-label slot=\"end\">\r\n                        {{mensaje.mensajes}}\r\n\r\n                    </ion-label>\r\n\r\n                </div>\r\n                <div class=\"contenedor-recibos--label contenedor-recibos--label__codigo\">\r\n                    <ion-label slot=\"end\">\r\n                        {{mensaje.fecha}}\r\n                    </ion-label>\r\n\r\n                </div>\r\n            </ion-card>\r\n\r\n        </ion-item>\r\n\r\n    </ion-list>\r\n</ion-content>");
 
 /***/ })
 

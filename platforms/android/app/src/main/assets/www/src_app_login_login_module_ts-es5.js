@@ -343,6 +343,21 @@
             }));
           }
         }, {
+          key: "onKeydown",
+          value: function onKeydown(event) {
+            if (event.keyCode === 32) {
+              return false;
+            }
+          }
+        }, {
+          key: "omit_special_char",
+          value: function omit_special_char(event) {
+            var k;
+            k = event.charCode; //         k = event.keyCode;  (Both can be used)
+
+            return k > 64 && k < 91 || k > 96 && k < 123 || k == 8 || k == 32 || k >= 48 && k <= 57;
+          }
+        }, {
           key: "ionViewWillEnter",
           value: function ionViewWillEnter() {
             this.menuCtrl.enable(false);
@@ -468,7 +483,7 @@
       /* harmony default export */
 
 
-      __webpack_exports__["default"] = "<ion-content>\r\n\r\n  <ion-card-header>\r\n    <ion-card-title></ion-card-title>\r\n  </ion-card-header>\r\n  <div class=\"contenedor\">\r\n  <ion-card-content style=\"width: 100%; padding: 10px;\">\r\n    <div>\r\n      <img style=\"width: 120px;;margin:auto;display:block\" src=\"assets/imagenes/MisCallesLimpiasRDCircle.png\">\r\n      <ion-label class=\"centrar\" style=\"font-weight: bold; font-size: 22px;\">Iniciar Sesion</ion-label>\r\n    </div>\r\n\r\n<div class=\"login--inputs\" style=\"margin-top: 15px; margin-right: 15px;\">\r\n\r\n  <ion-item>\r\n    <ion-input  placeholder=\"Usuario\" maxlength=\"50\" [(ngModel)]=\"usuario\" ></ion-input>\r\n  </ion-item>\r\n<!-- Prueba -->\r\n  <ion-item>\r\n      <ion-input placeholder=\"Contraseña\" [type]=\"getType()\" [(ngModel)]=\"clave\" ></ion-input>\r\n      <ion-icon style=\"align-items: flex-end;\" name=\"eye\" (click)=\"toggleTextPassword()\"></ion-icon>\r\n  </ion-item>\r\n\r\n</div>\r\n \r\n  <div class=\"login--contraseña\">\r\n    <ion-label><a href=\"./olvide-mi-contrasena\">¿Olvidaste tu contraseña?</a></ion-label>\r\n  </div>\r\n  \r\n  <div class=\"boton-login\">\r\n    \r\n    <ion-button expand=\"block\" (click)=\"onIniciarSesion()\">Iniciar Sesion</ion-button>\r\n  </div>\r\n  \r\n  <div class=\"ion-text-center\" style=\"margin:auto; width:75%; padding-top: 20px;\">\r\n    <ion-label>¿No tienes una cuenta?</ion-label>\r\n    <ion-label><a  href=\"./registro\"> Registrate aqui</a></ion-label>\r\n    </div>\r\n\r\n    \r\n  </ion-card-content>\r\n</div>\r\n<div style=\"margin-top: 240px; text-align: center;\">\r\n  <ion-label style=\"font-size: 14px;\">Iniciando sesion aceptas los</ion-label>\r\n  <ion-label style=\"font-size: 14px;\"><a  href=\"./terminosycondiciones\"> terminos y condiciones</a></ion-label>\r\n\r\n\r\n</div>\r\n</ion-content>\r\n";
+      __webpack_exports__["default"] = "<ion-content>\r\n\r\n  <ion-card-header>\r\n    <ion-card-title></ion-card-title>\r\n  </ion-card-header>\r\n  <div class=\"contenedor\">\r\n  <ion-card-content style=\"width: 100%; padding: 10px;\">\r\n    <div>\r\n      <img style=\"width: 120px;;margin:auto;display:block\" src=\"assets/imagenes/MisCallesLimpiasRDCircle.png\">\r\n      <ion-label class=\"centrar\" style=\"font-weight: bold; font-size: 22px;\">INICIAR SESIÓN</ion-label>\r\n    </div>\r\n\r\n<div class=\"login--inputs\" style=\"margin-top: 15px; margin-right: 15px;\">\r\n\r\n  <ion-item>\r\n    <ion-input oninput=\"this.value = this.value.toUpperCase()\" (keypress)=\"omit_special_char($event)\" placeholder=\"Usuario\" maxlength=\"50\" [(ngModel)]=\"usuario\" ></ion-input>\r\n  </ion-item>\r\n<!-- Prueba -->\r\n  <ion-item>\r\n      <ion-input oninput=\"this.value = this.value.toUpperCase()\" placeholder=\"Contraseña\" [type]=\"getType()\" [(ngModel)]=\"clave\" ></ion-input>\r\n      <ion-icon style=\"align-items: flex-end;\" name=\"eye\" (click)=\"toggleTextPassword()\"></ion-icon>\r\n  </ion-item>\r\n\r\n</div>\r\n \r\n  <div class=\"login--contraseña\" style=\"text-align: right; margin-right: 5px;\">\r\n    <ion-label style=\"font-size: 14px;\"><a href=\"./olvide-mi-contrasena\">¿Olvidaste tu contraseña?</a></ion-label>\r\n  </div>\r\n  \r\n  <div class=\"boton-login\">\r\n    <ion-button expand=\"block\" style=\"font-weight: bold;\" (click)=\"onIniciarSesion()\">INICIAR SESIÓN</ion-button>\r\n  </div>\r\n  \r\n  <div class=\"ion-text-center\" style=\"margin:auto; width:75%; padding-top: 30px;\">\r\n    <ion-label style=\"font-size: 14px;\">¿No tienes una cuenta?</ion-label>\r\n    <ion-label style=\"font-size: 14px;\"><a  href=\"./registro\"> Registrate aqui</a></ion-label>\r\n    </div>\r\n\r\n    \r\n  </ion-card-content>\r\n</div>\r\n<div style=\"margin-top: 140; text-align: center;\">\r\n  <ion-label style=\"font-size: 14px;\">Iniciando sesion aceptas los</ion-label>\r\n  <ion-label style=\"font-size: 14px;\"><a  href=\"./terminosycondiciones\"> terminos y condiciones</a></ion-label>\r\n\r\n\r\n</div>\r\n</ion-content>\r\n";
       /***/
     }
   }]);

@@ -5,6 +5,7 @@ import { IonLoaderService } from '../Services/ion-loader.service';
 
 import { AlertController } from '@ionic/angular';
 import { GuardardatosperfilService } from '../Services/guardardatosperfil.service';
+import { Ng2ImgMaxService } from 'ng2-img-max';
 
 @Component({
   selector: 'app-mi-perfil',
@@ -188,7 +189,7 @@ public getType() {
 takePicture() {
 
   const options: CameraOptions = {
-    quality: 100,
+    quality: 40,
     destinationType: this.camera.DestinationType.DATA_URL,
     encodingType: this.camera.EncodingType.JPEG,
     mediaType: this.camera.MediaType.PICTURE
