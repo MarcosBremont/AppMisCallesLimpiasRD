@@ -6,10 +6,17 @@
     .mensajeria--elementos {
         width: 100%;
         color: black;
-        // background-color: rgb(226, 226, 226);
-        // opacity: 0.6;
         ion-label {
             padding-left: 1rem;
+        }
+        div {
+            width: 100%;
+            .parrafo {
+                margin-top: 1rem;
+                margin-left: 2rem;
+                font-size: 1.4rem;
+                text-align: start;
+            }
         }
     }
 }

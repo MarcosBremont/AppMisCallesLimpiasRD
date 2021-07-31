@@ -1,6 +1,6 @@
 <ion-header [translucent]="true">
 
-    <ion-toolbar class="toolbar">
+    <ion-toolbar>
         <ion-buttons slot="start">
             <ion-menu-button></ion-menu-button>
         </ion-buttons>
@@ -22,23 +22,23 @@
 
             <ion-card class="mensajeria--elementos">
 
-                <ion-label class="contenedor-recibos--label">
+                <!-- <ion-label class="contenedor-recibos--label">
                     {{mensaje.cod_mensaje}}
-                </ion-label>
+                </ion-label> -->
 
-                <div class="contenedor-recibos--label contenedor-recibos--label__codigo">
-                    <ion-label slot="end">
+                <div>
+                    <p class="parrafo">
                         {{mensaje.mensajes}}
 
-                    </ion-label>
+                    </p>
 
                 </div>
-                <div class="contenedor-recibos--label contenedor-recibos--label__codigo">
+                <!-- <div class="contenedor-recibos--label contenedor-recibos--label__codigo">
                     <ion-label slot="end">
                         {{mensaje.fecha}}
                     </ion-label>
 
-                </div>
+                </div> -->
             </ion-card>
 
         </ion-item>

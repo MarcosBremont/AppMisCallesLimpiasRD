@@ -19,7 +19,7 @@ export class MensajeriaPage implements OnInit {
    }
 
   ngOnInit() {
-    this.servicio.MostrarMensajes(1, )
+    this.servicio.MostrarMensajes(this.cod_usuario, )
     .subscribe( 
       (data)=>{this.Mensajes = data;},
       (error)=>{console.log(error);}
