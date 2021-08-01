@@ -394,14 +394,6 @@
             url: '/informate',
             icon: 'book'
           }, {
-            title: 'Acerca de',
-            url: '/sobre-nosotros',
-            icon: 'reader'
-          }, {
-            title: 'Mi Perfil',
-            url: '/mi-perfil',
-            icon: 'people'
-          }, {
             title: 'Mis Bonos',
             url: '/recibos-bonos',
             icon: 'receipt'
@@ -409,6 +401,14 @@
             title: 'Mis Mensajes',
             url: '/mensajeria',
             icon: 'mail-unread'
+          }, {
+            title: 'Mi Perfil',
+            url: '/mi-perfil',
+            icon: 'people'
+          }, {
+            title: 'Sobre Nosotros',
+            url: '/sobre-nosotros',
+            icon: 'reader'
           }];
           platform.ready().then(function () {
             // this.onVerificarPantalla() ;

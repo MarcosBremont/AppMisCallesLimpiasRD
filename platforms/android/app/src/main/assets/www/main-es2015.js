@@ -192,10 +192,10 @@ let AppComponent = class AppComponent {
             { title: 'Mis Reportes', url: '/mis-reportes', icon: 'paper-plane' },
             { title: 'Mis Puntos', url: '/mis-puntos', icon: 'cash' },
             { title: 'Informate', url: '/informate', icon: 'book' },
-            { title: 'Acerca de', url: '/sobre-nosotros', icon: 'reader' },
-            { title: 'Mi Perfil', url: '/mi-perfil', icon: 'people' },
             { title: 'Mis Bonos', url: '/recibos-bonos', icon: 'receipt' },
             { title: 'Mis Mensajes', url: '/mensajeria', icon: 'mail-unread' },
+            { title: 'Mi Perfil', url: '/mi-perfil', icon: 'people' },
+            { title: 'Sobre Nosotros', url: '/sobre-nosotros', icon: 'reader' },
         ];
         platform.ready().then(() => {
             // this.onVerificarPantalla() ;

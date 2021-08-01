@@ -373,7 +373,7 @@
       39895);
 
       var _RecompensasPage = /*#__PURE__*/function () {
-        function RecompensasPage(ionLoaderService, servicio, servicioPuntos, servicioActualizarPuntos, registroRecibo, alertController, router) {
+        function RecompensasPage(ionLoaderService, servicio, servicioPuntos, servicioActualizarPuntos, registroRecibo, alertController, alertCtrl, router) {
           _classCallCheck(this, RecompensasPage);
 
           this.ionLoaderService = ionLoaderService;
@@ -382,6 +382,7 @@
           this.servicioActualizarPuntos = servicioActualizarPuntos;
           this.registroRecibo = registroRecibo;
           this.alertController = alertController;
+          this.alertCtrl = alertCtrl;
           this.router = router;
           this.cod_usuario = _variableglobal__WEBPACK_IMPORTED_MODULE_7__.Variableglobal.cod_usuario;
         }
@@ -413,28 +414,37 @@
             });
           }
         }, {
-          key: "AlertaRecompensaCambiada",
-          value: function AlertaRecompensaCambiada() {
+          key: "presentConfirm",
+          value: function presentConfirm() {
             return (0, tslib__WEBPACK_IMPORTED_MODULE_8__.__awaiter)(this, void 0, void 0, /*#__PURE__*/regeneratorRuntime.mark(function _callee() {
               var alert;
               return regeneratorRuntime.wrap(function _callee$(_context) {
                 while (1) {
                   switch (_context.prev = _context.next) {
                     case 0:
-                      _context.next = 2;
-                      return this.alertController.create({
-                        cssClass: 'my-custom-class',
-                        header: '¡Enhorabuena!',
-                        message: 'Su recompensa ha sido procesada con exito',
-                        buttons: ['OK']
+                      alert = this.alertCtrl.create({
+                        header: "Prueba",
+                        message: 'Do you want to buy this book?',
+                        buttons: [{
+                          text: 'Cancel',
+                          role: 'cancel',
+                          handler: function handler() {
+                            console.log('Cancel clicked');
+                          }
+                        }, {
+                          text: 'Buy',
+                          handler: function handler() {
+                            console.log('Buy clicked');
+                          }
+                        }]
                       });
+                      _context.next = 3;
+                      return alert;
 
-                    case 2:
-                      alert = _context.sent;
-                      _context.next = 5;
-                      return alert.present();
+                    case 3:
+                      _context.sent.present();
 
-                    case 5:
+                    case 4:
                     case "end":
                       return _context.stop();
                   }
@@ -443,8 +453,8 @@
             }));
           }
         }, {
-          key: "AlertaDeExceder",
-          value: function AlertaDeExceder() {
+          key: "AlertaRecompensaCambiada",
+          value: function AlertaRecompensaCambiada() {
             return (0, tslib__WEBPACK_IMPORTED_MODULE_8__.__awaiter)(this, void 0, void 0, /*#__PURE__*/regeneratorRuntime.mark(function _callee2() {
               var alert;
               return regeneratorRuntime.wrap(function _callee2$(_context2) {
@@ -454,8 +464,8 @@
                       _context2.next = 2;
                       return this.alertController.create({
                         cssClass: 'my-custom-class',
-                        header: 'Error',
-                        message: 'El artículo seleccionado excede la cantidad de puntos acumulados',
+                        header: '¡Enhorabuena!',
+                        message: 'Su recompensa ha sido procesada con exito, por favor dirigirse a su punto de cambio mas cercano.',
                         buttons: ['OK']
                       });
 
@@ -473,8 +483,8 @@
             }));
           }
         }, {
-          key: "AlertaDeError",
-          value: function AlertaDeError() {
+          key: "AlertaDeExceder",
+          value: function AlertaDeExceder() {
             return (0, tslib__WEBPACK_IMPORTED_MODULE_8__.__awaiter)(this, void 0, void 0, /*#__PURE__*/regeneratorRuntime.mark(function _callee3() {
               var alert;
               return regeneratorRuntime.wrap(function _callee3$(_context3) {
@@ -485,7 +495,7 @@
                       return this.alertController.create({
                         cssClass: 'my-custom-class',
                         header: 'Error',
-                        message: 'En estos momentos no se puede realizar dicha acción',
+                        message: 'El artículo seleccionado excede la cantidad de puntos acumulados',
                         buttons: ['OK']
                       });
 
@@ -503,8 +513,8 @@
             }));
           }
         }, {
-          key: "AlertaRecuerdeCambiar",
-          value: function AlertaRecuerdeCambiar() {
+          key: "AlertaDeError",
+          value: function AlertaDeError() {
             return (0, tslib__WEBPACK_IMPORTED_MODULE_8__.__awaiter)(this, void 0, void 0, /*#__PURE__*/regeneratorRuntime.mark(function _callee4() {
               var alert;
               return regeneratorRuntime.wrap(function _callee4$(_context4) {
@@ -515,7 +525,7 @@
                       return this.alertController.create({
                         cssClass: 'my-custom-class',
                         header: 'Error',
-                        message: 'Recuerde seleccionar la recompensa a cambiar',
+                        message: 'En estos momentos no se puede realizar dicha acción',
                         buttons: ['OK']
                       });
 
@@ -530,6 +540,36 @@
                   }
                 }
               }, _callee4, this);
+            }));
+          }
+        }, {
+          key: "AlertaRecuerdeCambiar",
+          value: function AlertaRecuerdeCambiar() {
+            return (0, tslib__WEBPACK_IMPORTED_MODULE_8__.__awaiter)(this, void 0, void 0, /*#__PURE__*/regeneratorRuntime.mark(function _callee5() {
+              var alert;
+              return regeneratorRuntime.wrap(function _callee5$(_context5) {
+                while (1) {
+                  switch (_context5.prev = _context5.next) {
+                    case 0:
+                      _context5.next = 2;
+                      return this.alertController.create({
+                        cssClass: 'my-custom-class',
+                        header: 'Error',
+                        message: 'Recuerde seleccionar la recompensa a cambiar',
+                        buttons: ['OK']
+                      });
+
+                    case 2:
+                      alert = _context5.sent;
+                      _context5.next = 5;
+                      return alert.present();
+
+                    case 5:
+                    case "end":
+                      return _context5.stop();
+                  }
+                }
+              }, _callee5, this);
             }));
           }
         }, {
@@ -616,6 +656,8 @@
           type: _Services_actualizarpuntos_service__WEBPACK_IMPORTED_MODULE_3__.ActualizarpuntosService
         }, {
           type: _Services_registrorecibo_service__WEBPACK_IMPORTED_MODULE_5__.RegistroReciboService
+        }, {
+          type: _ionic_angular__WEBPACK_IMPORTED_MODULE_9__.AlertController
         }, {
           type: _ionic_angular__WEBPACK_IMPORTED_MODULE_9__.AlertController
         }, {

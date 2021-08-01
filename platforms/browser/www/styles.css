@@ -1545,3 +1545,12 @@ ion-header ion-toolbar ion-title {
 .mensajeria .mensajeria--elementos ion-label {
   padding-left: 1rem;
 }
+.mensajeria .mensajeria--elementos div {
+  width: 100%;
+}
+.mensajeria .mensajeria--elementos div .parrafo {
+  margin-top: 1rem;
+  margin-left: 2rem;
+  font-size: 1.4rem;
+  text-align: start;
+}

@@ -178,6 +178,7 @@ let LoginPage = class LoginPage {
                 message: 'Usuario o Contraseña Incorrecta.',
                 buttons: ['OK']
             });
+            this.ionLoaderService.dismissLoader();
             yield alert.present();
         });
     }
@@ -212,7 +213,7 @@ let LoginPage = class LoginPage {
     }
     onIniciarSesion() {
         this.onload();
-        // this.ionLoaderService.simpleLoader();
+        this.ionLoaderService.simpleLoader();
         try {
             let usuario, clave, respuestas;
             usuario = this.usuario;
@@ -228,20 +229,26 @@ let LoginPage = class LoginPage {
                     _variableglobal__WEBPACK_IMPORTED_MODULE_5__.Variableglobal.clave = this.datos.clave;
                     _variableglobal__WEBPACK_IMPORTED_MODULE_5__.Variableglobal.foto_usuario = this.datos.foto_usuario;
                     this.menuCtrl.enable(true);
-                    this.router.navigate(['/inicio-mapa']);
                     this.ionLoaderService.dismissLoader();
+                    this.router.navigate(['/inicio-mapa']);
                 }
                 else {
+                    this.ionLoaderService.dismissLoader();
                     this.ErrorAlert();
+                    this.ionLoaderService.dismissLoader();
                 }
             }, (error) => {
+                this.ionLoaderService.dismissLoader();
                 alert("Error: " + error.message);
-                alert("Error: " + error.message);
+                this.ionLoaderService.dismissLoader();
             });
         }
         catch (ex) {
+            this.ionLoaderService.dismissLoader();
             alert("Error: " + ex.message);
+            this.ionLoaderService.dismissLoader();
         }
+        this.ionLoaderService.dismissLoader();
     }
     toggleTextPassword() {
         this.isActiveToggleTextPassword = (this.isActiveToggleTextPassword == true) ? false : true;
@@ -292,7 +299,7 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony default export */ __webpack_exports__["default"] = ("<ion-content>\n\n  <ion-card-header>\n    <ion-card-title></ion-card-title>\n  </ion-card-header>\n  <div class=\"contenedor\">\n  <ion-card-content style=\"width: 100%; padding: 10px;\">\n    <div>\n      <img style=\"width: 120px;;margin:auto;display:block\" src=\"assets/imagenes/MisCallesLimpiasRDCircle.png\">\n      <ion-label class=\"centrar\" style=\"font-weight: bold; font-size: 22px;\">INICIAR SESIÓN</ion-label>\n    </div>\n\n<div class=\"login--inputs\" style=\"margin-top: 15px; margin-right: 15px;\">\n\n  <ion-item>\n    <ion-input oninput=\"this.value = this.value.toUpperCase()\" (keypress)=\"omit_special_char($event)\" placeholder=\"Usuario\" maxlength=\"50\" [(ngModel)]=\"usuario\" ></ion-input>\n  </ion-item>\n<!-- Prueba -->\n  <ion-item>\n      <ion-input oninput=\"this.value = this.value.toUpperCase()\" placeholder=\"Contraseña\" [type]=\"getType()\" [(ngModel)]=\"clave\" ></ion-input>\n      <ion-icon style=\"align-items: flex-end;\" name=\"eye\" (click)=\"toggleTextPassword()\"></ion-icon>\n  </ion-item>\n\n</div>\n \n  <div class=\"login--contraseña\" style=\"text-align: right; margin-right: 5px;\">\n    <ion-label style=\"font-size: 14px;\"><a href=\"./olvide-mi-contrasena\">¿Olvidaste tu contraseña?</a></ion-label>\n  </div>\n  \n  <div class=\"boton-login\">\n    <ion-button expand=\"block\" style=\"font-weight: bold;\" (click)=\"onIniciarSesion()\">INICIAR SESIÓN</ion-button>\n  </div>\n  \n  <div class=\"ion-text-center\" style=\"margin:auto; width:75%; padding-top: 30px;\">\n    <ion-label style=\"font-size: 14px;\">¿No tienes una cuenta?</ion-label>\n    <ion-label style=\"font-size: 14px;\"><a  href=\"./registro\"> Registrate aqui</a></ion-label>\n    </div>\n\n    \n  </ion-card-content>\n</div>\n<div style=\"margin-top: 140; text-align: center;\">\n  <ion-label style=\"font-size: 14px;\">Iniciando sesion aceptas los</ion-label>\n  <ion-label style=\"font-size: 14px;\"><a  href=\"./terminosycondiciones\"> terminos y condiciones</a></ion-label>\n\n\n</div>\n</ion-content>\n");
+/* harmony default export */ __webpack_exports__["default"] = ("<ion-content>\n\n  <ion-card-header>\n    <ion-card-title></ion-card-title>\n  </ion-card-header>\n  <div class=\"contenedor\">\n  <ion-card-content style=\"width: 100%; padding: 10px;\">\n    <div>\n      <img style=\"width: 120px;;margin:auto;display:block\" src=\"assets/imagenes/MisCallesLimpiasRDCircle.png\">\n      <ion-label class=\"centrar\" style=\"font-weight: bold; font-size: 22px;\">INICIAR SESIÓN</ion-label>\n    </div>\n\n<div class=\"login--inputs\" style=\"margin-top: 15px; margin-right: 15px;\">\n\n  <ion-item>\n    <ion-input oninput=\"this.value = this.value.toUpperCase()\" (keypress)=\"omit_special_char($event)\" (keydown)=\"onKeydown($event)\"  placeholder=\"Usuario\" maxlength=\"50\" [(ngModel)]=\"usuario\" ></ion-input>\n  </ion-item>\n<!-- Prueba -->\n  <ion-item>\n      <ion-input oninput=\"this.value = this.value.toUpperCase()\" placeholder=\"Contraseña\" [type]=\"getType()\" [(ngModel)]=\"clave\" ></ion-input>\n      <ion-icon style=\"align-items: flex-end;\" name=\"eye\" (click)=\"toggleTextPassword()\"></ion-icon>\n  </ion-item>\n\n</div>\n \n  <div class=\"login--contraseña\" style=\"text-align: right; margin-right: 5px;\">\n    <ion-label style=\"font-size: 14px;\"><a href=\"./olvide-mi-contrasena\">¿Olvidaste tu contraseña?</a></ion-label>\n  </div>\n  \n  <div class=\"boton-login\">\n    <ion-button expand=\"block\" style=\"font-weight: bold;\" (click)=\"onIniciarSesion()\">INICIAR SESIÓN</ion-button>\n  </div>\n  \n  <div class=\"ion-text-center\" style=\"margin:auto; width:75%; padding-top: 30px;\">\n    <ion-label style=\"font-size: 14px;\">¿No tienes una cuenta?</ion-label>\n    <ion-label style=\"font-size: 14px;\"><a  href=\"./registro\"> Registrate aqui</a></ion-label>\n    </div>\n\n    \n  </ion-card-content>\n</div>\n<div style=\"margin-top: 140; text-align: center;\">\n  <ion-label style=\"font-size: 14px;\">Iniciando sesion aceptas los</ion-label>\n  <ion-label style=\"font-size: 14px;\"><a  href=\"./terminosycondiciones\"> terminos y condiciones</a></ion-label>\n\n\n</div>\n</ion-content>\n");
 
 /***/ })
 

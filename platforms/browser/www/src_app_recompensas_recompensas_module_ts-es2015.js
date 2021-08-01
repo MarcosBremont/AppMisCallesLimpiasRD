@@ -198,13 +198,14 @@ __webpack_require__.r(__webpack_exports__);
 
 
 let RecompensasPage = class RecompensasPage {
-    constructor(ionLoaderService, servicio, servicioPuntos, servicioActualizarPuntos, registroRecibo, alertController, router) {
+    constructor(ionLoaderService, servicio, servicioPuntos, servicioActualizarPuntos, registroRecibo, alertController, alertCtrl, router) {
         this.ionLoaderService = ionLoaderService;
         this.servicio = servicio;
         this.servicioPuntos = servicioPuntos;
         this.servicioActualizarPuntos = servicioActualizarPuntos;
         this.registroRecibo = registroRecibo;
         this.alertController = alertController;
+        this.alertCtrl = alertCtrl;
         this.router = router;
         this.cod_usuario = _variableglobal__WEBPACK_IMPORTED_MODULE_7__.Variableglobal.cod_usuario;
     }
@@ -221,12 +222,36 @@ let RecompensasPage = class RecompensasPage {
         this.servicioActualizarPuntos.ActualizarPuntos(this.cod_puntos, this.cod_usuario, this.puntosAcumulados)
             .subscribe((data) => { this.recompensas = data; }, (error) => { console.log(error); });
     }
+    presentConfirm() {
+        return (0,tslib__WEBPACK_IMPORTED_MODULE_8__.__awaiter)(this, void 0, void 0, function* () {
+            let alert = this.alertCtrl.create({
+                header: "Prueba",
+                message: 'Do you want to buy this book?',
+                buttons: [
+                    {
+                        text: 'Cancel',
+                        role: 'cancel',
+                        handler: () => {
+                            console.log('Cancel clicked');
+                        }
+                    },
+                    {
+                        text: 'Buy',
+                        handler: () => {
+                            console.log('Buy clicked');
+                        }
+                    }
+                ]
+            });
+            (yield alert).present();
+        });
+    }
     AlertaRecompensaCambiada() {
         return (0,tslib__WEBPACK_IMPORTED_MODULE_8__.__awaiter)(this, void 0, void 0, function* () {
             const alert = yield this.alertController.create({
                 cssClass: 'my-custom-class',
                 header: '¡Enhorabuena!',
-                message: 'Su recompensa ha sido procesada con exito',
+                message: 'Su recompensa ha sido procesada con exito, por favor dirigirse a su punto de cambio mas cercano.',
                 buttons: ['OK']
             });
             yield alert.present();
@@ -335,6 +360,7 @@ RecompensasPage.ctorParameters = () => [
     { type: _Services_mispuntos_service__WEBPACK_IMPORTED_MODULE_6__.MispuntosService },
     { type: _Services_actualizarpuntos_service__WEBPACK_IMPORTED_MODULE_3__.ActualizarpuntosService },
     { type: _Services_registrorecibo_service__WEBPACK_IMPORTED_MODULE_5__.RegistroReciboService },
+    { type: _ionic_angular__WEBPACK_IMPORTED_MODULE_9__.AlertController },
     { type: _ionic_angular__WEBPACK_IMPORTED_MODULE_9__.AlertController },
     { type: _angular_router__WEBPACK_IMPORTED_MODULE_10__.Router }
 ];

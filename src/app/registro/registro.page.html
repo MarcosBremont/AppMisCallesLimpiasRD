@@ -29,14 +29,14 @@
       </ion-item>
 
       <ion-item>
-          <ion-input maxlength="13" placeholder="Cedula" required [(ngModel)]="cedula" id="cedula" (keypress)="restrictNumeric($event)"></ion-input>
+          <ion-input type="tel" maxlength="13" placeholder="Cedula" required [(ngModel)]="cedula" id="cedula" (keypress)="restrictNumeric($event)"></ion-input>
       </ion-item>
 
       <ion-item>
         <ion-input type="tel" [(ngModel)]="telefono" required  (keypress)="restrictNumeric($event)" maxlength="10" placeholder="Teléfono" id="telefono"></ion-input>      
     </ion-item>
 
-      <ion-label style="color: brown; padding-left: 13px;" [ngStyle]="{'color': (labelVisibility)? 'transparent': 'red'}">¡Este correo ya existe!</ion-label>
+      <ion-label style="color: brown; padding-left: 13px;" [ngClass]="{'hidden': isHidden}"  id="labelya" [ngStyle]="{'color': (labelVisibility)? 'transparent': 'red'}">¡Este correo ya existe!</ion-label>
 
       <div style="margin:auto; width:80%; padding-top: 40px;">
           <ion-button expand="block" style="font-weight: bold;" [disabled]="btnDisabled" [ngStyle]="{'color': (btnDisabled)? '#BDBEBD': 'white'}" (click)="onRegistroUsuario()">Registrarme</ion-button>

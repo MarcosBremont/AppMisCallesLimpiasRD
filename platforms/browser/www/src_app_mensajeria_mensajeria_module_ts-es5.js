@@ -282,7 +282,7 @@
           value: function ngOnInit() {
             var _this = this;
 
-            this.servicio.MostrarMensajes(1).subscribe(function (data) {
+            this.servicio.MostrarMensajes(this.cod_usuario).subscribe(function (data) {
               _this.Mensajes = data;
             }, function (error) {
               console.log(error);
@@ -327,7 +327,7 @@
       /* harmony default export */
 
 
-      __webpack_exports__["default"] = "<ion-header [translucent]=\"true\">\n\n    <ion-toolbar class=\"toolbar\">\n        <ion-buttons slot=\"start\">\n            <ion-menu-button></ion-menu-button>\n        </ion-buttons>\n\n        <ion-title>Mensajería</ion-title>\n    </ion-toolbar>\n\n</ion-header>\n\n<ion-content [fullscreen]=\"true\" class=\"contenedor-recibos\">\n    <ion-header collapse=\"condense\">\n        <ion-toolbar>\n            <ion-title size=\"large\">Mis Bonos</ion-title>\n        </ion-toolbar>\n    </ion-header>\n    <ion-list class=\"mensajeria\">\n\n        <ion-item class=\"mensajeria--elementos\" *ngFor=\"let mensaje of Mensajes\">\n\n            <ion-card class=\"mensajeria--elementos\">\n\n                <ion-label class=\"contenedor-recibos--label\">\n                    {{mensaje.cod_mensaje}}\n                </ion-label>\n\n                <div class=\"contenedor-recibos--label contenedor-recibos--label__codigo\">\n                    <ion-label slot=\"end\">\n                        {{mensaje.mensajes}}\n\n                    </ion-label>\n\n                </div>\n                <div class=\"contenedor-recibos--label contenedor-recibos--label__codigo\">\n                    <ion-label slot=\"end\">\n                        {{mensaje.fecha}}\n                    </ion-label>\n\n                </div>\n            </ion-card>\n\n        </ion-item>\n\n    </ion-list>\n</ion-content>";
+      __webpack_exports__["default"] = "<ion-header [translucent]=\"true\">\n\n    <ion-toolbar>\n        <ion-buttons slot=\"start\">\n            <ion-menu-button></ion-menu-button>\n        </ion-buttons>\n\n        <ion-title>Mensajería</ion-title>\n    </ion-toolbar>\n\n</ion-header>\n\n<ion-content [fullscreen]=\"true\" class=\"contenedor-recibos\">\n    <ion-header collapse=\"condense\">\n        <ion-toolbar>\n            <ion-title size=\"large\">Mis Bonos</ion-title>\n        </ion-toolbar>\n    </ion-header>\n    <ion-list class=\"mensajeria\">\n\n        <ion-item class=\"mensajeria--elementos\" *ngFor=\"let mensaje of Mensajes\">\n\n            <ion-card class=\"mensajeria--elementos\">\n\n                <!-- <ion-label class=\"contenedor-recibos--label\">\n                    {{mensaje.cod_mensaje}}\n                </ion-label> -->\n\n                <div>\n                    <p class=\"parrafo\">\n                        {{mensaje.mensajes}}\n\n                    </p>\n\n                </div>\n                <!-- <div class=\"contenedor-recibos--label contenedor-recibos--label__codigo\">\n                    <ion-label slot=\"end\">\n                        {{mensaje.fecha}}\n                    </ion-label>\n\n                </div> -->\n            </ion-card>\n\n        </ion-item>\n\n    </ion-list>\n</ion-content>";
       /***/
     }
   }]);

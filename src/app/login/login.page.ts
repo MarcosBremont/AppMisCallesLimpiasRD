@@ -50,6 +50,7 @@ export class LoginPage implements OnInit {
       message: 'Usuario o Contraseña Incorrecta.',
       buttons: ['OK']
     });
+    this.ionLoaderService.dismissLoader();
     await alert.present();
   }
 
@@ -97,7 +98,7 @@ export class LoginPage implements OnInit {
   }
   onIniciarSesion(){
     this.onload();
-    // this.ionLoaderService.simpleLoader();
+    this.ionLoaderService.simpleLoader();
 
     try
     {
@@ -119,25 +120,34 @@ export class LoginPage implements OnInit {
             Variableglobal.foto_usuario = this.datos.foto_usuario;
             this.menuCtrl.enable(true);
            
-            this.router.navigate(['/inicio-mapa']);
             this.ionLoaderService.dismissLoader();
+            this.router.navigate(['/inicio-mapa']);
 
           }
           else
           {
+            this.ionLoaderService.dismissLoader();
             this.ErrorAlert()
+            this.ionLoaderService.dismissLoader();
+
           }
          
         },
         (error)=>{
+          this.ionLoaderService.dismissLoader();
           alert("Error: " + error.message)
-          alert("Error: " + error.message)
+          this.ionLoaderService.dismissLoader();
+
         });
     }
     catch(ex)
     {
+      this.ionLoaderService.dismissLoader();
       alert("Error: " + ex.message)
+      this.ionLoaderService.dismissLoader();
+
     }
+    this.ionLoaderService.dismissLoader();
 
   }
  

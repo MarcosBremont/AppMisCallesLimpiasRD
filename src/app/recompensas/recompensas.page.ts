@@ -29,6 +29,7 @@ export class RecompensasPage implements OnInit {
     public servicioActualizarPuntos:ActualizarpuntosService,
     public registroRecibo: RegistroReciboService,
     public alertController: AlertController,
+    private alertCtrl: AlertController,
     private router:Router
     ) { 
       this.cod_usuario = Variableglobal.cod_usuario;
@@ -67,11 +68,38 @@ export class RecompensasPage implements OnInit {
     
   }
 
+  async presentConfirm() {
+    let alert = this.alertCtrl.create({
+      header: "Prueba",
+      message: 'Do you want to buy this book?',
+      buttons: [
+        {
+          text: 'Cancel',
+          role: 'cancel',
+          handler: () => {
+            console.log('Cancel clicked');
+          }
+        },
+        {
+          text: 'Buy',
+          handler: () => {
+            console.log('Buy clicked');
+          }
+        }
+      ]
+    });
+     (await alert).present();
+  }
+
+
+
+
+
   async AlertaRecompensaCambiada() {
     const alert = await this.alertController.create({
       cssClass: 'my-custom-class',
       header: '¡Enhorabuena!',
-      message: 'Su recompensa ha sido procesada con exito',
+      message: 'Su recompensa ha sido procesada con exito, por favor dirigirse a su punto de cambio mas cercano.',
       buttons: ['OK']
     });
     await alert.present();
