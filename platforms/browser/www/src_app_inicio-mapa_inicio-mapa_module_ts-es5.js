@@ -746,8 +746,9 @@
                 _this5.datos = data;
 
                 if (_this5.datos == true) {
-                  _this5.SuccesAlert(); // this.onLimpiar();
+                  _this5.SuccesAlert();
 
+                  _this5.isBtnRegistroVisible = false; // this.onLimpiar();
                 } else {
                   _this5.ErrorAlert();
                 }

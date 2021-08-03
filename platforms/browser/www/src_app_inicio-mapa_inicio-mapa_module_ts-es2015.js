@@ -425,6 +425,7 @@ let InicioMapaPage = class InicioMapaPage {
                 this.datos = data;
                 if (this.datos == true) {
                     this.SuccesAlert();
+                    this.isBtnRegistroVisible = false;
                     // this.onLimpiar();
                 }
                 else {

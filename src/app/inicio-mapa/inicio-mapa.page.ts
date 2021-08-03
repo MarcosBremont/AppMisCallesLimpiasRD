@@ -300,7 +300,7 @@ btnRegistro
       if (this.datos == true)
       {
         this.SuccesAlert();
-        
+        this.isBtnRegistroVisible = false;
         // this.onLimpiar();
       }
       else

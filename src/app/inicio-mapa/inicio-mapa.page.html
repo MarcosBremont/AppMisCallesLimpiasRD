@@ -46,7 +46,7 @@
      <div style="padding: 15px;">
 
        <ion-button expand="block" style="margin-top: 30PX;"  [hidden]="!isBtnCamaraVisible" (click)="takePicture()">TOMAR FOTO</ion-button>
-       <ion-button expand="block" style="color: green;" [hidden]="!isBtnRegistroVisible" (click)="onRegistroReporte()">ENVIAR REPORTE</ion-button>
+       <ion-button expand="block" [hidden]="!isBtnRegistroVisible" (click)="onRegistroReporte()">ENVIAR REPORTE</ion-button>
        
       </div>
     
