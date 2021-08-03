@@ -14,16 +14,48 @@
 
   <div id="map_canvas" style="z-index: 1 !important; overflow: auto !important;"></div>
 
-  <ion-fab vertical="bottom" horizontal="start" slot="fixed">
-      
-      <ion-fab-button style="margin: 10px;" [hidden]="!isBtnCamaraVisible" (click)="takePicture()">
-        <ion-icon name="camera"></ion-icon>
-    </ion-fab-button>
-    
-          <ion-fab-button style="margin: 10px;" [hidden]="!isBtnRegistroVisible" (click)="onRegistroReporte()">
-              <ion-icon name="checkmark"></ion-icon>
-          </ion-fab-button>
+  <ion-item button detail="false">
+    <div class="imagen-codigo">
+        <img src="assets/imagenes/moneda.png" class="imagen">
+    </div>
 
-  </ion-fab>
+    <div class="reportes--datos">
+       <label style="margin-left: 5px; font-size: 12px;"> Mis Puntos</label><br>
+       <label style="margin-left: 5px; font-size: 14px;"> 54</label>
+    </div>
+
+    <div class="imagen-codigo" style="margin-left: 120px;">
+      <img src="assets/imagenes/document.png" class="imagen">
+  </div>
+
+  <div class="reportes--datos">
+     <label style="margin-left: 5px; font-size: 12px;"> Mis Reportes</label><br>
+     <label style="margin-left: 5px; font-size: 14px;"> 54</label>
+  </div>
+  
+    
+</ion-item>
+
+
+  <!-- <div style="padding: 15px;"> -->
+    <!-- <img src="assets/imagenes/moneda.png"> 
+    <label style="font-size: 12px; margin-left: 2px; margin-bottom: 15px;">Mis Puntos</label><br>
+      <label style="font-size: 12px; margin-bottom: 10px;"> 45 </label>       
+    </div>
+     -->
+     <div style="padding: 15px;">
+
+       <ion-button expand="block" style="margin-top: 30PX;"  [hidden]="!isBtnCamaraVisible" (click)="takePicture()">TOMAR FOTO</ion-button>
+       <ion-button expand="block" style="color: green;" [hidden]="!isBtnRegistroVisible" (click)="onRegistroReporte()">ENVIAR REPORTE</ion-button>
+       
+      </div>
+    
+    <!-- <ion-fab-button style="margin: 10px;" [hidden]="!isBtnCamaraVisible" (click)="takePicture()">
+      <ion-icon name="camera"></ion-icon>
+    </ion-fab-button> -->
+          <!-- <ion-fab-button style="margin: 10px;" >
+              <ion-icon name="checkmark"></ion-icon>
+          </ion-fab-button> -->
+
 
 </ion-content>

@@ -1,4 +1,45 @@
 #map_canvas {
     width: 100%;
-    height: 100%;
+    height: 60%;
   }
+
+.contenido{
+		height:80px;
+		width:10%;
+		float:left;
+	}
+
+  .BotonesDeInicio {
+    box-shadow:inset 0px -3px 7px 0px #3880FF;
+    background:linear-gradient(to bottom, #3880FF 5%, #3880FF 100%);
+    background-color:#3880FF;
+    border-radius:9px;
+    display:inline-block;
+    cursor:pointer;
+    color:#ffffff;
+    font-family:Arial;
+    font-size:12px;
+    width: 85px;
+    height: 13px;
+    padding:26px 42px;
+    text-decoration:none;
+    text-shadow:0px 1px 0px #263666;
+  }
+  .BotonesDeInicio:hover {
+    background:linear-gradient(to bottom, #3880FF 5%, #3880FF 100%);
+    background-color:#3880FF;
+  }
+  .BotonesDeInicio:active {
+    position:relative;
+    top:1px;
+  }
+
+  .centrar
+{
+    display: block;
+    text-align: center;
+    line-height: 150%;
+    font-size: 18px;
+
+}
+  

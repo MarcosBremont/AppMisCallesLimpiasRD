@@ -331,10 +331,11 @@
 
                     case 2:
                       alert = _context.sent;
-                      _context.next = 5;
+                      this.ionLoaderService.dismissLoader();
+                      _context.next = 6;
                       return alert.present();
 
-                    case 5:
+                    case 6:
                     case "end":
                       return _context.stop();
                   }
@@ -414,15 +415,20 @@
                   _this2.ionLoaderService.dismissLoader();
 
                   _this2.ErrorAlert();
+
+                  _this2.ionLoaderService.dismissLoader();
                 }
               }, function (error) {
                 _this2.ionLoaderService.dismissLoader();
 
                 alert("Error: " + error.message);
+
+                _this2.ionLoaderService.dismissLoader();
               });
             } catch (ex) {
               this.ionLoaderService.dismissLoader();
               alert("Error: " + ex.message);
+              this.ionLoaderService.dismissLoader();
             }
 
             this.ionLoaderService.dismissLoader();
@@ -478,7 +484,7 @@
       /* harmony default export */
 
 
-      __webpack_exports__["default"] = ".css-input {\n  padding: 5px;\n  font-size: 16px;\n  border-width: 1px;\n  border-color: #CCCCCC;\n  background-color: #FFFFFF;\n  color: #000000;\n  border-style: solid;\n  border-radius: 5px;\n  box-shadow: 1px 0px 0px rgba(66, 66, 66, 0);\n  text-shadow: 0px 0px 5px rgba(66, 66, 66, 0.75);\n}\n\n.css-input:focus {\n  outline: none;\n}\n\n.centrar {\n  display: block;\n  text-align: center;\n  line-height: 150%;\n  font-size: 18px;\n}\n\n.terminosycondiciones {\n  margin-top: 10px;\n}\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbImxvZ2luLnBhZ2Uuc2NzcyJdLCJuYW1lcyI6W10sIm1hcHBpbmdzIjoiQUFBQTtFQUNJLFlBQUE7RUFDQSxlQUFBO0VBQ0EsaUJBQUE7RUFDQSxxQkFBQTtFQUNBLHlCQUFBO0VBQ0EsY0FBQTtFQUNBLG1CQUFBO0VBQ0Esa0JBQUE7RUFDQSwyQ0FBQTtFQUNBLCtDQUFBO0FBQ0o7O0FBQ0E7RUFDSSxhQUFBO0FBRUo7O0FBQ0E7RUFFSSxjQUFBO0VBQ0Esa0JBQUE7RUFDQSxpQkFBQTtFQUNBLGVBQUE7QUFDSjs7QUFHQTtFQUVBLGdCQUFBO0FBREEiLCJmaWxlIjoibG9naW4ucGFnZS5zY3NzIiwic291cmNlc0NvbnRlbnQiOlsiLmNzcy1pbnB1dCB7XG4gICAgcGFkZGluZzogNXB4O1xuICAgIGZvbnQtc2l6ZTogMTZweDtcbiAgICBib3JkZXItd2lkdGg6IDFweDtcbiAgICBib3JkZXItY29sb3I6ICNDQ0NDQ0M7XG4gICAgYmFja2dyb3VuZC1jb2xvcjogI0ZGRkZGRjtcbiAgICBjb2xvcjogIzAwMDAwMDtcbiAgICBib3JkZXItc3R5bGU6IHNvbGlkO1xuICAgIGJvcmRlci1yYWRpdXM6IDVweDtcbiAgICBib3gtc2hhZG93OiAxcHggMHB4IDBweCByZ2JhKDY2LDY2LDY2LC4wKTtcbiAgICB0ZXh0LXNoYWRvdzogMHB4IDBweCA1cHggcmdiYSg2Niw2Niw2NiwuNzUpO1xufVxuLmNzcy1pbnB1dDpmb2N1cyB7XG4gICAgb3V0bGluZTpub25lO1xufVxuXG4uY2VudHJhclxue1xuICAgIGRpc3BsYXk6IGJsb2NrO1xuICAgIHRleHQtYWxpZ246IGNlbnRlcjtcbiAgICBsaW5lLWhlaWdodDogMTUwJTtcbiAgICBmb250LXNpemU6IDE4cHg7XG5cbn1cblxuLnRlcm1pbm9zeWNvbmRpY2lvbmVzXG57XG5tYXJnaW4tdG9wOiAxMHB4O1xufSJdfQ== */";
+      __webpack_exports__["default"] = ".css-input {\n  padding: 5px;\n  font-size: 16px;\n  border-width: 1px;\n  border-color: #CCCCCC;\n  background-color: #FFFFFF;\n  color: #000000;\n  border-style: solid;\n  border-radius: 5px;\n  box-shadow: 1px 0px 0px rgba(66, 66, 66, 0);\n  text-shadow: 0px 0px 5px rgba(66, 66, 66, 0.75);\n}\n\n.css-input:focus {\n  outline: none;\n}\n\n.centrar {\n  display: block;\n  text-align: center;\n  line-height: 150%;\n  font-size: 18px;\n}\n\n.terminosycondiciones {\n  margin-top: 10px;\n}\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbImxvZ2luLnBhZ2Uuc2NzcyJdLCJuYW1lcyI6W10sIm1hcHBpbmdzIjoiQUFBQTtFQUNJLFlBQUE7RUFDQSxlQUFBO0VBQ0EsaUJBQUE7RUFDQSxxQkFBQTtFQUNBLHlCQUFBO0VBQ0EsY0FBQTtFQUNBLG1CQUFBO0VBQ0Esa0JBQUE7RUFDQSwyQ0FBQTtFQUNBLCtDQUFBO0FBQ0o7O0FBQ0E7RUFDSSxhQUFBO0FBRUo7O0FBQ0E7RUFFSSxjQUFBO0VBQ0Esa0JBQUE7RUFDQSxpQkFBQTtFQUNBLGVBQUE7QUFDSjs7QUFHQTtFQUVBLGdCQUFBO0FBREEiLCJmaWxlIjoibG9naW4ucGFnZS5zY3NzIiwic291cmNlc0NvbnRlbnQiOlsiLmNzcy1pbnB1dCB7XHJcbiAgICBwYWRkaW5nOiA1cHg7XHJcbiAgICBmb250LXNpemU6IDE2cHg7XHJcbiAgICBib3JkZXItd2lkdGg6IDFweDtcclxuICAgIGJvcmRlci1jb2xvcjogI0NDQ0NDQztcclxuICAgIGJhY2tncm91bmQtY29sb3I6ICNGRkZGRkY7XHJcbiAgICBjb2xvcjogIzAwMDAwMDtcclxuICAgIGJvcmRlci1zdHlsZTogc29saWQ7XHJcbiAgICBib3JkZXItcmFkaXVzOiA1cHg7XHJcbiAgICBib3gtc2hhZG93OiAxcHggMHB4IDBweCByZ2JhKDY2LDY2LDY2LC4wKTtcclxuICAgIHRleHQtc2hhZG93OiAwcHggMHB4IDVweCByZ2JhKDY2LDY2LDY2LC43NSk7XHJcbn1cclxuLmNzcy1pbnB1dDpmb2N1cyB7XHJcbiAgICBvdXRsaW5lOm5vbmU7XHJcbn1cclxuXHJcbi5jZW50cmFyXHJcbntcclxuICAgIGRpc3BsYXk6IGJsb2NrO1xyXG4gICAgdGV4dC1hbGlnbjogY2VudGVyO1xyXG4gICAgbGluZS1oZWlnaHQ6IDE1MCU7XHJcbiAgICBmb250LXNpemU6IDE4cHg7XHJcblxyXG59XHJcblxyXG4udGVybWlub3N5Y29uZGljaW9uZXNcclxue1xyXG5tYXJnaW4tdG9wOiAxMHB4O1xyXG59Il19 */";
       /***/
     },
 
@@ -490,7 +496,7 @@
       /* harmony default export */
 
 
-      __webpack_exports__["default"] = "<ion-content>\n\n  <ion-card-header>\n    <ion-card-title></ion-card-title>\n  </ion-card-header>\n  <div class=\"contenedor\">\n  <ion-card-content style=\"width: 100%; padding: 10px;\">\n    <div>\n      <img style=\"width: 120px;;margin:auto;display:block\" src=\"assets/imagenes/MisCallesLimpiasRDCircle.png\">\n      <ion-label class=\"centrar\" style=\"font-weight: bold; font-size: 22px;\">INICIAR SESIÓN</ion-label>\n    </div>\n\n<div class=\"login--inputs\" style=\"margin-top: 15px; margin-right: 15px;\">\n\n  <ion-item>\n    <ion-input oninput=\"this.value = this.value.toUpperCase()\" (keypress)=\"omit_special_char($event)\" (keydown)=\"onKeydown($event)\"  placeholder=\"Usuario\" maxlength=\"50\" [(ngModel)]=\"usuario\" ></ion-input>\n  </ion-item>\n<!-- Prueba -->\n  <ion-item>\n      <ion-input oninput=\"this.value = this.value.toUpperCase()\" placeholder=\"Contraseña\" [type]=\"getType()\" [(ngModel)]=\"clave\" ></ion-input>\n      <ion-icon style=\"align-items: flex-end;\" name=\"eye\" (click)=\"toggleTextPassword()\"></ion-icon>\n  </ion-item>\n\n</div>\n \n  <div class=\"login--contraseña\" style=\"text-align: right; margin-right: 5px;\">\n    <ion-label style=\"font-size: 14px;\"><a href=\"./olvide-mi-contrasena\">¿Olvidaste tu contraseña?</a></ion-label>\n  </div>\n  \n  <div class=\"boton-login\">\n    <ion-button expand=\"block\" style=\"font-weight: bold;\" (click)=\"onIniciarSesion()\">INICIAR SESIÓN</ion-button>\n  </div>\n  \n  <div class=\"ion-text-center\" style=\"margin:auto; width:75%; padding-top: 30px;\">\n    <ion-label style=\"font-size: 14px;\">¿No tienes una cuenta?</ion-label>\n    <ion-label style=\"font-size: 14px;\"><a  href=\"./registro\"> Registrate aqui</a></ion-label>\n    </div>\n\n    \n  </ion-card-content>\n</div>\n<div style=\"margin-top: 140; text-align: center;\">\n  <ion-label style=\"font-size: 14px;\">Iniciando sesion aceptas los</ion-label>\n  <ion-label style=\"font-size: 14px;\"><a  href=\"./terminosycondiciones\"> terminos y condiciones</a></ion-label>\n\n\n</div>\n</ion-content>\n";
+      __webpack_exports__["default"] = "<ion-content>\r\n\r\n  <ion-card-header>\r\n    <ion-card-title></ion-card-title>\r\n  </ion-card-header>\r\n  <div class=\"contenedor\">\r\n  <ion-card-content style=\"width: 100%; padding: 10px;\">\r\n    <div>\r\n      <img style=\"width: 120px;;margin:auto;display:block\" src=\"assets/imagenes/MisCallesLimpiasRDCircle.png\">\r\n      <ion-label class=\"centrar\" style=\"font-weight: bold; font-size: 22px;\">INICIAR SESIÓN</ion-label>\r\n    </div>\r\n\r\n<div class=\"login--inputs\" style=\"margin-top: 15px; margin-right: 15px;\">\r\n\r\n  <ion-item>\r\n    <ion-input oninput=\"this.value = this.value.toUpperCase()\" (keypress)=\"omit_special_char($event)\" (keydown)=\"onKeydown($event)\"  placeholder=\"Usuario\" maxlength=\"50\" [(ngModel)]=\"usuario\" ></ion-input>\r\n  </ion-item>\r\n<!-- Prueba -->\r\n  <ion-item>\r\n      <ion-input oninput=\"this.value = this.value.toUpperCase()\" placeholder=\"Contraseña\" [type]=\"getType()\" [(ngModel)]=\"clave\" ></ion-input>\r\n      <ion-icon style=\"align-items: flex-end;\" name=\"eye\" (click)=\"toggleTextPassword()\"></ion-icon>\r\n  </ion-item>\r\n\r\n</div>\r\n \r\n  <div class=\"login--contraseña\" style=\"text-align: right; margin-right: 5px;\">\r\n    <ion-label style=\"font-size: 14px;\"><a href=\"./olvide-mi-contrasena\">¿Olvidaste tu contraseña?</a></ion-label>\r\n  </div>\r\n  \r\n  <div class=\"boton-login\">\r\n    <ion-button expand=\"block\" style=\"font-weight: bold;\" (click)=\"onIniciarSesion()\">INICIAR SESIÓN</ion-button>\r\n  </div>\r\n  \r\n  <div class=\"ion-text-center\" style=\"margin:auto; width:75%; padding-top: 30px;\">\r\n    <ion-label style=\"font-size: 14px;\">¿No tienes una cuenta?</ion-label>\r\n    <ion-label style=\"font-size: 14px;\"><a  href=\"./registro\"> Registrate aqui</a></ion-label>\r\n    </div>\r\n\r\n    \r\n  </ion-card-content>\r\n</div>\r\n<div style=\"margin-top: 140; text-align: center;\">\r\n  <ion-label style=\"font-size: 14px;\">Iniciando sesion aceptas los</ion-label>\r\n  <ion-label style=\"font-size: 14px;\"><a  href=\"./terminosycondiciones\"> terminos y condiciones</a></ion-label>\r\n\r\n\r\n</div>\r\n</ion-content>\r\n";
       /***/
     }
   }]);
