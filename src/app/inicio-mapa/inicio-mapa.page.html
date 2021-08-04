@@ -14,14 +14,14 @@
 
   <div id="map_canvas" style="z-index: 1 !important; overflow: auto !important;"></div>
 
-  <ion-item button detail="false">
+  <ion-item lines="none" button detail="false">
     <div class="imagen-codigo">
         <img src="assets/imagenes/moneda.png" class="imagen">
     </div>
 
     <div class="reportes--datos">
        <label style="margin-left: 5px; font-size: 12px;"> Mis Puntos</label><br>
-       <label style="margin-left: 5px; font-size: 14px;"> {{}}</label>
+       <label id="cantidadrecibo" style="margin-left: 5px; font-size: 14px;"> {{puntosacumulados}}</label>
     </div>
 
     <div class="imagen-codigo" style="margin-left: 120px;">
@@ -30,21 +30,21 @@
 
   <div class="reportes--datos">
      <label style="margin-left: 5px; font-size: 12px;"> Mis Reportes</label><br>
-     <label style="margin-left: 5px; font-size: 14px;"> 54</label>
+     <label id="cantidadreportes" style="margin-left: 5px; font-size: 14px;"> {{cantidadreportes}}</label>
   </div>
   
   
     
 </ion-item>
 
-  <ion-item button detail="false">
+  <ion-item  lines="none" button detail="false">
     <div class="imagen-codigo">
         <img src="assets/imagenes/cuenta.png" class="imagen">
     </div>
 
     <div class="reportes--datos">
        <label style="margin-left: 5px; font-size: 12px;"> Mis Recibos</label><br>
-       <label style="margin-left: 5px; font-size: 14px;"> 54</label>
+       <label id="cantidadrecibos"  style="margin-left: 5px; font-size: 14px;">{{cantidadrecibo}}</label>
     </div>
 
     <div class="imagen-codigo" style="margin-left: 120px;">
@@ -53,7 +53,7 @@
 
   <div class="reportes--datos">
      <label style="margin-left: 5px; font-size: 12px;"> En Espera</label><br>
-     <label style="margin-left: 5px; font-size: 14px;"> 5</label>
+     <label id="reportesenespera" style="margin-left: 5px; font-size: 14px;">{{reportesenespera}}</label>
   </div>
   
   

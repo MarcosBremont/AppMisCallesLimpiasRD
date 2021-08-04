@@ -3,6 +3,7 @@ import { Component, OnInit } from '@angular/core';
 // import { Base64 } from '@ionic-native/base64/ngx';
 import { IonLoaderService } from '../Services/ion-loader.service';
 import { RegistroReporteService } from '../Services/registro-reporte.service';
+import { DatosInicioService } from '../Services/datos-inicio.service';
 import { DatosnecesarioService } from '../Services/datosnecesario.service';
 import { LocationService } from '../Services/location.service';
 import { Camera, CameraOptions } from '@ionic-native/camera/ngx';
@@ -37,6 +38,10 @@ export class InicioMapaPage implements OnInit {
   lng;
   fotos = null;
   cod_usuario;
+  puntosacumulados:any;
+  cantidadreportes:any;
+  reportesenespera:any;
+  cantidadrecibo:any;
   isBtnCamaraVisible = false;
   isBtnRegistroVisible = false;
   //Prueba
@@ -61,6 +66,7 @@ btnRegistro
     private ionLoaderService: IonLoaderService,
     public servicio2:DatosnecesarioService,
     public servicio3:RegistroReporteService,
+    public servicio4:DatosInicioService,
     public LocationService:LocationService,
     public loadingCtrl: LoadingController,
     public toastCtrl: ToastController,
@@ -108,13 +114,38 @@ btnRegistro
 
 
     async ngOnInit() {
-      this.VerificarSiHayFoto();
+    this.ionLoaderService.dismissLoader();
+    this.SlistaDatosInicio()
+    this.VerificarSiHayFoto();
     await this.platform.ready();
     this.onload();
     await this.loadMap();
     await this.localizar()
+    }
 
-    
+    SlistaDatosInicio(){
+      try {
+        console.log(this.cod_usuario)
+        console.log(Variableglobal.cod_usuario)
+        this.servicio4.obtenerDatosNecesarios(Variableglobal.cod_usuario).subscribe((data)=>{
+          this.datos = data;
+          this.datos
+
+         this.cantidadrecibo = data[0].cantidadrecibo
+         this.cantidadreportes = data[0].cantidadreportes
+         this.puntosacumulados = data[0].puntosacumulados
+         this.reportesenespera = data[0].reportesenespera
+        },
+        (error)=>{
+          // alert(error);
+          alert("Error: " + error.message)
+  
+        });
+      } 
+      catch (error) {
+        alert("Error: " + error.message)
+      }
+      
     }
     
     
@@ -132,6 +163,8 @@ btnRegistro
     }
 
     loadMap() {
+      this.ionLoaderService.dismissLoader();
+
       // Esta función inicializa la propiedad de clase
       // map
       // que va a contener el control de nuestro mapa de google
@@ -270,7 +303,7 @@ btnRegistro
 
   onRegistroReporte(){
 
-    this.ionLoaderService.simpleLoader();
+    // this.ionLoaderService.simpleLoader();
 
     this.servicio3.StreetNameGoogle(this.latitude,this.longitud).subscribe((data)=>{
       this.datos = data;
@@ -305,15 +338,19 @@ btnRegistro
       }
       else
       {
+
         this.ErrorAlert();
       }
-      this.ionLoaderService.dismissLoader();
 
     },
     (error)=>{
       alert("Error ");
+
     });
+
   });
+        // this.ionLoaderService.dismissLoader();
+
   }
   
 }

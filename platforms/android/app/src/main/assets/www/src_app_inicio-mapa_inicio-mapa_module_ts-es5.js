@@ -7,6 +7,73 @@
 
   (self["webpackChunkMisCalleslimpiasRD"] = self["webpackChunkMisCalleslimpiasRD"] || []).push([["src_app_inicio-mapa_inicio-mapa_module_ts"], {
     /***/
+    9290: function _(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
+      "use strict";
+
+      __webpack_require__.r(__webpack_exports__);
+      /* harmony export */
+
+
+      __webpack_require__.d(__webpack_exports__, {
+        /* harmony export */
+        "DatosInicioService": function DatosInicioService() {
+          return (
+            /* binding */
+            _DatosInicioService
+          );
+        }
+        /* harmony export */
+
+      });
+      /* harmony import */
+
+
+      var tslib__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(
+      /*! tslib */
+      64762);
+      /* harmony import */
+
+
+      var _angular_core__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(
+      /*! @angular/core */
+      37716);
+      /* harmony import */
+
+
+      var _angular_common_http__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(
+      /*! @angular/common/http */
+      91841);
+
+      var _DatosInicioService = /*#__PURE__*/function () {
+        function DatosInicioService(http) {
+          _classCallCheck(this, DatosInicioService);
+
+          this.http = http;
+        }
+
+        _createClass(DatosInicioService, [{
+          key: "obtenerDatosNecesarios",
+          value: function obtenerDatosNecesarios(cod_usuario) {
+            return this.http.get("http://api.miscalleslimpiasrd.tecnolora.com/api/MisCallesLimpiasRD/ConsultarListadodeDatosInicio?cod_usuario=" + cod_usuario + "");
+          }
+        }]);
+
+        return DatosInicioService;
+      }();
+
+      _DatosInicioService.ctorParameters = function () {
+        return [{
+          type: _angular_common_http__WEBPACK_IMPORTED_MODULE_0__.HttpClient
+        }];
+      };
+
+      _DatosInicioService = (0, tslib__WEBPACK_IMPORTED_MODULE_1__.__decorate)([(0, _angular_core__WEBPACK_IMPORTED_MODULE_2__.Injectable)({
+        providedIn: 'root'
+      })], _DatosInicioService);
+      /***/
+    },
+
+    /***/
     98260: function _(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
       "use strict";
 
@@ -307,7 +374,7 @@
       /* harmony import */
 
 
-      var tslib__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(
+      var tslib__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(
       /*! tslib */
       64762);
       /* harmony import */
@@ -325,7 +392,7 @@
       /* harmony import */
 
 
-      var _angular_core__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(
+      var _angular_core__WEBPACK_IMPORTED_MODULE_13__ = __webpack_require__(
       /*! @angular/core */
       37716);
       /* harmony import */
@@ -343,43 +410,49 @@
       /* harmony import */
 
 
-      var _Services_datosnecesario_service__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(
+      var _Services_datos_inicio_service__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(
+      /*! ../Services/datos-inicio.service */
+      9290);
+      /* harmony import */
+
+
+      var _Services_datosnecesario_service__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(
       /*! ../Services/datosnecesario.service */
       99736);
       /* harmony import */
 
 
-      var _Services_location_service__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(
+      var _Services_location_service__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(
       /*! ../Services/location.service */
       98260);
       /* harmony import */
 
 
-      var _ionic_native_camera_ngx__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(
+      var _ionic_native_camera_ngx__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(
       /*! @ionic-native/camera/ngx */
       84267);
       /* harmony import */
 
 
-      var _ionic_angular__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(
+      var _ionic_angular__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(
       /*! @ionic/angular */
       80476);
       /* harmony import */
 
 
-      var _angular_router__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(
+      var _angular_router__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(
       /*! @angular/router */
       39895);
       /* harmony import */
 
 
-      var _variableglobal__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(
+      var _variableglobal__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(
       /*! ../variableglobal */
       13296);
       /* harmony import */
 
 
-      var _ionic_native_google_maps__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(
+      var _ionic_native_google_maps__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(
       /*! @ionic-native/google-maps */
       37385); // import { base64StringToBlob } from 'blob-util';
       // import { Base64 } from '@ionic-native/base64/ngx';
@@ -387,12 +460,13 @@
 
       var _InicioMapaPage = /*#__PURE__*/function () {
         function InicioMapaPage( // private base64: Base64,
-        ionLoaderService, servicio2, servicio3, LocationService, loadingCtrl, toastCtrl, alertController, nav, platform, router, camera) {
+        ionLoaderService, servicio2, servicio3, servicio4, LocationService, loadingCtrl, toastCtrl, alertController, nav, platform, router, camera) {
           _classCallCheck(this, InicioMapaPage);
 
           this.ionLoaderService = ionLoaderService;
           this.servicio2 = servicio2;
           this.servicio3 = servicio3;
+          this.servicio4 = servicio4;
           this.LocationService = LocationService;
           this.loadingCtrl = loadingCtrl;
           this.toastCtrl = toastCtrl;
@@ -408,7 +482,7 @@
           this.id = '0';
           this.latitude = '0';
           this.longitud = '0';
-          this.usuario = _variableglobal__WEBPACK_IMPORTED_MODULE_7__.Variableglobal.nombre_usuario;
+          this.usuario = _variableglobal__WEBPACK_IMPORTED_MODULE_8__.Variableglobal.nombre_usuario;
           console.log(platform.height());
           this.height = platform.height();
         }
@@ -441,38 +515,63 @@
         }, {
           key: "pruebaCodNivel",
           value: function pruebaCodNivel() {
-            console.log(_variableglobal__WEBPACK_IMPORTED_MODULE_7__.Variableglobal.cod_nivel);
+            console.log(_variableglobal__WEBPACK_IMPORTED_MODULE_8__.Variableglobal.cod_nivel);
           } //Aqui arriba mando por consola el codigo nivel por un metodo para ver
           //pero si mando otra cosa me lo devuelve correctamente
 
         }, {
           key: "ngOnInit",
           value: function ngOnInit() {
-            return (0, tslib__WEBPACK_IMPORTED_MODULE_9__.__awaiter)(this, void 0, void 0, /*#__PURE__*/regeneratorRuntime.mark(function _callee() {
+            return (0, tslib__WEBPACK_IMPORTED_MODULE_10__.__awaiter)(this, void 0, void 0, /*#__PURE__*/regeneratorRuntime.mark(function _callee() {
               return regeneratorRuntime.wrap(function _callee$(_context) {
                 while (1) {
                   switch (_context.prev = _context.next) {
                     case 0:
+                      this.ionLoaderService.dismissLoader();
+                      this.SlistaDatosInicio();
                       this.VerificarSiHayFoto();
-                      _context.next = 3;
+                      _context.next = 5;
                       return this.platform.ready();
 
-                    case 3:
+                    case 5:
                       this.onload();
-                      _context.next = 6;
+                      _context.next = 8;
                       return this.loadMap();
 
-                    case 6:
-                      _context.next = 8;
+                    case 8:
+                      _context.next = 10;
                       return this.localizar();
 
-                    case 8:
+                    case 10:
                     case "end":
                       return _context.stop();
                   }
                 }
               }, _callee, this);
             }));
+          }
+        }, {
+          key: "SlistaDatosInicio",
+          value: function SlistaDatosInicio() {
+            var _this2 = this;
+
+            try {
+              console.log(this.cod_usuario);
+              console.log(_variableglobal__WEBPACK_IMPORTED_MODULE_8__.Variableglobal.cod_usuario);
+              this.servicio4.obtenerDatosNecesarios(_variableglobal__WEBPACK_IMPORTED_MODULE_8__.Variableglobal.cod_usuario).subscribe(function (data) {
+                _this2.datos = data;
+                _this2.datos;
+                _this2.cantidadrecibo = data[0].cantidadrecibo;
+                _this2.cantidadreportes = data[0].cantidadreportes;
+                _this2.puntosacumulados = data[0].puntosacumulados;
+                _this2.reportesenespera = data[0].reportesenespera;
+              }, function (error) {
+                // alert(error);
+                alert("Error: " + error.message);
+              });
+            } catch (error) {
+              alert("Error: " + error.message);
+            }
           }
         }, {
           key: "VerificarSiHayFoto",
@@ -488,13 +587,14 @@
         }, {
           key: "loadMap",
           value: function loadMap() {
-            // Esta función inicializa la propiedad de clase
+            this.ionLoaderService.dismissLoader(); // Esta función inicializa la propiedad de clase
             // map
             // que va a contener el control de nuestro mapa de google
             // Para crear nuestro mapa debemos enviar como parametros
             // el id del div en donde se va a renderizar el mapa (paso anterior)
             // y las opciones que configuran nuestro mapa
-            this.map = _ionic_native_google_maps__WEBPACK_IMPORTED_MODULE_8__.GoogleMaps.create("map_canvas", {
+
+            this.map = _ionic_native_google_maps__WEBPACK_IMPORTED_MODULE_9__.GoogleMaps.create("map_canvas", {
               camera: {
                 target: {
                   lat: -2.1537488,
@@ -508,10 +608,10 @@
         }, {
           key: "onload",
           value: function onload() {
-            var _this2 = this;
+            var _this3 = this;
 
             this.servicio2.obtenerDatosNecesarios(this.usuario).subscribe(function (data) {
-              _this2.datos = data;
+              _this3.datos = data;
             }, function (error) {
               alert("ErrorDeDatosNecesarios");
             });
@@ -519,8 +619,8 @@
         }, {
           key: "localizar",
           value: function localizar() {
-            return (0, tslib__WEBPACK_IMPORTED_MODULE_9__.__awaiter)(this, void 0, void 0, /*#__PURE__*/regeneratorRuntime.mark(function _callee2() {
-              var _this3 = this;
+            return (0, tslib__WEBPACK_IMPORTED_MODULE_10__.__awaiter)(this, void 0, void 0, /*#__PURE__*/regeneratorRuntime.mark(function _callee2() {
+              var _this4 = this;
 
               return regeneratorRuntime.wrap(function _callee2$(_context2) {
                 while (1) {
@@ -547,36 +647,36 @@
                       // para obtener nuestra ubicación actual
                       this.map.getMyLocation().then(function (location) {
                         // Una vez obtenida la ubicación cerramos el mensaje de diálogo
-                        _this3.loading.dismiss(); // Movemos la camara a nuestra ubicación con una pequeña animación
+                        _this4.loading.dismiss(); // Movemos la camara a nuestra ubicación con una pequeña animación
 
 
-                        _this3.map.animateCamera({
+                        _this4.map.animateCamera({
                           target: location.latLng,
                           zoom: 17,
                           tilt: 30
                         }); // Agregamos un nuevo marcador
 
 
-                        var marker = _this3.map.addMarkerSync({
+                        var marker = _this4.map.addMarkerSync({
                           title: "Estoy aquí!",
                           // snippet: "This plugin is awesome!",
                           position: location.latLng,
-                          animation: _ionic_native_google_maps__WEBPACK_IMPORTED_MODULE_8__.GoogleMapsAnimation.BOUNCE
+                          animation: _ionic_native_google_maps__WEBPACK_IMPORTED_MODULE_9__.GoogleMapsAnimation.BOUNCE
                         }); // Mostramos un InfoWindow
 
 
                         marker.showInfoWindow(); // Podemos configurar un evento que se ejecute cuando
                         // se haya dado clic
 
-                        marker.on(_ionic_native_google_maps__WEBPACK_IMPORTED_MODULE_8__.GoogleMapsEvent.MARKER_CLICK).subscribe(function () {
-                          _this3.showToast("clicked!");
+                        marker.on(_ionic_native_google_maps__WEBPACK_IMPORTED_MODULE_9__.GoogleMapsEvent.MARKER_CLICK).subscribe(function () {
+                          _this4.showToast("clicked!");
                         });
                       })["catch"](function (error) {
                         // En caso de que haya un problema en obtener la
                         // ubicación
-                        _this3.loading.dismiss();
+                        _this4.loading.dismiss();
 
-                        _this3.showToast(error.error_message);
+                        _this4.showToast(error.error_message);
                       });
 
                     case 7:
@@ -590,13 +690,13 @@
         }, {
           key: "Reportar",
           value: function Reportar() {
-            var _this4 = this;
+            var _this5 = this;
 
             // var urlGoogleStreetName = "https://maps.googleapis.com/maps/api/geocode/json?latlng=40.714224,-73.961452&key=YOUR_API_KEY";
             this.LocationService.getPosition().then(function (pos) {
               console.log(pos);
-              _this4.latitude = pos.lat;
-              _this4.longitud = pos.lng;
+              _this5.latitude = pos.lat;
+              _this5.longitud = pos.lng;
             });
           } // Función que muestra un Toast en la parte inferior
           // de la pantalla
@@ -604,7 +704,7 @@
         }, {
           key: "showToast",
           value: function showToast(mensaje) {
-            return (0, tslib__WEBPACK_IMPORTED_MODULE_9__.__awaiter)(this, void 0, void 0, /*#__PURE__*/regeneratorRuntime.mark(function _callee3() {
+            return (0, tslib__WEBPACK_IMPORTED_MODULE_10__.__awaiter)(this, void 0, void 0, /*#__PURE__*/regeneratorRuntime.mark(function _callee3() {
               var toast;
               return regeneratorRuntime.wrap(function _callee3$(_context3) {
                 while (1) {
@@ -632,7 +732,7 @@
         }, {
           key: "ImgAlert",
           value: function ImgAlert() {
-            return (0, tslib__WEBPACK_IMPORTED_MODULE_9__.__awaiter)(this, void 0, void 0, /*#__PURE__*/regeneratorRuntime.mark(function _callee4() {
+            return (0, tslib__WEBPACK_IMPORTED_MODULE_10__.__awaiter)(this, void 0, void 0, /*#__PURE__*/regeneratorRuntime.mark(function _callee4() {
               var alert;
               return regeneratorRuntime.wrap(function _callee4$(_context4) {
                 while (1) {
@@ -661,7 +761,7 @@
         }, {
           key: "ErrorAlert",
           value: function ErrorAlert() {
-            return (0, tslib__WEBPACK_IMPORTED_MODULE_9__.__awaiter)(this, void 0, void 0, /*#__PURE__*/regeneratorRuntime.mark(function _callee5() {
+            return (0, tslib__WEBPACK_IMPORTED_MODULE_10__.__awaiter)(this, void 0, void 0, /*#__PURE__*/regeneratorRuntime.mark(function _callee5() {
               var alert;
               return regeneratorRuntime.wrap(function _callee5$(_context5) {
                 while (1) {
@@ -691,7 +791,7 @@
         }, {
           key: "SuccesAlert",
           value: function SuccesAlert() {
-            return (0, tslib__WEBPACK_IMPORTED_MODULE_9__.__awaiter)(this, void 0, void 0, /*#__PURE__*/regeneratorRuntime.mark(function _callee6() {
+            return (0, tslib__WEBPACK_IMPORTED_MODULE_10__.__awaiter)(this, void 0, void 0, /*#__PURE__*/regeneratorRuntime.mark(function _callee6() {
               var alert;
               return regeneratorRuntime.wrap(function _callee6$(_context6) {
                 while (1) {
@@ -721,19 +821,19 @@
         }, {
           key: "onRegistroReporte",
           value: function onRegistroReporte() {
-            var _this5 = this;
+            var _this6 = this;
 
-            this.ionLoaderService.simpleLoader();
+            // this.ionLoaderService.simpleLoader();
             this.servicio3.StreetNameGoogle(this.latitude, this.longitud).subscribe(function (data) {
-              _this5.datos = data;
-              _this5.nombrecalle = _this5.datos.results[1].formatted_address;
-              console.log(_this5.nombrecalle);
+              _this6.datos = data;
+              _this6.nombrecalle = _this6.datos.results[1].formatted_address;
+              console.log(_this6.nombrecalle);
               var cod_usuario, ubicacion, lat, lng, fotos;
-              cod_usuario = _variableglobal__WEBPACK_IMPORTED_MODULE_7__.Variableglobal.cod_usuario;
-              ubicacion = _this5.nombrecalle;
-              lat = _this5.latitude;
-              lng = _this5.longitud;
-              fotos = _this5.currentImage;
+              cod_usuario = _variableglobal__WEBPACK_IMPORTED_MODULE_8__.Variableglobal.cod_usuario;
+              ubicacion = _this6.nombrecalle;
+              lat = _this6.latitude;
+              lng = _this6.longitud;
+              fotos = _this6.currentImage;
               var datos = {
                 "ubicacion": ubicacion,
                 "lat": lat,
@@ -742,22 +842,20 @@
                 "cod_usuario": cod_usuario
               };
 
-              _this5.servicio3.RegistroReporte(datos).subscribe(function (data) {
-                _this5.datos = data;
+              _this6.servicio3.RegistroReporte(datos).subscribe(function (data) {
+                _this6.datos = data;
 
-                if (_this5.datos == true) {
-                  _this5.SuccesAlert();
+                if (_this6.datos == true) {
+                  _this6.SuccesAlert();
 
-                  _this5.isBtnRegistroVisible = false; // this.onLimpiar();
+                  _this6.isBtnRegistroVisible = false; // this.onLimpiar();
                 } else {
-                  _this5.ErrorAlert();
+                  _this6.ErrorAlert();
                 }
-
-                _this5.ionLoaderService.dismissLoader();
               }, function (error) {
                 alert("Error ");
               });
-            });
+            }); // this.ionLoaderService.dismissLoader();
           }
         }]);
 
@@ -768,29 +866,31 @@
         return [{
           type: _Services_ion_loader_service__WEBPACK_IMPORTED_MODULE_2__.IonLoaderService
         }, {
-          type: _Services_datosnecesario_service__WEBPACK_IMPORTED_MODULE_4__.DatosnecesarioService
+          type: _Services_datosnecesario_service__WEBPACK_IMPORTED_MODULE_5__.DatosnecesarioService
         }, {
           type: _Services_registro_reporte_service__WEBPACK_IMPORTED_MODULE_3__.RegistroReporteService
         }, {
-          type: _Services_location_service__WEBPACK_IMPORTED_MODULE_5__.LocationService
+          type: _Services_datos_inicio_service__WEBPACK_IMPORTED_MODULE_4__.DatosInicioService
         }, {
-          type: _ionic_angular__WEBPACK_IMPORTED_MODULE_10__.LoadingController
+          type: _Services_location_service__WEBPACK_IMPORTED_MODULE_6__.LocationService
         }, {
-          type: _ionic_angular__WEBPACK_IMPORTED_MODULE_10__.ToastController
+          type: _ionic_angular__WEBPACK_IMPORTED_MODULE_11__.LoadingController
         }, {
-          type: _ionic_angular__WEBPACK_IMPORTED_MODULE_10__.AlertController
+          type: _ionic_angular__WEBPACK_IMPORTED_MODULE_11__.ToastController
         }, {
-          type: _ionic_angular__WEBPACK_IMPORTED_MODULE_10__.NavController
+          type: _ionic_angular__WEBPACK_IMPORTED_MODULE_11__.AlertController
         }, {
-          type: _ionic_angular__WEBPACK_IMPORTED_MODULE_10__.Platform
+          type: _ionic_angular__WEBPACK_IMPORTED_MODULE_11__.NavController
         }, {
-          type: _angular_router__WEBPACK_IMPORTED_MODULE_11__.Router
+          type: _ionic_angular__WEBPACK_IMPORTED_MODULE_11__.Platform
         }, {
-          type: _ionic_native_camera_ngx__WEBPACK_IMPORTED_MODULE_6__.Camera
+          type: _angular_router__WEBPACK_IMPORTED_MODULE_12__.Router
+        }, {
+          type: _ionic_native_camera_ngx__WEBPACK_IMPORTED_MODULE_7__.Camera
         }];
       };
 
-      _InicioMapaPage = (0, tslib__WEBPACK_IMPORTED_MODULE_9__.__decorate)([(0, _angular_core__WEBPACK_IMPORTED_MODULE_12__.Component)({
+      _InicioMapaPage = (0, tslib__WEBPACK_IMPORTED_MODULE_10__.__decorate)([(0, _angular_core__WEBPACK_IMPORTED_MODULE_13__.Component)({
         selector: 'app-inicio-mapa',
         template: _raw_loader_inicio_mapa_page_html__WEBPACK_IMPORTED_MODULE_0__["default"],
         styles: [_inicio_mapa_page_scss__WEBPACK_IMPORTED_MODULE_1__["default"]]
@@ -806,7 +906,7 @@
       /* harmony default export */
 
 
-      __webpack_exports__["default"] = "#map_canvas {\n  width: 100%;\n  height: 60%;\n}\n\n.contenido {\n  height: 80px;\n  width: 10%;\n  float: left;\n}\n\n.BotonesDeInicio {\n  box-shadow: inset 0px -3px 7px 0px #3880FF;\n  background: linear-gradient(to bottom, #3880FF 5%, #3880FF 100%);\n  background-color: #3880FF;\n  border-radius: 9px;\n  display: inline-block;\n  cursor: pointer;\n  color: #ffffff;\n  font-family: Arial;\n  font-size: 12px;\n  width: 85px;\n  height: 13px;\n  padding: 26px 42px;\n  text-decoration: none;\n  text-shadow: 0px 1px 0px #263666;\n}\n\n.BotonesDeInicio:hover {\n  background: linear-gradient(to bottom, #3880FF 5%, #3880FF 100%);\n  background-color: #3880FF;\n}\n\n.BotonesDeInicio:active {\n  position: relative;\n  top: 1px;\n}\n\n.centrar {\n  display: block;\n  text-align: center;\n  line-height: 150%;\n  font-size: 18px;\n}\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbImluaWNpby1tYXBhLnBhZ2Uuc2NzcyJdLCJuYW1lcyI6W10sIm1hcHBpbmdzIjoiQUFBQTtFQUNJLFdBQUE7RUFDQSxXQUFBO0FBQ0o7O0FBRUE7RUFDRSxZQUFBO0VBQ0EsVUFBQTtFQUNBLFdBQUE7QUFDRjs7QUFFRTtFQUNFLDBDQUFBO0VBQ0EsZ0VBQUE7RUFDQSx5QkFBQTtFQUNBLGtCQUFBO0VBQ0EscUJBQUE7RUFDQSxlQUFBO0VBQ0EsY0FBQTtFQUNBLGtCQUFBO0VBQ0EsZUFBQTtFQUNBLFdBQUE7RUFDQSxZQUFBO0VBQ0Esa0JBQUE7RUFDQSxxQkFBQTtFQUNBLGdDQUFBO0FBQ0o7O0FBQ0U7RUFDRSxnRUFBQTtFQUNBLHlCQUFBO0FBRUo7O0FBQUU7RUFDRSxrQkFBQTtFQUNBLFFBQUE7QUFHSjs7QUFBRTtFQUVFLGNBQUE7RUFDQSxrQkFBQTtFQUNBLGlCQUFBO0VBQ0EsZUFBQTtBQUVKIiwiZmlsZSI6ImluaWNpby1tYXBhLnBhZ2Uuc2NzcyIsInNvdXJjZXNDb250ZW50IjpbIiNtYXBfY2FudmFzIHtcbiAgICB3aWR0aDogMTAwJTtcbiAgICBoZWlnaHQ6IDYwJTtcbiAgfVxuXG4uY29udGVuaWRve1xuXHRcdGhlaWdodDo4MHB4O1xuXHRcdHdpZHRoOjEwJTtcblx0XHRmbG9hdDpsZWZ0O1xuXHR9XG5cbiAgLkJvdG9uZXNEZUluaWNpbyB7XG4gICAgYm94LXNoYWRvdzppbnNldCAwcHggLTNweCA3cHggMHB4ICMzODgwRkY7XG4gICAgYmFja2dyb3VuZDpsaW5lYXItZ3JhZGllbnQodG8gYm90dG9tLCAjMzg4MEZGIDUlLCAjMzg4MEZGIDEwMCUpO1xuICAgIGJhY2tncm91bmQtY29sb3I6IzM4ODBGRjtcbiAgICBib3JkZXItcmFkaXVzOjlweDtcbiAgICBkaXNwbGF5OmlubGluZS1ibG9jaztcbiAgICBjdXJzb3I6cG9pbnRlcjtcbiAgICBjb2xvcjojZmZmZmZmO1xuICAgIGZvbnQtZmFtaWx5OkFyaWFsO1xuICAgIGZvbnQtc2l6ZToxMnB4O1xuICAgIHdpZHRoOiA4NXB4O1xuICAgIGhlaWdodDogMTNweDtcbiAgICBwYWRkaW5nOjI2cHggNDJweDtcbiAgICB0ZXh0LWRlY29yYXRpb246bm9uZTtcbiAgICB0ZXh0LXNoYWRvdzowcHggMXB4IDBweCAjMjYzNjY2O1xuICB9XG4gIC5Cb3RvbmVzRGVJbmljaW86aG92ZXIge1xuICAgIGJhY2tncm91bmQ6bGluZWFyLWdyYWRpZW50KHRvIGJvdHRvbSwgIzM4ODBGRiA1JSwgIzM4ODBGRiAxMDAlKTtcbiAgICBiYWNrZ3JvdW5kLWNvbG9yOiMzODgwRkY7XG4gIH1cbiAgLkJvdG9uZXNEZUluaWNpbzphY3RpdmUge1xuICAgIHBvc2l0aW9uOnJlbGF0aXZlO1xuICAgIHRvcDoxcHg7XG4gIH1cblxuICAuY2VudHJhclxue1xuICAgIGRpc3BsYXk6IGJsb2NrO1xuICAgIHRleHQtYWxpZ246IGNlbnRlcjtcbiAgICBsaW5lLWhlaWdodDogMTUwJTtcbiAgICBmb250LXNpemU6IDE4cHg7XG5cbn1cbiAgIl19 */";
+      __webpack_exports__["default"] = "#map_canvas {\n  width: 100%;\n  height: 60%;\n}\n\n.contenido {\n  height: 80px;\n  width: 10%;\n  float: left;\n}\n\n.BotonesDeInicio {\n  box-shadow: inset 0px -3px 7px 0px #3880FF;\n  background: linear-gradient(to bottom, #3880FF 5%, #3880FF 100%);\n  background-color: #3880FF;\n  border-radius: 9px;\n  display: inline-block;\n  cursor: pointer;\n  color: #ffffff;\n  font-family: Arial;\n  font-size: 12px;\n  width: 85px;\n  height: 13px;\n  padding: 26px 42px;\n  text-decoration: none;\n  text-shadow: 0px 1px 0px #263666;\n}\n\n.BotonesDeInicio:hover {\n  background: linear-gradient(to bottom, #3880FF 5%, #3880FF 100%);\n  background-color: #3880FF;\n}\n\n.BotonesDeInicio:active {\n  position: relative;\n  top: 1px;\n}\n\n.centrar {\n  display: block;\n  text-align: center;\n  line-height: 150%;\n  font-size: 18px;\n}\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbImluaWNpby1tYXBhLnBhZ2Uuc2NzcyJdLCJuYW1lcyI6W10sIm1hcHBpbmdzIjoiQUFBQTtFQUNJLFdBQUE7RUFDQSxXQUFBO0FBQ0o7O0FBRUE7RUFDRSxZQUFBO0VBQ0EsVUFBQTtFQUNBLFdBQUE7QUFDRjs7QUFFRTtFQUNFLDBDQUFBO0VBQ0EsZ0VBQUE7RUFDQSx5QkFBQTtFQUNBLGtCQUFBO0VBQ0EscUJBQUE7RUFDQSxlQUFBO0VBQ0EsY0FBQTtFQUNBLGtCQUFBO0VBQ0EsZUFBQTtFQUNBLFdBQUE7RUFDQSxZQUFBO0VBQ0Esa0JBQUE7RUFDQSxxQkFBQTtFQUNBLGdDQUFBO0FBQ0o7O0FBQ0U7RUFDRSxnRUFBQTtFQUNBLHlCQUFBO0FBRUo7O0FBQUU7RUFDRSxrQkFBQTtFQUNBLFFBQUE7QUFHSjs7QUFBRTtFQUVFLGNBQUE7RUFDQSxrQkFBQTtFQUNBLGlCQUFBO0VBQ0EsZUFBQTtBQUVKIiwiZmlsZSI6ImluaWNpby1tYXBhLnBhZ2Uuc2NzcyIsInNvdXJjZXNDb250ZW50IjpbIiNtYXBfY2FudmFzIHtcclxuICAgIHdpZHRoOiAxMDAlO1xyXG4gICAgaGVpZ2h0OiA2MCU7XHJcbiAgfVxyXG5cclxuLmNvbnRlbmlkb3tcclxuXHRcdGhlaWdodDo4MHB4O1xyXG5cdFx0d2lkdGg6MTAlO1xyXG5cdFx0ZmxvYXQ6bGVmdDtcclxuXHR9XHJcblxyXG4gIC5Cb3RvbmVzRGVJbmljaW8ge1xyXG4gICAgYm94LXNoYWRvdzppbnNldCAwcHggLTNweCA3cHggMHB4ICMzODgwRkY7XHJcbiAgICBiYWNrZ3JvdW5kOmxpbmVhci1ncmFkaWVudCh0byBib3R0b20sICMzODgwRkYgNSUsICMzODgwRkYgMTAwJSk7XHJcbiAgICBiYWNrZ3JvdW5kLWNvbG9yOiMzODgwRkY7XHJcbiAgICBib3JkZXItcmFkaXVzOjlweDtcclxuICAgIGRpc3BsYXk6aW5saW5lLWJsb2NrO1xyXG4gICAgY3Vyc29yOnBvaW50ZXI7XHJcbiAgICBjb2xvcjojZmZmZmZmO1xyXG4gICAgZm9udC1mYW1pbHk6QXJpYWw7XHJcbiAgICBmb250LXNpemU6MTJweDtcclxuICAgIHdpZHRoOiA4NXB4O1xyXG4gICAgaGVpZ2h0OiAxM3B4O1xyXG4gICAgcGFkZGluZzoyNnB4IDQycHg7XHJcbiAgICB0ZXh0LWRlY29yYXRpb246bm9uZTtcclxuICAgIHRleHQtc2hhZG93OjBweCAxcHggMHB4ICMyNjM2NjY7XHJcbiAgfVxyXG4gIC5Cb3RvbmVzRGVJbmljaW86aG92ZXIge1xyXG4gICAgYmFja2dyb3VuZDpsaW5lYXItZ3JhZGllbnQodG8gYm90dG9tLCAjMzg4MEZGIDUlLCAjMzg4MEZGIDEwMCUpO1xyXG4gICAgYmFja2dyb3VuZC1jb2xvcjojMzg4MEZGO1xyXG4gIH1cclxuICAuQm90b25lc0RlSW5pY2lvOmFjdGl2ZSB7XHJcbiAgICBwb3NpdGlvbjpyZWxhdGl2ZTtcclxuICAgIHRvcDoxcHg7XHJcbiAgfVxyXG5cclxuICAuY2VudHJhclxyXG57XHJcbiAgICBkaXNwbGF5OiBibG9jaztcclxuICAgIHRleHQtYWxpZ246IGNlbnRlcjtcclxuICAgIGxpbmUtaGVpZ2h0OiAxNTAlO1xyXG4gICAgZm9udC1zaXplOiAxOHB4O1xyXG5cclxufVxyXG4gICJdfQ== */";
       /***/
     },
 
@@ -818,7 +918,7 @@
       /* harmony default export */
 
 
-      __webpack_exports__["default"] = "<ion-header [translucent]=\"true\">\n  <ion-toolbar>\n      <ion-buttons slot=\"start\">\n          <ion-menu-button persistent=true></ion-menu-button>\n        </ion-buttons>\n        <ion-title>Inicio</ion-title>\n    </ion-toolbar>\n</ion-header>\n\n\n\n\n<ion-content>\n\n  <div id=\"map_canvas\" style=\"z-index: 1 !important; overflow: auto !important;\"></div>\n\n  <ion-item button detail=\"false\">\n    <div class=\"imagen-codigo\">\n        <img src=\"assets/imagenes/moneda.png\" class=\"imagen\">\n    </div>\n\n    <div class=\"reportes--datos\">\n       <label style=\"margin-left: 5px; font-size: 12px;\"> Mis Puntos</label><br>\n       <label style=\"margin-left: 5px; font-size: 14px;\"> 54</label>\n    </div>\n\n    <div class=\"imagen-codigo\" style=\"margin-left: 120px;\">\n      <img src=\"assets/imagenes/document.png\" class=\"imagen\">\n  </div>\n\n  <div class=\"reportes--datos\">\n     <label style=\"margin-left: 5px; font-size: 12px;\"> Mis Reportes</label><br>\n     <label style=\"margin-left: 5px; font-size: 14px;\"> 54</label>\n  </div>\n  \n  \n    \n</ion-item>\n\n  <ion-item button detail=\"false\">\n    <div class=\"imagen-codigo\">\n        <img src=\"assets/imagenes/cuenta.png\" class=\"imagen\">\n    </div>\n\n    <div class=\"reportes--datos\">\n       <label style=\"margin-left: 5px; font-size: 12px;\"> Mis Recibos</label><br>\n       <label style=\"margin-left: 5px; font-size: 14px;\"> 54</label>\n    </div>\n\n    <div class=\"imagen-codigo\" style=\"margin-left: 120px;\">\n      <img src=\"assets/imagenes/document.png\" class=\"imagen\">\n  </div>\n\n  <div class=\"reportes--datos\">\n     <label style=\"margin-left: 5px; font-size: 12px;\"> En Espera</label><br>\n     <label style=\"margin-left: 5px; font-size: 14px;\"> 5</label>\n  </div>\n  \n  \n    \n</ion-item>\n\n\n  <!-- <div style=\"padding: 15px;\"> -->\n    <!-- <img src=\"assets/imagenes/moneda.png\"> \n    <label style=\"font-size: 12px; margin-left: 2px; margin-bottom: 15px;\">Mis Puntos</label><br>\n      <label style=\"font-size: 12px; margin-bottom: 10px;\"> 45 </label>       \n    </div>\n     -->\n     <div style=\"padding: 15px;\">\n\n       <ion-button expand=\"block\" style=\"margin-top: 30PX;\"  [hidden]=\"!isBtnCamaraVisible\" (click)=\"takePicture()\">TOMAR FOTO</ion-button>\n       <ion-button expand=\"block\" [hidden]=\"!isBtnRegistroVisible\" (click)=\"onRegistroReporte()\">ENVIAR REPORTE</ion-button>\n       \n      </div>\n    \n    <!-- <ion-fab-button style=\"margin: 10px;\" [hidden]=\"!isBtnCamaraVisible\" (click)=\"takePicture()\">\n      <ion-icon name=\"camera\"></ion-icon>\n    </ion-fab-button> -->\n          <!-- <ion-fab-button style=\"margin: 10px;\" >\n              <ion-icon name=\"checkmark\"></ion-icon>\n          </ion-fab-button> -->\n\n\n</ion-content>";
+      __webpack_exports__["default"] = "<ion-header [translucent]=\"true\">\r\n  <ion-toolbar>\r\n      <ion-buttons slot=\"start\">\r\n          <ion-menu-button persistent=true></ion-menu-button>\r\n        </ion-buttons>\r\n        <ion-title>Inicio</ion-title>\r\n    </ion-toolbar>\r\n</ion-header>\r\n\r\n\r\n\r\n\r\n<ion-content>\r\n\r\n  <div id=\"map_canvas\" style=\"z-index: 1 !important; overflow: auto !important;\"></div>\r\n\r\n  <ion-item lines=\"none\" button detail=\"false\">\r\n    <div class=\"imagen-codigo\">\r\n        <img src=\"assets/imagenes/moneda.png\" class=\"imagen\">\r\n    </div>\r\n\r\n    <div class=\"reportes--datos\">\r\n       <label style=\"margin-left: 5px; font-size: 12px;\"> Mis Puntos</label><br>\r\n       <label id=\"cantidadrecibo\" style=\"margin-left: 5px; font-size: 14px;\"> {{puntosacumulados}}</label>\r\n    </div>\r\n\r\n    <div class=\"imagen-codigo\" style=\"margin-left: 120px;\">\r\n      <img src=\"assets/imagenes/document.png\" class=\"imagen\">\r\n  </div>\r\n\r\n  <div class=\"reportes--datos\">\r\n     <label style=\"margin-left: 5px; font-size: 12px;\"> Mis Reportes</label><br>\r\n     <label id=\"cantidadreportes\" style=\"margin-left: 5px; font-size: 14px;\"> {{cantidadreportes}}</label>\r\n  </div>\r\n  \r\n  \r\n    \r\n</ion-item>\r\n\r\n  <ion-item  lines=\"none\" button detail=\"false\">\r\n    <div class=\"imagen-codigo\">\r\n        <img src=\"assets/imagenes/cuenta.png\" class=\"imagen\">\r\n    </div>\r\n\r\n    <div class=\"reportes--datos\">\r\n       <label style=\"margin-left: 5px; font-size: 12px;\"> Mis Recibos</label><br>\r\n       <label id=\"cantidadrecibos\"  style=\"margin-left: 5px; font-size: 14px;\">{{cantidadrecibo}}</label>\r\n    </div>\r\n\r\n    <div class=\"imagen-codigo\" style=\"margin-left: 120px;\">\r\n      <img src=\"assets/imagenes/document.png\" class=\"imagen\">\r\n  </div>\r\n\r\n  <div class=\"reportes--datos\">\r\n     <label style=\"margin-left: 5px; font-size: 12px;\"> En Espera</label><br>\r\n     <label id=\"reportesenespera\" style=\"margin-left: 5px; font-size: 14px;\">{{reportesenespera}}</label>\r\n  </div>\r\n  \r\n  \r\n    \r\n</ion-item>\r\n\r\n\r\n  <!-- <div style=\"padding: 15px;\"> -->\r\n    <!-- <img src=\"assets/imagenes/moneda.png\"> \r\n    <label style=\"font-size: 12px; margin-left: 2px; margin-bottom: 15px;\">Mis Puntos</label><br>\r\n      <label style=\"font-size: 12px; margin-bottom: 10px;\"> 45 </label>       \r\n    </div>\r\n     -->\r\n     <div style=\"padding: 15px;\">\r\n\r\n       <ion-button expand=\"block\" style=\"margin-top: 30PX;\"  [hidden]=\"!isBtnCamaraVisible\" (click)=\"takePicture()\">TOMAR FOTO</ion-button>\r\n       <ion-button expand=\"block\" [hidden]=\"!isBtnRegistroVisible\" (click)=\"onRegistroReporte()\">ENVIAR REPORTE</ion-button>\r\n       \r\n      </div>\r\n    \r\n    <!-- <ion-fab-button style=\"margin: 10px;\" [hidden]=\"!isBtnCamaraVisible\" (click)=\"takePicture()\">\r\n      <ion-icon name=\"camera\"></ion-icon>\r\n    </ion-fab-button> -->\r\n          <!-- <ion-fab-button style=\"margin: 10px;\" >\r\n              <ion-icon name=\"checkmark\"></ion-icon>\r\n          </ion-fab-button> -->\r\n\r\n\r\n</ion-content>";
       /***/
     }
   }]);

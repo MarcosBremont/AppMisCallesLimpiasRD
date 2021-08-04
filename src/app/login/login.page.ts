@@ -20,7 +20,9 @@ import { Variableglobal } from '../variableglobal';
   styleUrls: ['./login.page.scss'],
 })
 export class LoginPage implements OnInit {
-  
+  private isButtonVisible = true;
+  click : boolean = false;
+
   usuario;
   clave;
   public datos:any;
@@ -97,12 +99,10 @@ export class LoginPage implements OnInit {
     
   }
   onIniciarSesion(){
+    this.click = !this.click;
     this.onload();
-    this.ionLoaderService.simpleLoader();
-
     try
     {
-
         let usuario,clave, respuestas;
         usuario = this.usuario;
         clave = this.clave;
@@ -110,7 +110,6 @@ export class LoginPage implements OnInit {
           this.datos = data;
           if (this.datos.respuesta == "OK")
           {
-            
             Variableglobal.cod_usuario = this.datos.cod_usuario;
             Variableglobal.nombre_usuario = usuario;
             Variableglobal.correo_Usuario = this.datos.correo_Usuario;
@@ -119,36 +118,29 @@ export class LoginPage implements OnInit {
             Variableglobal.clave = this.datos.clave;
             Variableglobal.foto_usuario = this.datos.foto_usuario;
             this.menuCtrl.enable(true);
-           
-            this.ionLoaderService.dismissLoader();
+            this.click = !this.click;
             this.router.navigate(['/inicio-mapa']);
 
           }
           else
           {
-            this.ionLoaderService.dismissLoader();
+            this.click = !this.click;
             this.ErrorAlert()
-            this.ionLoaderService.dismissLoader();
-
           }
          
         },
         (error)=>{
-          this.ionLoaderService.dismissLoader();
+          this.click = !this.click;
           alert("Error: " + error.message)
-          this.ionLoaderService.dismissLoader();
-
         });
     }
     catch(ex)
     {
-      this.ionLoaderService.dismissLoader();
+      this.click = !this.click;
+
+
       alert("Error: " + ex.message)
-      this.ionLoaderService.dismissLoader();
-
     }
-    this.ionLoaderService.dismissLoader();
-
   }
  
   public toggleTextPassword(): void{
