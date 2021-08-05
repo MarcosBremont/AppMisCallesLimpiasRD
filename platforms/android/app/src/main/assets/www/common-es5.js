@@ -875,10 +875,10 @@
 
         _createClass(RegistroService, [{
           key: "RegistroUsuario",
-          value: function RegistroUsuario(usuario, email, clave, cedula, telefono, estado) {
+          value: function RegistroUsuario(usuario, email, clave, cedula, telefono, estado, cod_ayuntamiento) {
             //   return this.http.get("https://localhost:44371/api/MisCallesLimpiasRD/RegistrarUsuario/"+usuario+"/"+email+"/"+clave+"/"+cedula+"/"+telefono+"/"+"");
             // }
-            return this.http.get("http://api.miscalleslimpiasrd.tecnolora.com/api/MisCallesLimpiasRD/RegistrarUsuario?usuario=" + usuario + "&correo_Usuario=" + email + "&cedula_usuario=" + cedula + "&clave=" + clave + "&telefono_Usuario=" + telefono + "&estado=" + estado + "");
+            return this.http.get("http://api.miscalleslimpiasrd.tecnolora.com/api/MisCallesLimpiasRD/RegistrarUsuario?usuario=" + usuario + "&correo_Usuario=" + email + "&cedula_usuario=" + cedula + "&clave=" + clave + "&telefono_Usuario=" + telefono + "&estado=" + estado + "&cod_ayuntamiento=" + cod_ayuntamiento + "");
           }
         }, {
           key: "VerificarCorreoElectronico",
