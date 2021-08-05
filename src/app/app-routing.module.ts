@@ -60,9 +60,14 @@ const routes: Routes = [
   {
     path: 'terminosycondiciones',
     loadChildren: () => import('./terminosycondiciones/terminosycondiciones.module').then( m => m.TerminosycondicionesPageModule)
-  },  {
+  },
+  {
     path: 'mensajeria',
     loadChildren: () => import('./mensajeria/mensajeria.module').then( m => m.MensajeriaPageModule)
+  },
+  {
+    path: 'modal-popover',
+    loadChildren: () => import('./modal-popover/modal-popover.module').then( m => m.ModalPopoverPageModule)
   }
 
 ];
