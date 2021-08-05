@@ -17,9 +17,9 @@
             <ion-title size="large">Mis Bonos</ion-title>
         </ion-toolbar>
     </ion-header>
-    <ion-list>
+    <ion-list *ngFor="let recibo of Recibos" class="recibos--bonos">
 
-        <ion-item *ngFor="let recibo of Recibos" [routerLink]="['/recompensas']">
+        <ion-item>
 
 
             <ion-avatar class="aa" slot="start">
@@ -38,10 +38,10 @@
             </div>
 
 
-            
+
         </ion-item>
-        
-        
+
+        <p>Hola mundo</p>
 
     </ion-list>
 </ion-content>

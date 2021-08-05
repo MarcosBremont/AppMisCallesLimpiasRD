@@ -23,7 +23,7 @@ export class RecibosBonosPage implements OnInit {
     
     
 
-    this.servicio.MostrarRecibos(this.cod_usuario)
+    this.servicio.MostrarRecibos(this.cod_usuario=66)
     .subscribe(
       (data)=>{this.Recibos = data;},
       (error)=>{console.log(error);}
