@@ -16,6 +16,7 @@ export class ModalPopoverPage implements OnInit {
   @Input() nombreproducto: string;
   @Input() usuario: string;
   @Input() cod_bono: number;
+  @Input() fechaCompleta: string;
   
   myDate: String = new Date().toISOString();
 

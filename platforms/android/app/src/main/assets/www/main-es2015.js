@@ -140,6 +140,10 @@ const routes = [
     {
         path: 'mensajeria',
         loadChildren: () => Promise.all(/*! import() */[__webpack_require__.e("common"), __webpack_require__.e("src_app_mensajeria_mensajeria_module_ts")]).then(__webpack_require__.bind(__webpack_require__, /*! ./mensajeria/mensajeria.module */ 7071)).then(m => m.MensajeriaPageModule)
+    },
+    {
+        path: 'modal-popover',
+        loadChildren: () => Promise.all(/*! import() */[__webpack_require__.e("common"), __webpack_require__.e("src_app_modal-popover_modal-popover_module_ts")]).then(__webpack_require__.bind(__webpack_require__, /*! ./modal-popover/modal-popover.module */ 20533)).then(m => m.ModalPopoverPageModule)
     }
 ];
 let AppRoutingModule = class AppRoutingModule {

@@ -306,6 +306,8 @@
           this.alertController = alertController;
           this.router = router;
           this.navCtrl = navCtrl;
+          this.isButtonVisible = true;
+          this.click = false;
           this.isActiveToggleTextPassword = true;
         }
 
@@ -387,8 +389,8 @@
           value: function onIniciarSesion() {
             var _this2 = this;
 
+            this.click = !this.click;
             this.onload();
-            this.ionLoaderService.simpleLoader();
 
             try {
               var usuario, clave, respuestas;
@@ -408,30 +410,22 @@
 
                   _this2.menuCtrl.enable(true);
 
-                  _this2.ionLoaderService.dismissLoader();
+                  _this2.click = !_this2.click;
 
                   _this2.router.navigate(['/inicio-mapa']);
                 } else {
-                  _this2.ionLoaderService.dismissLoader();
+                  _this2.click = !_this2.click;
 
                   _this2.ErrorAlert();
-
-                  _this2.ionLoaderService.dismissLoader();
                 }
               }, function (error) {
-                _this2.ionLoaderService.dismissLoader();
-
+                _this2.click = !_this2.click;
                 alert("Error: " + error.message);
-
-                _this2.ionLoaderService.dismissLoader();
               });
             } catch (ex) {
-              this.ionLoaderService.dismissLoader();
+              this.click = !this.click;
               alert("Error: " + ex.message);
-              this.ionLoaderService.dismissLoader();
             }
-
-            this.ionLoaderService.dismissLoader();
           }
         }, {
           key: "toggleTextPassword",
@@ -496,7 +490,7 @@
       /* harmony default export */
 
 
-      __webpack_exports__["default"] = "<ion-content>\r\n\r\n  <ion-card-header>\r\n    <ion-card-title></ion-card-title>\r\n  </ion-card-header>\r\n  <div class=\"contenedor\">\r\n  <ion-card-content style=\"width: 100%; padding: 10px;\">\r\n    <div>\r\n      <img style=\"width: 120px;;margin:auto;display:block\" src=\"assets/imagenes/MisCallesLimpiasRDCircle.png\">\r\n      <ion-label class=\"centrar\" style=\"font-weight: bold; font-size: 22px;\">INICIAR SESIÓN</ion-label>\r\n    </div>\r\n\r\n<div class=\"login--inputs\" style=\"margin-top: 15px; margin-right: 15px;\">\r\n\r\n  <ion-item>\r\n    <ion-input oninput=\"this.value = this.value.toUpperCase()\" (keypress)=\"omit_special_char($event)\" (keydown)=\"onKeydown($event)\"  placeholder=\"Usuario\" maxlength=\"50\" [(ngModel)]=\"usuario\" ></ion-input>\r\n  </ion-item>\r\n<!-- Prueba -->\r\n  <ion-item>\r\n      <ion-input oninput=\"this.value = this.value.toUpperCase()\" placeholder=\"Contraseña\" [type]=\"getType()\" [(ngModel)]=\"clave\" ></ion-input>\r\n      <ion-icon style=\"align-items: flex-end;\" name=\"eye\" (click)=\"toggleTextPassword()\"></ion-icon>\r\n  </ion-item>\r\n\r\n</div>\r\n \r\n  <div class=\"login--contraseña\" style=\"text-align: right; margin-right: 5px;\">\r\n    <ion-label style=\"font-size: 14px;\"><a href=\"./olvide-mi-contrasena\">¿Olvidaste tu contraseña?</a></ion-label>\r\n  </div>\r\n  \r\n  <div class=\"boton-login\">\r\n    <ion-button expand=\"block\" style=\"font-weight: bold;\" (click)=\"onIniciarSesion()\">INICIAR SESIÓN</ion-button>\r\n  </div>\r\n  \r\n  <div class=\"ion-text-center\" style=\"margin:auto; width:75%; padding-top: 30px;\">\r\n    <ion-label style=\"font-size: 14px;\">¿No tienes una cuenta?</ion-label>\r\n    <ion-label style=\"font-size: 14px;\"><a  href=\"./registro\"> Registrate aqui</a></ion-label>\r\n    </div>\r\n\r\n    \r\n  </ion-card-content>\r\n</div>\r\n<div style=\"margin-top: 140; text-align: center;\">\r\n  <ion-label style=\"font-size: 14px;\">Iniciando sesion aceptas los</ion-label>\r\n  <ion-label style=\"font-size: 14px;\"><a  href=\"./terminosycondiciones\"> terminos y condiciones</a></ion-label>\r\n\r\n\r\n</div>\r\n</ion-content>\r\n";
+      __webpack_exports__["default"] = "<ion-content>\r\n\r\n  <ion-card-header>\r\n    <ion-card-title></ion-card-title>\r\n  </ion-card-header>\r\n  <div class=\"contenedor\">\r\n  <ion-card-content style=\"width: 100%; padding: 10px;\">\r\n    <div>\r\n      <img style=\"width: 120px;;margin:auto;display:block\" src=\"assets/imagenes/MisCallesLimpiasRDCircle.png\">\r\n      <ion-label class=\"centrar\" style=\"font-weight: bold; font-size: 22px;\">INICIAR SESIÓN</ion-label>\r\n    </div>\r\n\r\n<div class=\"login--inputs\" style=\"margin-top: 15px; margin-right: 15px;\">\r\n\r\n  <ion-item>\r\n    <ion-input oninput=\"this.value = this.value.toUpperCase()\" (keypress)=\"omit_special_char($event)\" (keydown)=\"onKeydown($event)\"  placeholder=\"Usuario\" maxlength=\"50\" [(ngModel)]=\"usuario\" ></ion-input>\r\n  </ion-item>\r\n<!-- Prueba -->\r\n  <ion-item>\r\n      <ion-input oninput=\"this.value = this.value.toUpperCase()\" placeholder=\"Contraseña\" [type]=\"getType()\" [(ngModel)]=\"clave\" ></ion-input>\r\n      <ion-icon style=\"align-items: flex-end;\" name=\"eye\" (click)=\"toggleTextPassword()\"></ion-icon>\r\n  </ion-item>\r\n\r\n</div>\r\n \r\n  <div class=\"login--contraseña\" style=\"text-align: right; margin-right: 5px;\">\r\n    <ion-label style=\"font-size: 14px;\"><a href=\"./olvide-mi-contrasena\">¿Olvidaste tu contraseña?</a></ion-label>\r\n  </div>\r\n  \r\n  <div class=\"boton-login\">\r\n    <ion-button expand=\"block\" [disabled]=\"click\" style=\"font-weight: bold;\" (click)=\"onIniciarSesion()\">INICIAR SESIÓN</ion-button>\r\n  </div>\r\n  \r\n  <div class=\"ion-text-center\" style=\"margin:auto; width:75%; padding-top: 30px;\">\r\n    <ion-label style=\"font-size: 14px;\">¿No tienes una cuenta?</ion-label>\r\n    <ion-label style=\"font-size: 14px;\"><a  href=\"./registro\"> Registrate aqui</a></ion-label>\r\n    </div>\r\n\r\n    \r\n  </ion-card-content>\r\n</div>\r\n<div style=\"margin-top: 140; text-align: center;\">\r\n  <ion-label style=\"font-size: 14px;\">Iniciando sesion aceptas los</ion-label>\r\n  <ion-label style=\"font-size: 14px;\"><a  href=\"./terminosycondiciones\"> terminos y condiciones</a></ion-label>\r\n\r\n\r\n</div>\r\n</ion-content>\r\n";
       /***/
     }
   }]);

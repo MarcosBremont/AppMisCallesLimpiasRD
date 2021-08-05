@@ -18,7 +18,7 @@ export class RecibosBonosPage implements OnInit {
   cod_bono:any;
   Recibos:any;
   misPuntos:any;
-
+  fechaCompleta:any;
 
   constructor(public servicio:RegistroReciboService, public servicio2:MispuntosService, public modalCtrl: ModalController) {
     this.cod_usuario = Variableglobal.cod_usuario;
@@ -33,8 +33,10 @@ export class RecibosBonosPage implements OnInit {
       componentProps: {
         'cod_bono': this.cod_bono,
         'usuario': Variableglobal.nombre_usuario,
-        'nombreproducto': this.nombreproducto
+        'nombreproducto': this.nombreproducto,
+        'fechaCompleta': this.fechaCompleta
       }
+      
     });
 
     modal.onDidDismiss().then((modalDataResponse) => {
@@ -43,6 +45,21 @@ export class RecibosBonosPage implements OnInit {
         console.log('Modal Sent Data : '+ modalDataResponse.data);
       }
     });
+
+    this.cod_usuario = Variableglobal.cod_usuario; 
+
+    this.servicio.MostrarRecibos(this.cod_usuario)
+    .subscribe(
+      (data)=>{this.Recibos = data;},
+      
+      (error)=>{console.log(error);}
+    ),
+  
+      this.servicio2.obtenerMisPuntos(this.cod_usuario)
+      .subscribe(
+        (data)=>{this.misPuntos = data;},
+        (error)=>{console.log(error);}
+      )
 
     return await modal.present();
   }
@@ -58,6 +75,7 @@ export class RecibosBonosPage implements OnInit {
     this.servicio.MostrarRecibos(this.cod_usuario)
     .subscribe(
       (data)=>{this.Recibos = data;},
+      
       (error)=>{console.log(error);}
     ),
   
@@ -71,8 +89,22 @@ export class RecibosBonosPage implements OnInit {
   showAlert(i) {
     this.nombreproducto=((document.getElementById('nombreproducto' + i) as HTMLIonLabelElement).textContent);
     this.cod_bono=((document.getElementById('cod_bono' + i) as HTMLIonLabelElement).textContent);
-this.initModal();
-    console.log(this.nombreproducto)
+
+    var nuevoformatocodigobono = this.cod_bono.replace('Recibo No.','');
+
+    this.servicio.MostrarRecibosPorID(nuevoformatocodigobono)
+    .subscribe(
+      (data)=>
+      {
+        this.Recibos = data;
+        this.fechaCompleta = this.Recibos[0].fechaCompleta
+        this.initModal();
+      },
+      (error)=>{console.log(error);}
+      )
+
+      
+
   }
 
 

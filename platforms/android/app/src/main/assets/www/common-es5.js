@@ -968,6 +968,11 @@
           value: function MostrarRecibos(cod_usuario) {
             return this.http.get("http://api.miscalleslimpiasrd.tecnolora.com/api/MisCallesLimpiasRD/consultarrecibosporid?cod_usuario=" + cod_usuario + "");
           }
+        }, {
+          key: "MostrarRecibosPorID",
+          value: function MostrarRecibosPorID(nuevoformatocodigobono) {
+            return this.http.get("http://api.miscalleslimpiasrd.tecnolora.com/api/MisCallesLimpiasRD/consultarrecibosporsuidrecibo?cod_recibo=" + nuevoformatocodigobono + "");
+          }
         }]);
 
         return RegistroReciboService;
@@ -982,6 +987,126 @@
       _RegistroReciboService = (0, tslib__WEBPACK_IMPORTED_MODULE_1__.__decorate)([(0, _angular_core__WEBPACK_IMPORTED_MODULE_2__.Injectable)({
         providedIn: 'root'
       })], _RegistroReciboService);
+      /***/
+    },
+
+    /***/
+    71462: function _(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
+      "use strict";
+
+      __webpack_require__.r(__webpack_exports__);
+      /* harmony export */
+
+
+      __webpack_require__.d(__webpack_exports__, {
+        /* harmony export */
+        "ModalPopoverPage": function ModalPopoverPage() {
+          return (
+            /* binding */
+            _ModalPopoverPage
+          );
+        }
+        /* harmony export */
+
+      });
+      /* harmony import */
+
+
+      var tslib__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(
+      /*! tslib */
+      64762);
+      /* harmony import */
+
+
+      var _raw_loader_modal_popover_page_html__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(
+      /*! !raw-loader!./modal-popover.page.html */
+      15734);
+      /* harmony import */
+
+
+      var _modal_popover_page_scss__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(
+      /*! ./modal-popover.page.scss */
+      86047);
+      /* harmony import */
+
+
+      var _angular_core__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(
+      /*! @angular/core */
+      37716);
+      /* harmony import */
+
+
+      var _ionic_angular__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(
+      /*! @ionic/angular */
+      80476);
+      /* harmony import */
+
+
+      var _angular_common__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(
+      /*! @angular/common */
+      38583);
+
+      var _ModalPopoverPage = /*#__PURE__*/function () {
+        function ModalPopoverPage(modalCtr) {
+          _classCallCheck(this, ModalPopoverPage);
+
+          this.modalCtr = modalCtr;
+          this.myDate = new Date().toISOString();
+        }
+
+        _createClass(ModalPopoverPage, [{
+          key: "ngOnInit",
+          value: function ngOnInit() {}
+        }, {
+          key: "close",
+          value: function close() {
+            return (0, tslib__WEBPACK_IMPORTED_MODULE_2__.__awaiter)(this, void 0, void 0, /*#__PURE__*/regeneratorRuntime.mark(function _callee3() {
+              return regeneratorRuntime.wrap(function _callee3$(_context3) {
+                while (1) {
+                  switch (_context3.prev = _context3.next) {
+                    case 0:
+                      _context3.next = 2;
+                      return this.modalCtr.dismiss();
+
+                    case 2:
+                    case "end":
+                      return _context3.stop();
+                  }
+                }
+              }, _callee3, this);
+            }));
+          }
+        }]);
+
+        return ModalPopoverPage;
+      }();
+
+      _ModalPopoverPage.ctorParameters = function () {
+        return [{
+          type: _ionic_angular__WEBPACK_IMPORTED_MODULE_3__.ModalController
+        }];
+      };
+
+      _ModalPopoverPage.propDecorators = {
+        nombreproducto: [{
+          type: _angular_core__WEBPACK_IMPORTED_MODULE_4__.Input
+        }],
+        usuario: [{
+          type: _angular_core__WEBPACK_IMPORTED_MODULE_4__.Input
+        }],
+        cod_bono: [{
+          type: _angular_core__WEBPACK_IMPORTED_MODULE_4__.Input
+        }],
+        fechaCompleta: [{
+          type: _angular_core__WEBPACK_IMPORTED_MODULE_4__.Input
+        }]
+      };
+      _ModalPopoverPage = (0, tslib__WEBPACK_IMPORTED_MODULE_2__.__decorate)([(0, _angular_core__WEBPACK_IMPORTED_MODULE_4__.Component)({
+        selector: 'app-modal-popover',
+        template: _raw_loader_modal_popover_page_html__WEBPACK_IMPORTED_MODULE_0__["default"],
+        providers: [_angular_common__WEBPACK_IMPORTED_MODULE_5__.DatePipe],
+        styles: [_modal_popover_page_scss__WEBPACK_IMPORTED_MODULE_1__["default"]]
+      })], _ModalPopoverPage);
       /***/
     },
 
@@ -1010,6 +1135,30 @@
       };
       /***/
 
+    },
+
+    /***/
+    86047: function _(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
+      "use strict";
+
+      __webpack_require__.r(__webpack_exports__);
+      /* harmony default export */
+
+
+      __webpack_exports__["default"] = "\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IiIsImZpbGUiOiJtb2RhbC1wb3BvdmVyLnBhZ2Uuc2NzcyJ9 */";
+      /***/
+    },
+
+    /***/
+    15734: function _(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
+      "use strict";
+
+      __webpack_require__.r(__webpack_exports__);
+      /* harmony default export */
+
+
+      __webpack_exports__["default"] = "<ion-header>\r\n  <ion-toolbar>\r\n    <ion-title style=\"text-align: center;\">Recibo </ion-title>\r\n    <ion-button (click)=\"close()\">Close</ion-button>\r\n  </ion-toolbar>\r\n</ion-header>\r\n\r\n<ion-content>\r\n  <ion-grid>\r\n    \r\n    <ion-row>\r\n      <ion-col style=\"text-align: center;\">\r\n        <label>\r\n          <ion-datetime style=\"text-align: right;\" displayFormat=\"MMM DD, h:mm A\" [(ngModel)]=\"myDate\"></ion-datetime>\r\n        </label>\r\n      </ion-col>\r\n    </ion-row>\r\n\r\n\r\n    <ion-row>\r\n      <ion-col text-center>\r\n        <img style=\"width: 120px;;margin:auto;display:block\" src=\"assets/imagenes/MisCallesLimpiasRDCircle.png\">\r\n      </ion-col>\r\n    </ion-row>\r\n\r\n    <ion-row style=\"text-align: center;\">\r\n      <ion-col text-center>\r\n        <label style=\"text-align: center; font-weight: bold;\">\r\n          Mis Calles Limpias RD\r\n        </label>\r\n      </ion-col>\r\n    </ion-row>\r\n    \r\n    <ion-row>\r\n      <ion-col text-center>\r\n        {{ cod_bono }}\r\n      </ion-col>\r\n    </ion-row>\r\n    \r\n   \r\n    <ion-row>\r\n      <ion-col text-center>\r\n        Fecha Creacion: {{ fechaCompleta }}\r\n      </ion-col>\r\n    </ion-row>\r\n    \r\n\r\n    <ion-row>\r\n      <ion-col text-center>\r\n        Usuario : {{ usuario }}\r\n      </ion-col>\r\n    </ion-row>\r\n\r\n    <ion-row>\r\n      <ion-col text-center>\r\n        Producto : {{ nombreproducto }}\r\n      </ion-col>\r\n    </ion-row>\r\n\r\n    <ion-row>\r\n      <ion-col text-center>\r\n        <p style=\"text-align: center;\">\r\n          Gracias por utilizar Mis Calles Limpias RD.\r\n        </p>\r\n      </ion-col>\r\n    </ion-row>\r\n\r\n  </ion-grid>\r\n</ion-content>";
+      /***/
     }
   }]);
 })();

@@ -341,6 +341,7 @@ let InicioMapaPage = class InicioMapaPage {
         }
     }
     loadMap() {
+        this.ionLoaderService.dismissLoader();
         // Esta función inicializa la propiedad de clase
         // map
         // que va a contener el control de nuestro mapa de google
@@ -456,17 +457,19 @@ let InicioMapaPage = class InicioMapaPage {
     }
     SuccesAlert() {
         return (0,tslib__WEBPACK_IMPORTED_MODULE_10__.__awaiter)(this, void 0, void 0, function* () {
+            this.ionLoaderService.dismissLoader();
             const alert = yield this.alertController.create({
                 cssClass: 'my-custom-class',
                 header: '¡Enhorabuena!',
                 message: 'Reporte enviado con exito.',
                 buttons: ['OK']
             });
+            this.ionLoaderService.dismissLoader();
             yield alert.present();
         });
     }
     onRegistroReporte() {
-        // this.ionLoaderService.simpleLoader();
+        this.ionLoaderService.simpleLoader();
         this.servicio3.StreetNameGoogle(this.latitude, this.longitud).subscribe((data) => {
             this.datos = data;
             this.nombrecalle = this.datos.results[1].formatted_address;
@@ -492,13 +495,18 @@ let InicioMapaPage = class InicioMapaPage {
                     // this.onLimpiar();
                 }
                 else {
+                    this.ionLoaderService.dismissLoader();
                     this.ErrorAlert();
+                    this.ionLoaderService.dismissLoader();
                 }
+                this.ionLoaderService.dismissLoader();
             }, (error) => {
+                this.ionLoaderService.dismissLoader();
                 alert("Error ");
+                this.ionLoaderService.dismissLoader();
             });
         });
-        // this.ionLoaderService.dismissLoader();
+        this.ionLoaderService.dismissLoader();
     }
 };
 InicioMapaPage.ctorParameters = () => [

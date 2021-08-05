@@ -293,6 +293,17 @@
             return m.MensajeriaPageModule;
           });
         }
+      }, {
+        path: 'modal-popover',
+        loadChildren: function loadChildren() {
+          return Promise.all(
+          /*! import() */
+          [__webpack_require__.e("common"), __webpack_require__.e("src_app_modal-popover_modal-popover_module_ts")]).then(__webpack_require__.bind(__webpack_require__,
+          /*! ./modal-popover/modal-popover.module */
+          20533)).then(function (m) {
+            return m.ModalPopoverPageModule;
+          });
+        }
       }];
 
       var _AppRoutingModule = function AppRoutingModule() {

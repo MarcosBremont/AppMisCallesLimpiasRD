@@ -1515,23 +1515,8 @@ ion-header ion-toolbar ion-title {
 .contenedor .nosotros--contenido .nosotros--contenido__label {
   font-weight: 700;
 }
-.toolbar {
-  margin-bottom: 1rem;
-}
-.contenedor-recibos .contenedor-recibos--label__codigo {
-  text-align: right;
-  width: -webkit-fit-content;
-  width: -moz-fit-content;
-  width: fit-content;
-}
-@media (min-width: 600px) {
-  .contenedor-recibos {
-    display: flex;
-    width: 100%;
-  }
-  .contenedor-recibos .contenedor-recibos--label {
-    font-size: 2.1rem;
-  }
+.recibos--bonos p {
+  margin: 0;
 }
 .mensajeria {
   font-size: 1.8rem;

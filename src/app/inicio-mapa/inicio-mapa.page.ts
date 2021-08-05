@@ -291,19 +291,23 @@ btnRegistro
   }
 
   async SuccesAlert() {
+          this.ionLoaderService.dismissLoader();
+
     const alert = await this.alertController.create({
       cssClass: 'my-custom-class',
       header: '¡Enhorabuena!',
       message: 'Reporte enviado con exito.',
       buttons: ['OK']
     });
+    this.ionLoaderService.dismissLoader();
+
     await alert.present();
   }
   
 
   onRegistroReporte(){
 
-    // this.ionLoaderService.simpleLoader();
+    this.ionLoaderService.simpleLoader();
 
     this.servicio3.StreetNameGoogle(this.latitude,this.longitud).subscribe((data)=>{
       this.datos = data;
@@ -338,18 +342,25 @@ btnRegistro
       }
       else
       {
+        this.ionLoaderService.dismissLoader();
 
         this.ErrorAlert();
+        this.ionLoaderService.dismissLoader();
+
       }
+      this.ionLoaderService.dismissLoader();
 
     },
     (error)=>{
+      this.ionLoaderService.dismissLoader();
+
       alert("Error ");
+      this.ionLoaderService.dismissLoader();
 
     });
 
   });
-        // this.ionLoaderService.dismissLoader();
+      this.ionLoaderService.dismissLoader();
 
   }
   

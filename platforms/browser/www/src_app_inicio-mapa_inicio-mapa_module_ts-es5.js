@@ -587,12 +587,13 @@
         }, {
           key: "loadMap",
           value: function loadMap() {
-            // Esta función inicializa la propiedad de clase
+            this.ionLoaderService.dismissLoader(); // Esta función inicializa la propiedad de clase
             // map
             // que va a contener el control de nuestro mapa de google
             // Para crear nuestro mapa debemos enviar como parametros
             // el id del div en donde se va a renderizar el mapa (paso anterior)
             // y las opciones que configuran nuestro mapa
+
             this.map = _ionic_native_google_maps__WEBPACK_IMPORTED_MODULE_9__.GoogleMaps.create("map_canvas", {
               camera: {
                 target: {
@@ -796,7 +797,8 @@
                 while (1) {
                   switch (_context6.prev = _context6.next) {
                     case 0:
-                      _context6.next = 2;
+                      this.ionLoaderService.dismissLoader();
+                      _context6.next = 3;
                       return this.alertController.create({
                         cssClass: 'my-custom-class',
                         header: '¡Enhorabuena!',
@@ -804,12 +806,13 @@
                         buttons: ['OK']
                       });
 
-                    case 2:
+                    case 3:
                       alert = _context6.sent;
-                      _context6.next = 5;
+                      this.ionLoaderService.dismissLoader();
+                      _context6.next = 7;
                       return alert.present();
 
-                    case 5:
+                    case 7:
                     case "end":
                       return _context6.stop();
                   }
@@ -822,7 +825,7 @@
           value: function onRegistroReporte() {
             var _this6 = this;
 
-            // this.ionLoaderService.simpleLoader();
+            this.ionLoaderService.simpleLoader();
             this.servicio3.StreetNameGoogle(this.latitude, this.longitud).subscribe(function (data) {
               _this6.datos = data;
               _this6.nombrecalle = _this6.datos.results[1].formatted_address;
@@ -849,12 +852,23 @@
 
                   _this6.isBtnRegistroVisible = false; // this.onLimpiar();
                 } else {
+                  _this6.ionLoaderService.dismissLoader();
+
                   _this6.ErrorAlert();
+
+                  _this6.ionLoaderService.dismissLoader();
                 }
+
+                _this6.ionLoaderService.dismissLoader();
               }, function (error) {
+                _this6.ionLoaderService.dismissLoader();
+
                 alert("Error ");
+
+                _this6.ionLoaderService.dismissLoader();
               });
-            }); // this.ionLoaderService.dismissLoader();
+            });
+            this.ionLoaderService.dismissLoader();
           }
         }]);
 
