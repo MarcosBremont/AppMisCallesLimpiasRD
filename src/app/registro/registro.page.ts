@@ -3,7 +3,7 @@ import { LoginService } from '../Services/Login.service';
 import {  MenuController } from '@ionic/angular';
 import { Router } from "@angular/router"; 
 import { AlertController } from '@ionic/angular';
-import { first } from 'rxjs/operators';
+import { first, retry } from 'rxjs/operators';
 import { NgForm } from '@angular/forms';
 import { interval, Subscription } from 'rxjs';
 
@@ -13,6 +13,8 @@ import { Platform, LoadingController, ToastController } from "@ionic/angular";
 import { RegistroService } from '../Services/registro.service';
 import { IonInput } from '@ionic/angular';
 import { Directive, HostListener } from '@angular/core';
+
+import {AyuntamientosService} from '../Services/ayuntamientos.service'
 
 
 @Component({
@@ -31,6 +33,9 @@ export class RegistroPage implements OnInit {
   subscription: Subscription;
   btnDisabled = false;
   labelVisibility = false;
+  Ayuntamientos: any;
+  cod_ayuntamiento:any;
+  gg;
 
   isActiveToggleTextPassword: Boolean = true;
 
@@ -39,7 +44,8 @@ export class RegistroPage implements OnInit {
     public servicio:RegistroService,
     public toastCtrl: ToastController,
     public alertController: AlertController,
-    private router:Router
+    private router:Router,
+    private Ayuntamiento: AyuntamientosService
   ) { }
 
   public toggleTextPassword(): void{
@@ -57,8 +63,19 @@ const source = interval(1000);
 const text = 'Your Text Here';
 this.subscription = source.subscribe(val => this.VerificarCorreoElectronico());
 
+this.ayuntamientos();
+
   }
 
+  ayuntamientos(){
+this.Ayuntamiento.obtenerAyuntamientos()
+    .subscribe( 
+      (data)=>{this.Ayuntamientos = data;},
+      (error)=>{console.log(error);}
+    )
+  }
+
+  
     
   ionViewWillEnter() {
     this.menuCtrl.enable(false);
@@ -170,29 +187,48 @@ this.subscription = source.subscribe(val => this.VerificarCorreoElectronico());
 
 
 
-  onRegistroUsuario(){
 
 
+
+    checkValue(event){ 
+    
+     this.gg=  event.detail.value;
+
+   return this.gg;
+
+    }
+
+
+
+
+
+  onRegistroUsuario(event){
+    // console.log(event.detail.value)
+    let ayuntamiento = this.gg;
+ 
     let emailVacio = ((document.getElementById('email') as HTMLIonCheckboxElement).value);
     let nombreVacio = ((document.getElementById('nombre') as HTMLInputElement).value);
     let passwordVacio = ((document.getElementById('password') as HTMLInputElement).value);
     let cedulaVacio = ((document.getElementById('cedula') as HTMLInputElement).value);
     let telefonoVacio = ((document.getElementById('telefono') as HTMLInputElement).value);
+    // let ayuntamiento =(document.getElementById('cod_ayuntamiento' + event) as HTMLDivElement).textContent;
 
-    if (emailVacio.length ==0 || nombreVacio.length==0 || passwordVacio.length==0 ||cedulaVacio.length==0 || telefonoVacio.length==0){
+   
+    if (typeof ayuntamiento === 'undefined' || emailVacio.length ==0 || nombreVacio.length==0 || passwordVacio.length==0 ||cedulaVacio.length==0 || telefonoVacio.length==0){
      this.ElementosVaciosAlertas();
       console.log('Hola');
       return;
     }
     let usuario,email, clave, cedula, telefono, estado;
-  
+
     usuario = this.usuario;
     email = this.email;
     clave = this.clave;
     cedula = this.cedula;
     telefono = this.telefono;
     estado = this.estado;
-    this.servicio.RegistroUsuario(usuario,email,clave,cedula,telefono, estado).subscribe((data)=>{
+    this.cod_ayuntamiento = ayuntamiento;
+    this.servicio.RegistroUsuario(usuario,email,clave,cedula,telefono, estado, this.cod_ayuntamiento).subscribe((data)=>{
       this.datos = data;
       if (this.datos.respuesta == "OK")
       {

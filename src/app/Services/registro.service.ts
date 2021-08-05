@@ -10,12 +10,12 @@ export class RegistroService {
 
   constructor(public http: HttpClient) { }
 
-  RegistroUsuario(usuario:string,email:string,clave:string,cedula:string,telefono:string,estado:string){
+  RegistroUsuario(usuario:string,email:string,clave:string,cedula:string,telefono:string,estado:string, cod_ayuntamiento:any){
   //   return this.http.get("https://localhost:44371/api/MisCallesLimpiasRD/RegistrarUsuario/"+usuario+"/"+email+"/"+clave+"/"+cedula+"/"+telefono+"/"+"");
     
   // }
 
-  return this.http.get("http://api.miscalleslimpiasrd.tecnolora.com/api/MisCallesLimpiasRD/RegistrarUsuario?usuario="+usuario+"&correo_Usuario="+email+"&cedula_usuario="+cedula+"&clave="+clave+"&telefono_Usuario="+telefono+"&estado="+estado+"");
+  return this.http.get("http://api.miscalleslimpiasrd.tecnolora.com/api/MisCallesLimpiasRD/RegistrarUsuario?usuario="+usuario+"&correo_Usuario="+email+"&cedula_usuario="+cedula+"&clave="+clave+"&telefono_Usuario="+telefono+"&estado="+estado+"&cod_ayuntamiento="+ cod_ayuntamiento +"");
     
 }
 

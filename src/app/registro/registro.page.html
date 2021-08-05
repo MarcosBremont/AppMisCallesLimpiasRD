@@ -1,47 +1,112 @@
 <ion-content>
-  <!-- Back button with a default href -->
+    <!-- Back button with a default href -->
 
-  <ion-header>
-      <ion-toolbar>
-          <ion-buttons slot="start">
-              <ion-back-button defaultHref="login"></ion-back-button>
-          </ion-buttons>
-          <ion-title>Registro</ion-title>
-      </ion-toolbar>
-  </ion-header>
+    <ion-header>
+        <ion-toolbar>
+            <ion-buttons slot="start">
+                <ion-back-button defaultHref="login"></ion-back-button>
+            </ion-buttons>
+            <ion-title>Registro</ion-title>
+        </ion-toolbar>
+    </ion-header>
 
-  <div style="padding-left: 5px; padding-right: 20px;">
-      <!-- <ion-item>
+    <div style="padding-left: 5px; padding-right: 20px;">
+        <!-- <ion-item>
     <label style="paddiang-bottom: 3mm; text-align: center;" class="blocktext"> <strong> Registro</strong></label>
 </ion-item> -->
 
-      <ion-item>
-        <ion-input oninput="this.value = this.value.toUpperCase()" required placeholder="Nombre de Usuario" maxlength="30" id="nombre" (keypress)="omit_special_char($event)" (keydown)="onKeydown($event)" [(ngModel)]="usuario"></ion-input>
-    </ion-item>
+        <ion-item>
+            <ion-input oninput="this.value = this.value.toUpperCase()" required placeholder="Nombre de Usuario" maxlength="30" id="nombre" (keypress)="omit_special_char($event)" (keydown)="onKeydown($event)" [(ngModel)]="usuario"></ion-input>
+        </ion-item>
 
-      <ion-item>
-          <ion-input oninput="this.value = this.value.toUpperCase()" required placeholder="Email" maxlength="100" (ngModelChange)="VerificarCorreoElectronico()" [(ngModel)]="email" id="email"></ion-input>
-      </ion-item>
+        <ion-item>
+            <ion-input oninput="this.value = this.value.toUpperCase()" required placeholder="Email" maxlength="100" (ngModelChange)="VerificarCorreoElectronico()" [(ngModel)]="email" id="email"></ion-input>
+        </ion-item>
 
-      <ion-item>
-          <ion-input oninput="this.value = this.value.toUpperCase()" required [type]="getType()" [(ngModel)]="clave" id="password" maxlengh="50" placeholder="Contraseña"></ion-input>
-          <ion-icon name="eye" (click)="toggleTextPassword()"></ion-icon>
-      </ion-item>
+        <ion-item>
+            <ion-input oninput="this.value = this.value.toUpperCase()" required [type]="getType()" [(ngModel)]="clave" id="password" maxlengh="50" placeholder="Contraseña"></ion-input>
+            <ion-icon name="eye" (click)="toggleTextPassword()"></ion-icon>
+        </ion-item>
 
-      <ion-item>
-          <ion-input type="tel" maxlength="13" placeholder="Cedula" required [(ngModel)]="cedula" id="cedula" (keypress)="restrictNumeric($event)"></ion-input>
-      </ion-item>
+        <ion-item>
+            <ion-input type="tel" maxlength="13" placeholder="Cedula" required [(ngModel)]="cedula" id="cedula" (keypress)="restrictNumeric($event)"></ion-input>
+        </ion-item>
 
-      <ion-item>
-        <ion-input type="tel" [(ngModel)]="telefono" required  (keypress)="restrictNumeric($event)" maxlength="10" placeholder="Teléfono" id="telefono"></ion-input>      
-    </ion-item>
+        <ion-item>
+            <ion-input type="tel" [(ngModel)]="telefono" required (keypress)="restrictNumeric($event)" maxlength="10" placeholder="Teléfono" id="telefono"></ion-input>
+        </ion-item>
 
-      <ion-label style="color: brown; padding-left: 13px;" [ngClass]="{'hidden': isHidden}"  id="labelya" [ngStyle]="{'color': (labelVisibility)? 'transparent': 'red'}">¡Este correo ya existe!</ion-label>
+        <ion-label style="color: brown; padding-left: 13px;" [ngClass]="{'hidden': isHidden}" id="labelya" [ngStyle]="{'color': (labelVisibility)? 'transparent': 'red'}">¡Este correo ya existe!</ion-label>
+        <ion-list>
+            <!-- <ion-list-header>
+                <ion-label>
+                    Seleccione Su Ayuntamiento
+                </ion-label>
+            </ion-list-header> -->
 
-      <div style="margin:auto; width:80%; padding-top: 40px;">
-          <ion-button expand="block" style="font-weight: bold;" [disabled]="btnDisabled" [ngStyle]="{'color': (btnDisabled)? '#BDBEBD': 'white'}" (click)="onRegistroUsuario()">Registrarme</ion-button>
-          <img style="width:150%;" src="assets/imagenes/Roads.png">
-      </div>
-  </div>
+            <ion-item>
+                <ion-label>Seleccione su Ayuntamiento</ion-label>
+                <ion-select [compareWith]="compareWith" okText="Aceptar" cancelText="Cancelar" (ionChange)="checkValue($event)">
+                    <ion-select-option *ngFor="let ayuntamiento of Ayuntamientos; let i = index" value="{{ayuntamiento.cod_ayuntamiento}}">
+                        {{ayuntamiento.nombre }}
+
+                        <!-- <ion-label style="display: none;" class="ocultar" id="{{'cod_ayuntamiento'}}"></ion-label> {{ayuntamiento.nombre }} -->
+
+                    </ion-select-option>
+                </ion-select>
+
+            </ion-item>
+        </ion-list>
+
+
+
+
+        <!-- <ion-list>
+            <ion-radio-group value="biff">
+                <ion-list-header>
+                    <ion-label>Ayuntamientos</ion-label>
+                </ion-list-header>
+
+                <ion-item *ngFor="let ayuntamiento of Ayuntamientos; let i = index">
+
+                    <ion-radio slot="start" value="{{ayuntamiento.cod_ayuntamiento }}" id="{{'cod_ayuntamiento' + i}}">
+                        <ion-label>
+                            {{ayuntamiento.cod_ayuntamiento }}
+                        </ion-label>
+                    </ion-radio>
+
+                </ion-item>
+            </ion-radio-group>
+
+
+        </ion-list>-->
+        <div style="margin:auto; width:80%; padding-top: 40px;">
+            <ion-button expand="block" style="font-weight: bold;" [disabled]="btnDisabled" [ngStyle]="{'color': (btnDisabled)? '#BDBEBD': 'white'}" (click)="onRegistroUsuario()">Registrarme</ion-button>
+            <img style="width:150%;" src="assets/imagenes/Roads.png">
+        </div>
+
+
+    </div>
+
+
 
 </ion-content>
+<!-- <ion-content>
+
+
+
+    <ion-list>
+        <ion-list-header>
+            <ion-label>
+                Seleccione Su Ayuntamiento
+            </ion-label>
+        </ion-list-header>
+
+        <ion-item>
+            <ion-label>Ayuntamientos</ion-label>
+            <ion-select [compareWith]="compareWith">
+                <ion-select-option *ngFor="let ayuntamiento of Ayuntamientos" [value]="nombre">{{ayuntamiento.nombre }}</ion-select-option>
+            </ion-select>
+        </ion-item>
+    </ion-list>
+</ion-content> -->
