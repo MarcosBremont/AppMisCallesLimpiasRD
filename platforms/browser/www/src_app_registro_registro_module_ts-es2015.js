@@ -286,6 +286,44 @@ function isNumeric(val) {
 
 /***/ }),
 
+/***/ 86938:
+/*!***************************************************!*\
+  !*** ./src/app/Services/ayuntamientos.service.ts ***!
+  \***************************************************/
+/***/ (function(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "AyuntamientosService": function() { return /* binding */ AyuntamientosService; }
+/* harmony export */ });
+/* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! tslib */ 64762);
+/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @angular/core */ 37716);
+/* harmony import */ var _angular_common_http__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @angular/common/http */ 91841);
+
+
+
+let AyuntamientosService = class AyuntamientosService {
+    constructor(http) {
+        this.http = http;
+    }
+    obtenerAyuntamientos() {
+        return this.http.get("http://api.miscalleslimpiasrd.tecnolora.com/api/MisCallesLimpiasRD/ConsultarListadoAyuntamientos");
+    }
+};
+AyuntamientosService.ctorParameters = () => [
+    { type: _angular_common_http__WEBPACK_IMPORTED_MODULE_0__.HttpClient }
+];
+AyuntamientosService = (0,tslib__WEBPACK_IMPORTED_MODULE_1__.__decorate)([
+    (0,_angular_core__WEBPACK_IMPORTED_MODULE_2__.Injectable)({
+        providedIn: 'root'
+    })
+], AyuntamientosService);
+
+
+
+/***/ }),
+
 /***/ 84967:
 /*!*****************************************************!*\
   !*** ./src/app/registro/registro-routing.module.ts ***!
@@ -378,14 +416,16 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "RegistroPage": function() { return /* binding */ RegistroPage; }
 /* harmony export */ });
-/* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! tslib */ 64762);
+/* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! tslib */ 64762);
 /* harmony import */ var _raw_loader_registro_page_html__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! !raw-loader!./registro.page.html */ 36344);
 /* harmony import */ var _registro_page_scss__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./registro.page.scss */ 45802);
-/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! @angular/core */ 37716);
-/* harmony import */ var _ionic_angular__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! @ionic/angular */ 80476);
-/* harmony import */ var _angular_router__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! @angular/router */ 39895);
-/* harmony import */ var rxjs__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! rxjs */ 20945);
+/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! @angular/core */ 37716);
+/* harmony import */ var _ionic_angular__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! @ionic/angular */ 80476);
+/* harmony import */ var _angular_router__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! @angular/router */ 39895);
+/* harmony import */ var rxjs__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! rxjs */ 20945);
 /* harmony import */ var _Services_registro_service__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../Services/registro.service */ 2889);
+/* harmony import */ var _Services_ayuntamientos_service__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../Services/ayuntamientos.service */ 86938);
+
 
 
 
@@ -397,12 +437,13 @@ __webpack_require__.r(__webpack_exports__);
 
 
 let RegistroPage = class RegistroPage {
-    constructor(menuCtrl, servicio, toastCtrl, alertController, router) {
+    constructor(menuCtrl, servicio, toastCtrl, alertController, router, Ayuntamiento) {
         this.menuCtrl = menuCtrl;
         this.servicio = servicio;
         this.toastCtrl = toastCtrl;
         this.alertController = alertController;
         this.router = router;
+        this.Ayuntamiento = Ayuntamiento;
         this.btnDisabled = false;
         this.labelVisibility = false;
         this.isActiveToggleTextPassword = true;
@@ -416,15 +457,20 @@ let RegistroPage = class RegistroPage {
     ngOnInit() {
         this.labelVisibility = false;
         //emit value in sequence every 10 second
-        const source = (0,rxjs__WEBPACK_IMPORTED_MODULE_3__.interval)(1000);
+        const source = (0,rxjs__WEBPACK_IMPORTED_MODULE_4__.interval)(1000);
         const text = 'Your Text Here';
         this.subscription = source.subscribe(val => this.VerificarCorreoElectronico());
+        this.ayuntamientos();
+    }
+    ayuntamientos() {
+        this.Ayuntamiento.obtenerAyuntamientos()
+            .subscribe((data) => { this.Ayuntamientos = data; }, (error) => { console.log(error); });
     }
     ionViewWillEnter() {
         this.menuCtrl.enable(false);
     }
     ErrorAlert() {
-        return (0,tslib__WEBPACK_IMPORTED_MODULE_4__.__awaiter)(this, void 0, void 0, function* () {
+        return (0,tslib__WEBPACK_IMPORTED_MODULE_5__.__awaiter)(this, void 0, void 0, function* () {
             const alert = yield this.alertController.create({
                 cssClass: 'my-custom-class',
                 header: 'Error',
@@ -435,7 +481,7 @@ let RegistroPage = class RegistroPage {
         });
     }
     SuccesAlert() {
-        return (0,tslib__WEBPACK_IMPORTED_MODULE_4__.__awaiter)(this, void 0, void 0, function* () {
+        return (0,tslib__WEBPACK_IMPORTED_MODULE_5__.__awaiter)(this, void 0, void 0, function* () {
             const alert = yield this.alertController.create({
                 cssClass: 'my-custom-class',
                 // header: 'Error',
@@ -446,7 +492,7 @@ let RegistroPage = class RegistroPage {
         });
     }
     ElementosVaciosAlertas() {
-        return (0,tslib__WEBPACK_IMPORTED_MODULE_4__.__awaiter)(this, void 0, void 0, function* () {
+        return (0,tslib__WEBPACK_IMPORTED_MODULE_5__.__awaiter)(this, void 0, void 0, function* () {
             const alert = yield this.alertController.create({
                 cssClass: 'my-custom-class',
                 header: 'Error al crear usuario',
@@ -513,13 +559,20 @@ let RegistroPage = class RegistroPage {
         k = event.charCode; //         k = event.keyCode;  (Both can be used)
         return ((k > 64 && k < 91) || (k > 96 && k < 123) || k == 8 || k == 32 || (k >= 48 && k <= 57));
     }
-    onRegistroUsuario() {
+    checkValue(event) {
+        this.gg = event.detail.value;
+        return this.gg;
+    }
+    onRegistroUsuario(event) {
+        // console.log(event.detail.value)
+        let ayuntamiento = this.gg;
         let emailVacio = (document.getElementById('email').value);
         let nombreVacio = (document.getElementById('nombre').value);
         let passwordVacio = (document.getElementById('password').value);
         let cedulaVacio = (document.getElementById('cedula').value);
         let telefonoVacio = (document.getElementById('telefono').value);
-        if (emailVacio.length == 0 || nombreVacio.length == 0 || passwordVacio.length == 0 || cedulaVacio.length == 0 || telefonoVacio.length == 0) {
+        // let ayuntamiento =(document.getElementById('cod_ayuntamiento' + event) as HTMLDivElement).textContent;
+        if (typeof ayuntamiento === 'undefined' || emailVacio.length == 0 || nombreVacio.length == 0 || passwordVacio.length == 0 || cedulaVacio.length == 0 || telefonoVacio.length == 0) {
             this.ElementosVaciosAlertas();
             console.log('Hola');
             return;
@@ -531,7 +584,8 @@ let RegistroPage = class RegistroPage {
         cedula = this.cedula;
         telefono = this.telefono;
         estado = this.estado;
-        this.servicio.RegistroUsuario(usuario, email, clave, cedula, telefono, estado).subscribe((data) => {
+        this.cod_ayuntamiento = ayuntamiento;
+        this.servicio.RegistroUsuario(usuario, email, clave, cedula, telefono, estado, this.cod_ayuntamiento).subscribe((data) => {
             this.datos = data;
             if (this.datos.respuesta == "OK") {
                 this.SuccesAlert();
@@ -546,14 +600,15 @@ let RegistroPage = class RegistroPage {
     }
 };
 RegistroPage.ctorParameters = () => [
-    { type: _ionic_angular__WEBPACK_IMPORTED_MODULE_5__.MenuController },
+    { type: _ionic_angular__WEBPACK_IMPORTED_MODULE_6__.MenuController },
     { type: _Services_registro_service__WEBPACK_IMPORTED_MODULE_2__.RegistroService },
-    { type: _ionic_angular__WEBPACK_IMPORTED_MODULE_5__.ToastController },
-    { type: _ionic_angular__WEBPACK_IMPORTED_MODULE_5__.AlertController },
-    { type: _angular_router__WEBPACK_IMPORTED_MODULE_6__.Router }
+    { type: _ionic_angular__WEBPACK_IMPORTED_MODULE_6__.ToastController },
+    { type: _ionic_angular__WEBPACK_IMPORTED_MODULE_6__.AlertController },
+    { type: _angular_router__WEBPACK_IMPORTED_MODULE_7__.Router },
+    { type: _Services_ayuntamientos_service__WEBPACK_IMPORTED_MODULE_3__.AyuntamientosService }
 ];
-RegistroPage = (0,tslib__WEBPACK_IMPORTED_MODULE_4__.__decorate)([
-    (0,_angular_core__WEBPACK_IMPORTED_MODULE_7__.Component)({
+RegistroPage = (0,tslib__WEBPACK_IMPORTED_MODULE_5__.__decorate)([
+    (0,_angular_core__WEBPACK_IMPORTED_MODULE_8__.Component)({
         selector: 'app-registro',
         template: _raw_loader_registro_page_html__WEBPACK_IMPORTED_MODULE_0__.default,
         styles: [_registro_page_scss__WEBPACK_IMPORTED_MODULE_1__.default]
@@ -584,7 +639,7 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony default export */ __webpack_exports__["default"] = ("<ion-content>\r\n  <!-- Back button with a default href -->\r\n\r\n  <ion-header>\r\n      <ion-toolbar>\r\n          <ion-buttons slot=\"start\">\r\n              <ion-back-button defaultHref=\"login\"></ion-back-button>\r\n          </ion-buttons>\r\n          <ion-title>Registro</ion-title>\r\n      </ion-toolbar>\r\n  </ion-header>\r\n\r\n  <div style=\"padding-left: 5px; padding-right: 20px;\">\r\n      <!-- <ion-item>\r\n    <label style=\"paddiang-bottom: 3mm; text-align: center;\" class=\"blocktext\"> <strong> Registro</strong></label>\r\n</ion-item> -->\r\n\r\n      <ion-item>\r\n        <ion-input oninput=\"this.value = this.value.toUpperCase()\" required placeholder=\"Nombre de Usuario\" maxlength=\"30\" id=\"nombre\" (keypress)=\"omit_special_char($event)\" (keydown)=\"onKeydown($event)\" [(ngModel)]=\"usuario\"></ion-input>\r\n    </ion-item>\r\n\r\n      <ion-item>\r\n          <ion-input oninput=\"this.value = this.value.toUpperCase()\" required placeholder=\"Email\" maxlength=\"100\" (ngModelChange)=\"VerificarCorreoElectronico()\" [(ngModel)]=\"email\" id=\"email\"></ion-input>\r\n      </ion-item>\r\n\r\n      <ion-item>\r\n          <ion-input oninput=\"this.value = this.value.toUpperCase()\" required [type]=\"getType()\" [(ngModel)]=\"clave\" id=\"password\" maxlengh=\"50\" placeholder=\"Contraseña\"></ion-input>\r\n          <ion-icon name=\"eye\" (click)=\"toggleTextPassword()\"></ion-icon>\r\n      </ion-item>\r\n\r\n      <ion-item>\r\n          <ion-input type=\"tel\" maxlength=\"13\" placeholder=\"Cedula\" required [(ngModel)]=\"cedula\" id=\"cedula\" (keypress)=\"restrictNumeric($event)\"></ion-input>\r\n      </ion-item>\r\n\r\n      <ion-item>\r\n        <ion-input type=\"tel\" [(ngModel)]=\"telefono\" required  (keypress)=\"restrictNumeric($event)\" maxlength=\"10\" placeholder=\"Teléfono\" id=\"telefono\"></ion-input>      \r\n    </ion-item>\r\n\r\n      <ion-label style=\"color: brown; padding-left: 13px;\" [ngClass]=\"{'hidden': isHidden}\"  id=\"labelya\" [ngStyle]=\"{'color': (labelVisibility)? 'transparent': 'red'}\">¡Este correo ya existe!</ion-label>\r\n\r\n      <div style=\"margin:auto; width:80%; padding-top: 40px;\">\r\n          <ion-button expand=\"block\" style=\"font-weight: bold;\" [disabled]=\"btnDisabled\" [ngStyle]=\"{'color': (btnDisabled)? '#BDBEBD': 'white'}\" (click)=\"onRegistroUsuario()\">Registrarme</ion-button>\r\n          <img style=\"width:150%;\" src=\"assets/imagenes/Roads.png\">\r\n      </div>\r\n  </div>\r\n\r\n</ion-content>");
+/* harmony default export */ __webpack_exports__["default"] = ("<ion-content>\r\n    <!-- Back button with a default href -->\r\n\r\n    <ion-header>\r\n        <ion-toolbar>\r\n            <ion-buttons slot=\"start\">\r\n                <ion-back-button defaultHref=\"login\"></ion-back-button>\r\n            </ion-buttons>\r\n            <ion-title>Registro</ion-title>\r\n        </ion-toolbar>\r\n    </ion-header>\r\n\r\n    <div style=\"padding-left: 5px; padding-right: 20px;\">\r\n        <!-- <ion-item>\r\n    <label style=\"paddiang-bottom: 3mm; text-align: center;\" class=\"blocktext\"> <strong> Registro</strong></label>\r\n</ion-item> -->\r\n\r\n        <ion-item>\r\n            <ion-input oninput=\"this.value = this.value.toUpperCase()\" required placeholder=\"Nombre de Usuario\" maxlength=\"30\" id=\"nombre\" (keypress)=\"omit_special_char($event)\" (keydown)=\"onKeydown($event)\" [(ngModel)]=\"usuario\"></ion-input>\r\n        </ion-item>\r\n\r\n        <ion-item>\r\n            <ion-input oninput=\"this.value = this.value.toUpperCase()\" required placeholder=\"Email\" maxlength=\"100\" (ngModelChange)=\"VerificarCorreoElectronico()\" [(ngModel)]=\"email\" id=\"email\"></ion-input>\r\n        </ion-item>\r\n\r\n        <ion-item>\r\n            <ion-input oninput=\"this.value = this.value.toUpperCase()\" required [type]=\"getType()\" [(ngModel)]=\"clave\" id=\"password\" maxlengh=\"50\" placeholder=\"Contraseña\"></ion-input>\r\n            <ion-icon name=\"eye\" (click)=\"toggleTextPassword()\"></ion-icon>\r\n        </ion-item>\r\n\r\n        <ion-item>\r\n            <ion-input type=\"tel\" maxlength=\"13\" placeholder=\"Cedula\" required [(ngModel)]=\"cedula\" id=\"cedula\" (keypress)=\"restrictNumeric($event)\"></ion-input>\r\n        </ion-item>\r\n\r\n        <ion-item>\r\n            <ion-input type=\"tel\" [(ngModel)]=\"telefono\" required (keypress)=\"restrictNumeric($event)\" maxlength=\"10\" placeholder=\"Teléfono\" id=\"telefono\"></ion-input>\r\n        </ion-item>\r\n\r\n        <ion-label style=\"color: brown; padding-left: 13px;\" [ngClass]=\"{'hidden': isHidden}\" id=\"labelya\" [ngStyle]=\"{'color': (labelVisibility)? 'transparent': 'red'}\">¡Este correo ya existe!</ion-label>\r\n        <ion-list>\r\n            <!-- <ion-list-header>\r\n                <ion-label>\r\n                    Seleccione Su Ayuntamiento\r\n                </ion-label>\r\n            </ion-list-header> -->\r\n\r\n            <ion-item>\r\n                <ion-label>Seleccione su Ayuntamiento</ion-label>\r\n                <ion-select [compareWith]=\"compareWith\" okText=\"Aceptar\" cancelText=\"Cancelar\" (ionChange)=\"checkValue($event)\">\r\n                    <ion-select-option *ngFor=\"let ayuntamiento of Ayuntamientos; let i = index\" value=\"{{ayuntamiento.cod_ayuntamiento}}\">\r\n                        {{ayuntamiento.nombre }}\r\n\r\n                        <!-- <ion-label style=\"display: none;\" class=\"ocultar\" id=\"{{'cod_ayuntamiento'}}\"></ion-label> {{ayuntamiento.nombre }} -->\r\n\r\n                    </ion-select-option>\r\n                </ion-select>\r\n\r\n            </ion-item>\r\n        </ion-list>\r\n\r\n\r\n\r\n\r\n        <!-- <ion-list>\r\n            <ion-radio-group value=\"biff\">\r\n                <ion-list-header>\r\n                    <ion-label>Ayuntamientos</ion-label>\r\n                </ion-list-header>\r\n\r\n                <ion-item *ngFor=\"let ayuntamiento of Ayuntamientos; let i = index\">\r\n\r\n                    <ion-radio slot=\"start\" value=\"{{ayuntamiento.cod_ayuntamiento }}\" id=\"{{'cod_ayuntamiento' + i}}\">\r\n                        <ion-label>\r\n                            {{ayuntamiento.cod_ayuntamiento }}\r\n                        </ion-label>\r\n                    </ion-radio>\r\n\r\n                </ion-item>\r\n            </ion-radio-group>\r\n\r\n\r\n        </ion-list>-->\r\n        <div style=\"margin:auto; width:80%; padding-top: 40px;\">\r\n            <ion-button expand=\"block\" style=\"font-weight: bold;\" [disabled]=\"btnDisabled\" [ngStyle]=\"{'color': (btnDisabled)? '#BDBEBD': 'white'}\" (click)=\"onRegistroUsuario()\">Registrarme</ion-button>\r\n            <img style=\"width:150%;\" src=\"assets/imagenes/Roads.png\">\r\n        </div>\r\n\r\n\r\n    </div>\r\n\r\n\r\n\r\n</ion-content>\r\n<!-- <ion-content>\r\n\r\n\r\n\r\n    <ion-list>\r\n        <ion-list-header>\r\n            <ion-label>\r\n                Seleccione Su Ayuntamiento\r\n            </ion-label>\r\n        </ion-list-header>\r\n\r\n        <ion-item>\r\n            <ion-label>Ayuntamientos</ion-label>\r\n            <ion-select [compareWith]=\"compareWith\">\r\n                <ion-select-option *ngFor=\"let ayuntamiento of Ayuntamientos\" [value]=\"nombre\">{{ayuntamiento.nombre }}</ion-select-option>\r\n            </ion-select>\r\n        </ion-item>\r\n    </ion-list>\r\n</ion-content> -->");
 
 /***/ })
 
