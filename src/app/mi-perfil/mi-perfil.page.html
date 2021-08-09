@@ -7,12 +7,12 @@
   </ion-toolbar>
 </ion-header>
 
-  <ion-content >
+  <ion-content ngDefaultControl >
    
       <div class="card" style="min-height: 500px !important;">
           <div class="header">
               <div class="avatar">
-                  <img style="color: #3C71FF;" [src]="currentImage" *ngIf="currentImage" [(ngModel)]="fotohtml">
+                  <img style="color: #3C71FF;" ngDefaultControl [src]="currentImage" *ngIf="currentImage" [(ngModel)]="fotohtml">
               </div>
           </div>
           

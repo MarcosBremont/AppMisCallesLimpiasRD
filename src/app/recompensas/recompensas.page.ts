@@ -41,7 +41,7 @@ export class RecompensasPage implements OnInit {
   
   ngOnInit() {
     this.cod_usuario = Variableglobal.cod_usuario;
-    this.servicio.obtenerrecompensas()
+    this.servicio.obtenerrecompensas(Variableglobal.cod_ayuntamiento)
     .subscribe(
       (data)=>{this.recompensas = data;},
       (error)=>{console.log(error);}
@@ -58,11 +58,11 @@ export class RecompensasPage implements OnInit {
       )
 
       //Llamamos al procedimiento para actualizar los puntos
-    this.servicioActualizarPuntos.ActualizarPuntos(this.cod_puntos, this.cod_usuario, this.puntosAcumulados)
-    .subscribe(
-      (data)=>{this.recompensas = data;}, 
-      (error)=>{console.log(error);}
-    )   
+    // this.servicioActualizarPuntos.ActualizarPuntos(this.cod_puntos, this.cod_usuario, this.puntosAcumulados)
+    // .subscribe(
+    //   (data)=>{this.recompensas = data;}, 
+    //   (error)=>{console.log(error);}
+    // )   
     
 
     

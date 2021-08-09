@@ -283,13 +283,8 @@
             var _this2 = this;
 
             this.cod_usuario = _variableglobal__WEBPACK_IMPORTED_MODULE_4__.Variableglobal.cod_usuario;
-<<<<<<< HEAD
             this.servicio.MostrarRecibos(this.cod_usuario).subscribe(function (data) {
               _this2.Recibos = data;
-=======
-            this.servicio.MostrarRecibos(this.cod_usuario = 66).subscribe(function (data) {
-              _this.Recibos = data;
->>>>>>> 27594cd79d5bf2041e3a9edd01fa3a8f952c1dbc
             }, function (error) {
               console.log(error);
             }), this.servicio2.obtenerMisPuntos(this.cod_usuario).subscribe(function (data) {
@@ -358,11 +353,7 @@
       /* harmony default export */
 
 
-<<<<<<< HEAD
       __webpack_exports__["default"] = "<ion-header [translucent]=\"true\">\r\n\r\n    <ion-toolbar>\r\n        <ion-buttons slot=\"start\">\r\n            <ion-menu-button></ion-menu-button>\r\n        </ion-buttons>\r\n        <ion-label *ngFor=\"let datosMisPuntos of misPuntos\" slot=\"end\" style=\"padding: 5px;\">{{datosMisPuntos.puntosacumulados}}</ion-label>\r\n        <img slot=\"end\" style=\"padding: 5px;\" src=\"assets/imagenes/moneda.png\">\r\n        <ion-title>Mis Bonos</ion-title>\r\n    </ion-toolbar>\r\n\r\n</ion-header>\r\n\r\n<ion-content [fullscreen]=\"true\" class=\"contenedor-recibos\">\r\n    <ion-header collapse=\"condense\">\r\n        <ion-toolbar>\r\n            <ion-title size=\"large\">Mis Bonos</ion-title>\r\n        </ion-toolbar>\r\n    </ion-header>\r\n\r\n\r\n    \r\n    <ion-list *ngFor=\"let recibo of Recibos; let i = index\" class=\"recibos--bonos\">\r\n\r\n        <ion-item (click)=\"showAlert(i)\" button detail=\"false\"> \r\n\r\n            <ion-avatar class=\"aa\" slot=\"start\">\r\n                <img class=\"bb\" [src]=\"recibo.imagen\">\r\n            </ion-avatar>\r\n\r\n            <ion-label id=\"{{'nombreproducto' + i}}\" class=\"contenedor-recibos--label\">\r\n                {{recibo.nombre}}\r\n            </ion-label>\r\n\r\n            <div class=\"contenedor-recibos--label contenedor-recibos--label__codigo\">\r\n                <ion-label id=\"{{'cod_bono' + i}}\" slot=\"end\">\r\n                    Recibo No.{{recibo.cod_recibo}}\r\n                </ion-label>\r\n            </div>\r\n\r\n        </ion-item>\r\n        \r\n    </ion-list>\r\n</ion-content>";
-=======
-      __webpack_exports__["default"] = "<ion-header [translucent]=\"true\">\r\n\r\n    <ion-toolbar>\r\n        <ion-buttons slot=\"start\">\r\n            <ion-menu-button></ion-menu-button>\r\n        </ion-buttons>\r\n        <ion-label *ngFor=\"let datosMisPuntos of misPuntos\" slot=\"end\" style=\"padding: 5px;\">{{datosMisPuntos.puntosacumulados}}</ion-label>\r\n        <img slot=\"end\" style=\"padding: 5px;\" src=\"assets/imagenes/moneda.png\">\r\n        <ion-title>Mis Bonos</ion-title>\r\n    </ion-toolbar>\r\n\r\n</ion-header>\r\n\r\n<ion-content [fullscreen]=\"true\" class=\"contenedor-recibos\">\r\n    <ion-header collapse=\"condense\">\r\n        <ion-toolbar>\r\n            <ion-title size=\"large\">Mis Bonos</ion-title>\r\n        </ion-toolbar>\r\n    </ion-header>\r\n    <ion-list *ngFor=\"let recibo of Recibos\" class=\"recibos--bonos\">\r\n\r\n        <ion-item>\r\n\r\n\r\n            <ion-avatar class=\"aa\" slot=\"start\">\r\n                <img class=\"bb\" [src]=\"recibo.imagen\">\r\n            </ion-avatar>\r\n\r\n            <ion-label class=\"contenedor-recibos--label\">\r\n                {{recibo.nombre}}\r\n            </ion-label>\r\n\r\n            <div class=\"contenedor-recibos--label contenedor-recibos--label__codigo\">\r\n                <ion-label slot=\"end\">\r\n                    Recibo No.{{recibo.cod_recibo}}\r\n                </ion-label>\r\n\r\n            </div>\r\n\r\n\r\n\r\n        </ion-item>\r\n\r\n        <p>Hola mundo</p>\r\n\r\n    </ion-list>\r\n</ion-content>";
->>>>>>> 27594cd79d5bf2041e3a9edd01fa3a8f952c1dbc
       /***/
     }
   }]);

@@ -8,6 +8,7 @@ export class Variableglobal {
   public static cod_nivel:any; 
   public static foto_usuario:any; 
   public static cod_ayuntamiento:any; 
+  public static nombre:any; 
 
   
 }

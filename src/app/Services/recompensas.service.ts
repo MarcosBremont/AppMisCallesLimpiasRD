@@ -10,8 +10,8 @@ export class RecompensasService {
 
   constructor(public http: HttpClient) { }
 
-  obtenerrecompensas(){
-    return this.http.get('http://api.miscalleslimpiasrd.tecnolora.com/api/MisCallesLimpiasRD/ConsultarListadodeRecompensas');
+  obtenerrecompensas(cod_ayuntamiento: any){
+    return this.http.get('http://api.miscalleslimpiasrd.tecnolora.com/api/MisCallesLimpiasRD/ConsultarListadodeRecompensas?cod_ayuntamiento=' +  cod_ayuntamiento);
   }
 
 //   return this.http.get('https://localhost:44371/api/MisCallesLimpiasRD/ConsultarListadodeRecompensas');

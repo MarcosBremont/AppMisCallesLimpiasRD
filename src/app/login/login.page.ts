@@ -117,6 +117,9 @@ export class LoginPage implements OnInit {
             Variableglobal.telefono_Usuario = this.datos.telefono_Usuario;
             Variableglobal.clave = this.datos.clave;
             Variableglobal.foto_usuario = this.datos.foto_usuario;
+            Variableglobal.cod_ayuntamiento = this.datos.cod_ayuntamiento;
+            Variableglobal.nombre = this.datos.nombre;
+
             this.menuCtrl.enable(true);
             this.click = !this.click;
             this.router.navigate(['/inicio-mapa']);

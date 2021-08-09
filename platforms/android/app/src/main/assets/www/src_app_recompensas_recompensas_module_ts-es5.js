@@ -120,8 +120,8 @@
 
         _createClass(RecompensasService, [{
           key: "obtenerrecompensas",
-          value: function obtenerrecompensas() {
-            return this.http.get('http://api.miscalleslimpiasrd.tecnolora.com/api/MisCallesLimpiasRD/ConsultarListadodeRecompensas');
+          value: function obtenerrecompensas(cod_ayuntamiento) {
+            return this.http.get('http://api.miscalleslimpiasrd.tecnolora.com/api/MisCallesLimpiasRD/ConsultarListadodeRecompensas?cod_ayuntamiento=' + cod_ayuntamiento);
           } //   return this.http.get('https://localhost:44371/api/MisCallesLimpiasRD/ConsultarListadodeRecompensas');
           // }
 
@@ -393,7 +393,7 @@
             var _this = this;
 
             this.cod_usuario = _variableglobal__WEBPACK_IMPORTED_MODULE_7__.Variableglobal.cod_usuario;
-            this.servicio.obtenerrecompensas().subscribe(function (data) {
+            this.servicio.obtenerrecompensas(_variableglobal__WEBPACK_IMPORTED_MODULE_7__.Variableglobal.cod_ayuntamiento).subscribe(function (data) {
               _this.recompensas = data;
             }, function (error) {
               console.log(error);
@@ -406,12 +406,11 @@
             }, function (error) {
               console.log(error);
             }); //Llamamos al procedimiento para actualizar los puntos
-
-            this.servicioActualizarPuntos.ActualizarPuntos(this.cod_puntos, this.cod_usuario, this.puntosAcumulados).subscribe(function (data) {
-              _this.recompensas = data;
-            }, function (error) {
-              console.log(error);
-            });
+            // this.servicioActualizarPuntos.ActualizarPuntos(this.cod_puntos, this.cod_usuario, this.puntosAcumulados)
+            // .subscribe(
+            //   (data)=>{this.recompensas = data;}, 
+            //   (error)=>{console.log(error);}
+            // )   
           }
         }, {
           key: "presentConfirm",
@@ -693,7 +692,7 @@
       /* harmony default export */
 
 
-      __webpack_exports__["default"] = "<ion-header [translucent]=\"true\">\r\n    <!-- Agregamos un bucle for para que muestre los puntos disponibles -->\r\n\r\n    <ion-toolbar>\r\n        <ion-buttons slot=\"start\">\r\n            <ion-menu-button></ion-menu-button>\r\n        </ion-buttons>\r\n        <!-- Obtenemos los puntos acumulados -->\r\n\r\n        <!-- <script src=\"http://code.jquery.com/jquery-1.11.0.min.js\"></script>\r\n  <script>\r\n      $(function(){\r\n          $(\"#codigo\").load(\"ajax/test.html\", function() {\r\n          alert(\"Load was performed.\");\r\n          });     \r\n          \r\n      })\r\n  </script> -->\r\n\r\n        <ion-label *ngFor=\"let datosMisPuntos of misPuntos\" slot=\"end\" style=\"padding: 5px;\" id=\"puntos\">{{datosMisPuntos.puntosacumulados}}</ion-label>\r\n\r\n\r\n        <ion-label *ngFor=\"let datosMisPuntos of misPuntos\" class=\"ocultar\" id=\"cod_puntos\">{{datosMisPuntos.cod_puntos}}</ion-label>\r\n        <img slot=\"end\" style=\"padding: 5px;\" src=\"assets/imagenes/moneda.png\">\r\n        <ion-title>Mis Puntos</ion-title>\r\n\r\n\r\n    </ion-toolbar>\r\n\r\n</ion-header>\r\n\r\n<ion-content [fullscreen]=\"true\">\r\n    <ion-header collapse=\"condense\">\r\n        <ion-toolbar>\r\n            <ion-title size=\"large\">Recompensas</ion-title>\r\n        </ion-toolbar>\r\n    </ion-header>\r\n\r\n    <div id=\"container\">\r\n        <!-- Obtenemos todos los artículos disponibles recorriendo la bd con un ciclo foor -->\r\n        <ion-card *ngFor=\"let recompensa of recompensas;  let i = index\">\r\n            <ion-card-header>\r\n                <!-- llamamos al nombre de la recompensa -->\r\n                <ion-card-title>\r\n                    <ion-label id=\"{{'cod_recompensas' + i}}\">{{recompensa.cod_recompensa}}</ion-label> {{recompensa.nombre}}</ion-card-title>\r\n\r\n            </ion-card-header>\r\n            <ion-card-content>\r\n                <img src={{recompensa.imagen}}>\r\n                <br>\r\n\r\n                <!-- Asignamos un ID único a cada botón que se autogenere -->\r\n                <ion-button id=\"{{'boton' + i}}\" color=\"warning\" (click)=\"canjearPuntos(i);\">\r\n                    <ion-icon name=\"wallet\" slot=\"start\"></ion-icon>\r\n                    Usar Puntos\r\n                </ion-button>\r\n\r\n                <br>\r\n                <ion-list>\r\n                    <ion-item>\r\n                        <!-- Obtenemos los puntos de la recompensa -->\r\n                        <ion-label color=\"warning\">{{recompensa.puntos}}</ion-label>\r\n                        <!-- Le asignamos un ID dinámico a cada kabel de puntos que se genere -->\r\n\r\n                        <ion-checkbox slot=\"end\" color=\"warning\" id=\"{{'puntosArticulo' + i}}\">{{recompensa.puntos}}</ion-checkbox>\r\n\r\n                        <label slot=\"start\" class=\"centrarlabel\"> Puntos</label>\r\n                    </ion-item>\r\n                </ion-list>\r\n\r\n                <br>\r\n                <label class=\"centrarlabel\"><b>Descripcion:</b> </label>\r\n                <!-- Llamamos a la descripcción de la recompensa -->\r\n                <label class=\"centrarlabel\"> {{recompensa.descripcion}}</label>\r\n            </ion-card-content>\r\n        </ion-card>\r\n\r\n    </div>\r\n    <ion-card>\r\n\r\n\r\n\r\n    </ion-card>";
+      __webpack_exports__["default"] = "<ion-header [translucent]=\"true\">\r\n    <!-- Agregamos un bucle for para que muestre los puntos disponibles -->\r\n\r\n    <ion-toolbar>\r\n        <ion-buttons slot=\"start\">\r\n            <ion-menu-button></ion-menu-button>\r\n        </ion-buttons>\r\n        <!-- Obtenemos los puntos acumulados -->\r\n\r\n        <!-- <script src=\"http://code.jquery.com/jquery-1.11.0.min.js\"></script>\r\n  <script>\r\n      $(function(){\r\n          $(\"#codigo\").load(\"ajax/test.html\", function() {\r\n          alert(\"Load was performed.\");\r\n          });     \r\n          \r\n      })\r\n  </script> -->\r\n\r\n        <ion-label *ngFor=\"let datosMisPuntos of misPuntos\" slot=\"end\" style=\"padding: 5px;\" id=\"puntos\">{{datosMisPuntos.puntosacumulados}}</ion-label>\r\n\r\n\r\n        <ion-label *ngFor=\"let datosMisPuntos of misPuntos\" class=\"ocultar\" id=\"cod_puntos\">{{datosMisPuntos.cod_puntos}}</ion-label>\r\n        <img slot=\"end\" style=\"padding: 5px;\" src=\"assets/imagenes/moneda.png\">\r\n        <ion-title>Mis Puntos</ion-title>\r\n\r\n\r\n    </ion-toolbar>\r\n\r\n</ion-header>\r\n\r\n<ion-content [fullscreen]=\"true\">\r\n    <ion-header collapse=\"condense\">\r\n        <ion-toolbar>\r\n            <ion-title size=\"large\">Recompensas</ion-title>\r\n        </ion-toolbar>\r\n    </ion-header>\r\n\r\n    <div id=\"container\">\r\n        <!-- Obtenemos todos los artículos disponibles recorriendo la bd con un ciclo foor -->\r\n        <ion-card *ngFor=\"let recompensa of recompensas;  let i = index\">\r\n            <ion-card-header>\r\n                <!-- llamamos al nombre de la recompensa -->\r\n                <ion-card-title>\r\n                    <ion-label id=\"{{'cod_recompensas' + i}}\" class=\"ocultar\">{{recompensa.cod_recompensa}}</ion-label> {{recompensa.nombre}}</ion-card-title>\r\n\r\n            </ion-card-header>\r\n            <ion-card-content>\r\n                <img src={{recompensa.imagen}}>\r\n                <br>\r\n\r\n                <!-- Asignamos un ID único a cada botón que se autogenere -->\r\n                <ion-button id=\"{{'boton' + i}}\" color=\"warning\" (click)=\"canjearPuntos(i);\">\r\n                    <ion-icon name=\"wallet\" slot=\"start\"></ion-icon>\r\n                    Usar Puntos\r\n                </ion-button>\r\n\r\n                <br>\r\n                <ion-list>\r\n                    <ion-item>\r\n                        <!-- Obtenemos los puntos de la recompensa -->\r\n                        <ion-label color=\"warning\">{{recompensa.puntos}}</ion-label>\r\n                        <!-- Le asignamos un ID dinámico a cada kabel de puntos que se genere -->\r\n\r\n                        <ion-checkbox slot=\"end\" color=\"warning\" id=\"{{'puntosArticulo' + i}}\">{{recompensa.puntos}}</ion-checkbox>\r\n\r\n                        <label slot=\"start\" class=\"centrarlabel\"> Puntos</label>\r\n                    </ion-item>\r\n                </ion-list>\r\n\r\n                <br>\r\n                <label class=\"centrarlabel\"><b>Descripcion:</b> </label>\r\n                <!-- Llamamos a la descripcción de la recompensa -->\r\n                <label class=\"centrarlabel\"> {{recompensa.descripcion}}</label>\r\n            </ion-card-content>\r\n        </ion-card>\r\n\r\n    </div>\r\n    <ion-card>\r\n\r\n\r\n\r\n    </ion-card>";
       /***/
     }
   }]);

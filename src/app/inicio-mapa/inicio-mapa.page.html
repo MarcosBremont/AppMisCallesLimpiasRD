@@ -14,53 +14,56 @@
 
   <div id="map_canvas" style="z-index: 1 !important; overflow: auto !important;"></div>
 
-  <ion-item lines="none" button detail="false">
-    <div class="imagen-codigo">
+  <div style="margin-top: 40px;">
+
+    <ion-item lines="none" button detail="false">
+      <div class="imagen-codigo">
         <img src="assets/imagenes/moneda.png" class="imagen">
+      </div>
+      
+      <div class="reportes--datos">
+        <label style="margin-left: 5px; font-size: 12px;"> Mis Puntos</label><br>
+        <label id="cantidadrecibo" style="margin-left: 5px; font-size: 14px;"> {{puntosacumulados}}</label>
     </div>
-
-    <div class="reportes--datos">
-       <label style="margin-left: 5px; font-size: 12px;"> Mis Puntos</label><br>
-       <label id="cantidadrecibo" style="margin-left: 5px; font-size: 14px;"> {{puntosacumulados}}</label>
-    </div>
-
+    
     <div class="imagen-codigo" style="margin-left: 120px;">
       <img src="assets/imagenes/document.png" class="imagen">
-  </div>
-
-  <div class="reportes--datos">
-     <label style="margin-left: 5px; font-size: 12px;"> Mis Reportes</label><br>
-     <label id="cantidadreportes" style="margin-left: 5px; font-size: 14px;"> {{cantidadreportes}}</label>
-  </div>
-  
-  
+    </div>
     
-</ion-item>
-
+    <div class="reportes--datos">
+      <label style="margin-left: 5px; font-size: 12px;"> Mis Reportes</label><br>
+      <label id="cantidadreportes" style="margin-left: 5px; font-size: 14px;"> {{cantidadreportes}}</label>
+    </div>
+    
+    
+    
+  </ion-item>
+  
   <ion-item  lines="none" button detail="false">
     <div class="imagen-codigo">
-        <img src="assets/imagenes/cuenta.png" class="imagen">
+      <img src="assets/imagenes/cuenta.png" class="imagen">
     </div>
-
+    
     <div class="reportes--datos">
-       <label style="margin-left: 5px; font-size: 12px;"> Mis Recibos</label><br>
-       <label id="cantidadrecibos"  style="margin-left: 5px; font-size: 14px;">{{cantidadrecibo}}</label>
+      <label style="margin-left: 5px; font-size: 12px;"> Mis Recibos</label><br>
+      <label id="cantidadrecibos"  style="margin-left: 5px; font-size: 14px;">{{cantidadrecibo}}</label>
     </div>
-
+    
     <div class="imagen-codigo" style="margin-left: 120px;">
       <img src="assets/imagenes/document.png" class="imagen">
-  </div>
-
-  <div class="reportes--datos">
-     <label style="margin-left: 5px; font-size: 12px;"> En Espera</label><br>
-     <label id="reportesenespera" style="margin-left: 5px; font-size: 14px;">{{reportesenespera}}</label>
-  </div>
-  
-  
+    </div>
     
-</ion-item>
-
-
+    <div class="reportes--datos">
+      <label style="margin-left: 5px; font-size: 12px;"> En Espera</label><br>
+      <label id="reportesenespera" style="margin-left: 5px; font-size: 14px;">{{reportesenespera}}</label>
+    </div>
+    
+    
+    
+  </ion-item>
+</div>
+  
+  
   <!-- <div style="padding: 15px;"> -->
     <!-- <img src="assets/imagenes/moneda.png"> 
     <label style="font-size: 12px; margin-left: 2px; margin-bottom: 15px;">Mis Puntos</label><br>
@@ -69,7 +72,7 @@
      -->
      <div style="padding: 15px;">
 
-       <ion-button expand="block" style="margin-top: 30PX;"  [hidden]="!isBtnCamaraVisible" (click)="takePicture()">TOMAR FOTO</ion-button>
+       <ion-button expand="block" style="margin-top: 65px;"  [hidden]="!isBtnCamaraVisible" (click)="takePicture()">TOMAR FOTO</ion-button>
        <ion-button expand="block" [hidden]="!isBtnRegistroVisible" (click)="onRegistroReporte()">ENVIAR REPORTE</ion-button>
        
       </div>
