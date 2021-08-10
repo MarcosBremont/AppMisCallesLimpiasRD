@@ -1439,6 +1439,7 @@ ion-header ion-toolbar ion-title {
     flex-direction: column;
     max-width: 75%;
     margin-left: 12%;
+    text-transform: uppercase;
   }
 }
 .contenedor .login--contraseña {

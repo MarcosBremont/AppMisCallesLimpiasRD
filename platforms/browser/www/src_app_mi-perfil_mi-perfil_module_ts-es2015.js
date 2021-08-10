@@ -140,10 +140,11 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! tslib */ 64762);
 /* harmony import */ var _raw_loader_mi_perfil_page_html__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! !raw-loader!./mi-perfil.page.html */ 66999);
 /* harmony import */ var _mi_perfil_page_scss__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./mi-perfil.page.scss */ 13089);
-/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! @angular/core */ 37716);
+/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! @angular/core */ 37716);
 /* harmony import */ var _variableglobal__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../variableglobal */ 13296);
 /* harmony import */ var _ionic_native_camera_ngx__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @ionic-native/camera/ngx */ 84267);
 /* harmony import */ var _Services_ion_loader_service__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../Services/ion-loader.service */ 35014);
+/* harmony import */ var _angular_router__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! @angular/router */ 39895);
 /* harmony import */ var _ionic_angular__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! @ionic/angular */ 80476);
 /* harmony import */ var _Services_guardardatosperfil_service__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../Services/guardardatosperfil.service */ 47577);
 
@@ -155,12 +156,14 @@ __webpack_require__.r(__webpack_exports__);
 
 
 
+
 let MiPerfilPage = class MiPerfilPage {
-    constructor(servicio, alertController, camera, ionLoaderService) {
+    constructor(servicio, alertController, camera, ionLoaderService, router) {
         this.servicio = servicio;
         this.alertController = alertController;
         this.camera = camera;
         this.ionLoaderService = ionLoaderService;
+        this.router = router;
         this.isActiveToggleTextPassword = true;
         this.txt_correo_Usuario = _variableglobal__WEBPACK_IMPORTED_MODULE_2__.Variableglobal.correo_Usuario;
         this.txt_Telefono_Usuario = _variableglobal__WEBPACK_IMPORTED_MODULE_2__.Variableglobal.telefono_Usuario;
@@ -274,6 +277,7 @@ let MiPerfilPage = class MiPerfilPage {
             if (this.datos == true) {
                 this.ionLoaderService.dismissLoader();
                 this.SuccessAlert();
+                this.router.navigate(['/login']);
             }
             else {
                 this.ErrorAlert();
@@ -309,10 +313,11 @@ MiPerfilPage.ctorParameters = () => [
     { type: _Services_guardardatosperfil_service__WEBPACK_IMPORTED_MODULE_5__.GuardardatosperfilService },
     { type: _ionic_angular__WEBPACK_IMPORTED_MODULE_7__.AlertController },
     { type: _ionic_native_camera_ngx__WEBPACK_IMPORTED_MODULE_3__.Camera },
-    { type: _Services_ion_loader_service__WEBPACK_IMPORTED_MODULE_4__.IonLoaderService }
+    { type: _Services_ion_loader_service__WEBPACK_IMPORTED_MODULE_4__.IonLoaderService },
+    { type: _angular_router__WEBPACK_IMPORTED_MODULE_8__.Router }
 ];
 MiPerfilPage = (0,tslib__WEBPACK_IMPORTED_MODULE_6__.__decorate)([
-    (0,_angular_core__WEBPACK_IMPORTED_MODULE_8__.Component)({
+    (0,_angular_core__WEBPACK_IMPORTED_MODULE_9__.Component)({
         selector: 'app-mi-perfil',
         template: _raw_loader_mi_perfil_page_html__WEBPACK_IMPORTED_MODULE_0__.default,
         styles: [_mi_perfil_page_scss__WEBPACK_IMPORTED_MODULE_1__.default]
@@ -343,7 +348,7 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony default export */ __webpack_exports__["default"] = ("<ion-header [translucent]=\"true\">\r\n  <ion-toolbar>\r\n    <ion-buttons slot=\"start\">\r\n      <ion-menu-button slot=\"start\" auto-hide=\"false\"></ion-menu-button>\r\n    </ion-buttons>\r\n    <ion-title>Mi Perfil</ion-title>\r\n  </ion-toolbar>\r\n</ion-header>\r\n\r\n  <ion-content >\r\n   \r\n      <div class=\"card\" style=\"min-height: 500px !important;\">\r\n          <div class=\"header\">\r\n              <div class=\"avatar\">\r\n                  <img style=\"color: #3C71FF;\" [src]=\"currentImage\" *ngIf=\"currentImage\" [(ngModel)]=\"fotohtml\">\r\n              </div>\r\n          </div>\r\n          \r\n          <div class=\"card-body\">\r\n\r\n            <div class=\"user-meta ion-text-center\">\r\n              <a class=\"css-button\">\r\n                <span class=\"centrar\"><img class=\"centrar\"  (click)=\"takePicture()\" src=\"assets/imagenes/camara16.png\"></span>\r\n              </a>\r\n            </div>\r\n\r\n          <div class=\"ion-text-center\">\r\n            <label id=\"lbl_usuario\"><strong>{{nombre_usuario}}</strong></label>\r\n          </div>\r\n\r\n          <div style=\"margin-left: -5px;\">\r\n            <ion-label style=\"font-size: 15px; font-weight: bold; font-family: Arial, Helvetica, sans-serif;  margin-top: 5px; margin-left: 7px;\">Correo</ion-label>\r\n            <ion-input oninput=\"this.value = this.value.toUpperCase()\"  [(ngModel)]=\"txt_correo_Usuario\" placeholder=\"Correo\"></ion-input>\r\n            <ion-label style=\"font-size: 15px; font-weight: bold; font-family: Arial, Helvetica, sans-serif;  margin-top: 5px; margin-left: 7px;\">Telefono</ion-label>\r\n            <ion-input  [(ngModel)]=\"txt_Telefono_Usuario\" placeholder=\"Telefono\"  maxlength=\"10\" (keypress)=\"restrictNumeric($event)\"></ion-input>\r\n            <ion-label style=\"font-size: 15px; font-weight: bold; font-family: Arial, Helvetica, sans-serif;  margin-top: 5px; margin-left: 7px;\">Cedula</ion-label>\r\n            <ion-input [(ngModel)]=\"txt_Cedula_Usuario\" placeholder=\"Cedula\" maxlength=\"13\" (keypress)=\"restrictNumeric($event)\"></ion-input>\r\n            <ion-label style=\"font-size: 15px; font-weight: bold; font-family: Arial, Helvetica, sans-serif;  margin-top: 5px; margin-left: 7px;\">Contraseña</ion-label>\r\n          \r\n            <div style=\"margin-left: 6px;\">\r\n\r\n            <input  aria-describedby=\"basic-addon1\" [type]=\"getType()\" oninput=\"this.value = this.value.toUpperCase()\"  type=\"text\" style=\"margin-right: 3px;\" class=\"css-input\" placeholder=\"Contraseña\" [(ngModel)]=\"txt_contrasena\"/>\r\n            <ion-icon style=\"margin-left: 35px;\" name=\"eye\" (click)=\"toggleTextPassword()\" class=\"input-group-addon\" ></ion-icon >\r\n         \r\n            </div>\r\n            \r\n          </div>\r\n          <ion-button expand=\"block\" style=\"font-weight: bold;\" (click)=\"OnGuardarPerfil()\">GUARDAR</ion-button>\r\n        </div>\r\n      </div>\r\n\r\n</ion-content>\r\n");
+/* harmony default export */ __webpack_exports__["default"] = ("<ion-header [translucent]=\"true\">\r\n  <ion-toolbar>\r\n    <ion-buttons slot=\"start\">\r\n      <ion-menu-button slot=\"start\" auto-hide=\"false\"></ion-menu-button>\r\n    </ion-buttons>\r\n    <ion-title>Mi Perfil</ion-title>\r\n  </ion-toolbar>\r\n</ion-header>\r\n\r\n  <ion-content ngDefaultControl >\r\n   \r\n      <div class=\"card\" style=\"min-height: 500px !important;\">\r\n          <div class=\"header\">\r\n              <div class=\"avatar\">\r\n                  <img style=\"color: #3C71FF;\" ngDefaultControl [src]=\"currentImage\" *ngIf=\"currentImage\" [(ngModel)]=\"fotohtml\">\r\n              </div>\r\n          </div>\r\n          \r\n          <div class=\"card-body\">\r\n\r\n            <div class=\"user-meta ion-text-center\">\r\n              <a class=\"css-button\">\r\n                <span class=\"centrar\"><img class=\"centrar\"  (click)=\"takePicture()\" src=\"assets/imagenes/camara16.png\"></span>\r\n              </a>\r\n            </div>\r\n\r\n          <div class=\"ion-text-center\">\r\n            <label id=\"lbl_usuario\"><strong>{{nombre_usuario}}</strong></label>\r\n          </div>\r\n\r\n          <div style=\"margin-left: -5px;\">\r\n            <ion-label style=\"font-size: 15px; font-weight: bold; font-family: Arial, Helvetica, sans-serif;  margin-top: 5px; margin-left: 7px;\">Correo</ion-label>\r\n            <ion-input oninput=\"this.value = this.value.toUpperCase()\"  [(ngModel)]=\"txt_correo_Usuario\" placeholder=\"Correo\"></ion-input>\r\n            <ion-label style=\"font-size: 15px; font-weight: bold; font-family: Arial, Helvetica, sans-serif;  margin-top: 5px; margin-left: 7px;\">Telefono</ion-label>\r\n            <ion-input  [(ngModel)]=\"txt_Telefono_Usuario\" placeholder=\"Telefono\"  maxlength=\"10\" (keypress)=\"restrictNumeric($event)\"></ion-input>\r\n            <ion-label style=\"font-size: 15px; font-weight: bold; font-family: Arial, Helvetica, sans-serif;  margin-top: 5px; margin-left: 7px;\">Cedula</ion-label>\r\n            <ion-input [(ngModel)]=\"txt_Cedula_Usuario\" placeholder=\"Cedula\" maxlength=\"13\" (keypress)=\"restrictNumeric($event)\"></ion-input>\r\n            <ion-label style=\"font-size: 15px; font-weight: bold; font-family: Arial, Helvetica, sans-serif;  margin-top: 5px; margin-left: 7px;\">Contraseña</ion-label>\r\n          \r\n            <div style=\"margin-left: 6px;\">\r\n\r\n            <input  aria-describedby=\"basic-addon1\" [type]=\"getType()\" oninput=\"this.value = this.value.toUpperCase()\"  type=\"text\" style=\"margin-right: 3px;\" class=\"css-input\" placeholder=\"Contraseña\" [(ngModel)]=\"txt_contrasena\"/>\r\n            <ion-icon style=\"margin-left: 35px;\" name=\"eye\" (click)=\"toggleTextPassword()\" class=\"input-group-addon\" ></ion-icon >\r\n         \r\n            </div>\r\n            \r\n          </div>\r\n          <ion-button expand=\"block\" style=\"font-weight: bold;\" (click)=\"OnGuardarPerfil()\">GUARDAR</ion-button>\r\n        </div>\r\n      </div>\r\n\r\n</ion-content>\r\n");
 
 /***/ })
 

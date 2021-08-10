@@ -230,6 +230,8 @@ let LoginPage = class LoginPage {
                     _variableglobal__WEBPACK_IMPORTED_MODULE_5__.Variableglobal.telefono_Usuario = this.datos.telefono_Usuario;
                     _variableglobal__WEBPACK_IMPORTED_MODULE_5__.Variableglobal.clave = this.datos.clave;
                     _variableglobal__WEBPACK_IMPORTED_MODULE_5__.Variableglobal.foto_usuario = this.datos.foto_usuario;
+                    _variableglobal__WEBPACK_IMPORTED_MODULE_5__.Variableglobal.cod_ayuntamiento = this.datos.cod_ayuntamiento;
+                    _variableglobal__WEBPACK_IMPORTED_MODULE_5__.Variableglobal.nombre = this.datos.nombre;
                     this.menuCtrl.enable(true);
                     this.click = !this.click;
                     this.router.navigate(['/inicio-mapa']);

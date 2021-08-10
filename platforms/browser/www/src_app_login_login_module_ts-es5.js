@@ -407,6 +407,8 @@
                   _variableglobal__WEBPACK_IMPORTED_MODULE_5__.Variableglobal.telefono_Usuario = _this2.datos.telefono_Usuario;
                   _variableglobal__WEBPACK_IMPORTED_MODULE_5__.Variableglobal.clave = _this2.datos.clave;
                   _variableglobal__WEBPACK_IMPORTED_MODULE_5__.Variableglobal.foto_usuario = _this2.datos.foto_usuario;
+                  _variableglobal__WEBPACK_IMPORTED_MODULE_5__.Variableglobal.cod_ayuntamiento = _this2.datos.cod_ayuntamiento;
+                  _variableglobal__WEBPACK_IMPORTED_MODULE_5__.Variableglobal.nombre = _this2.datos.nombre;
 
                   _this2.menuCtrl.enable(true);
 

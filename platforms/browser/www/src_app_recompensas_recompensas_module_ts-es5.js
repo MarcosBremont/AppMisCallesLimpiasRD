@@ -120,8 +120,8 @@
 
         _createClass(RecompensasService, [{
           key: "obtenerrecompensas",
-          value: function obtenerrecompensas() {
-            return this.http.get('http://api.miscalleslimpiasrd.tecnolora.com/api/MisCallesLimpiasRD/ConsultarListadodeRecompensas');
+          value: function obtenerrecompensas(cod_ayuntamiento) {
+            return this.http.get('http://api.miscalleslimpiasrd.tecnolora.com/api/MisCallesLimpiasRD/ConsultarListadodeRecompensas?cod_ayuntamiento=' + cod_ayuntamiento);
           } //   return this.http.get('https://localhost:44371/api/MisCallesLimpiasRD/ConsultarListadodeRecompensas');
           // }
 
@@ -393,7 +393,7 @@
             var _this = this;
 
             this.cod_usuario = _variableglobal__WEBPACK_IMPORTED_MODULE_7__.Variableglobal.cod_usuario;
-            this.servicio.obtenerrecompensas().subscribe(function (data) {
+            this.servicio.obtenerrecompensas(_variableglobal__WEBPACK_IMPORTED_MODULE_7__.Variableglobal.cod_ayuntamiento).subscribe(function (data) {
               _this.recompensas = data;
             }, function (error) {
               console.log(error);
@@ -406,12 +406,11 @@
             }, function (error) {
               console.log(error);
             }); //Llamamos al procedimiento para actualizar los puntos
-
-            this.servicioActualizarPuntos.ActualizarPuntos(this.cod_puntos, this.cod_usuario, this.puntosAcumulados).subscribe(function (data) {
-              _this.recompensas = data;
-            }, function (error) {
-              console.log(error);
-            });
+            // this.servicioActualizarPuntos.ActualizarPuntos(this.cod_puntos, this.cod_usuario, this.puntosAcumulados)
+            // .subscribe(
+            //   (data)=>{this.recompensas = data;}, 
+            //   (error)=>{console.log(error);}
+            // )   
           }
         }, {
           key: "presentConfirm",

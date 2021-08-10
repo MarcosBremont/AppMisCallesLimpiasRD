@@ -59,8 +59,8 @@ let RecompensasService = class RecompensasService {
     constructor(http) {
         this.http = http;
     }
-    obtenerrecompensas() {
-        return this.http.get('http://api.miscalleslimpiasrd.tecnolora.com/api/MisCallesLimpiasRD/ConsultarListadodeRecompensas');
+    obtenerrecompensas(cod_ayuntamiento) {
+        return this.http.get('http://api.miscalleslimpiasrd.tecnolora.com/api/MisCallesLimpiasRD/ConsultarListadodeRecompensas?cod_ayuntamiento=' + cod_ayuntamiento);
     }
     //   return this.http.get('https://localhost:44371/api/MisCallesLimpiasRD/ConsultarListadodeRecompensas');
     // }
@@ -211,7 +211,7 @@ let RecompensasPage = class RecompensasPage {
     }
     ngOnInit() {
         this.cod_usuario = _variableglobal__WEBPACK_IMPORTED_MODULE_7__.Variableglobal.cod_usuario;
-        this.servicio.obtenerrecompensas()
+        this.servicio.obtenerrecompensas(_variableglobal__WEBPACK_IMPORTED_MODULE_7__.Variableglobal.cod_ayuntamiento)
             .subscribe((data) => { this.recompensas = data; }, (error) => { console.log(error); });
         //Esta variable llamada this.cod_usuario almacena el ID del usuario. 
         //Obtenemos los puntos del usuario logeado corrientemente
@@ -219,8 +219,11 @@ let RecompensasPage = class RecompensasPage {
         this.servicioPuntos.obtenerMisPuntos(this.cod_usuario)
             .subscribe((data) => { this.misPuntos = data; }, (error) => { console.log(error); });
         //Llamamos al procedimiento para actualizar los puntos
-        this.servicioActualizarPuntos.ActualizarPuntos(this.cod_puntos, this.cod_usuario, this.puntosAcumulados)
-            .subscribe((data) => { this.recompensas = data; }, (error) => { console.log(error); });
+        // this.servicioActualizarPuntos.ActualizarPuntos(this.cod_puntos, this.cod_usuario, this.puntosAcumulados)
+        // .subscribe(
+        //   (data)=>{this.recompensas = data;}, 
+        //   (error)=>{console.log(error);}
+        // )   
     }
     presentConfirm() {
         return (0,tslib__WEBPACK_IMPORTED_MODULE_8__.__awaiter)(this, void 0, void 0, function* () {
