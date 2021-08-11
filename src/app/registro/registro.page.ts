@@ -36,6 +36,8 @@ export class RegistroPage implements OnInit {
   Ayuntamientos: any;
   cod_ayuntamiento:any;
   gg;
+  isShown: boolean = false ; // hidden by default
+
 
   isActiveToggleTextPassword: Boolean = true;
 
@@ -143,11 +145,15 @@ this.Ayuntamiento.obtenerAyuntamientos()
       {
         this.btnDisabled = true;
         this.labelVisibility = false;
+        this.isShown = true;
+
       }
       else
       {
         this.btnDisabled = false;
         this.labelVisibility = true;
+        this.isShown = false;
+
       }
     });
   }
