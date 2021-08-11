@@ -68,7 +68,12 @@ const routes: Routes = [
   {
     path: 'modal-popover',
     loadChildren: () => import('./modal-popover/modal-popover.module').then( m => m.ModalPopoverPageModule)
+  },
+  {
+    path: 'mis-puntos2',
+    loadChildren: () => import('./mis-puntos2/mis-puntos2.module').then( m => m.MisPuntos2PageModule)
   }
+
 
 ];
 

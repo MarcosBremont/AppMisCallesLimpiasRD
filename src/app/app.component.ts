@@ -31,6 +31,7 @@ export class AppComponent {
    // public labels = ['Family', 'Friends', 'Notes', 'Work', 'Travel', 'Reminders'];
    constructor(platform: Platform,public servicio2:DatosnecesarioService){
      platform.ready().then(() => {
+       console.log(Variableglobal.cod_ayuntamiento)
        // this.onVerificarPantalla() ;
          if (document.URL.startsWith('http')){
            Environment.setEnv({
@@ -39,6 +40,13 @@ export class AppComponent {
            });
          }
      });
+    }
+
+    PruebaClick(){
+      Variableglobal.cod_ayuntamiento=0;
+      Variableglobal.cod_usuario=0;
+
+      console.log(Variableglobal.cod_ayuntamiento)
     }
  
    //  onVerificarPantalla() {

@@ -22,7 +22,7 @@
 <div style="padding: 5px;">
   <ion-card>
       <!-- Agregar id para validar si está vacio -->
-      <ion-input style="text-transform: uppercase;"  style="border-radius: 5px;" maxlength="100" [(ngModel)]="email" id="emailContenido"></ion-input>
+      <ion-input oninput="this.value = this.value.toUpperCase()" style="border-radius: 5px;" maxlength="100" [(ngModel)]="email" id="emailContenido"></ion-input>
   </ion-card>
 </div>
 

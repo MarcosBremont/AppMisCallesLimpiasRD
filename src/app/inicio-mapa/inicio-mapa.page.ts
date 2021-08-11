@@ -114,6 +114,7 @@ btnRegistro
 
 
     async ngOnInit() {
+      console.log(Variableglobal.cod_usuario, Variableglobal.cod_ayuntamiento, Variableglobal.nombre_usuario)
     this.ionLoaderService.dismissLoader();
     this.SlistaDatosInicio()
     this.VerificarSiHayFoto();

@@ -53,8 +53,8 @@
 
         _createClass(InformateService, [{
           key: "obtenerPostEducacionales",
-          value: function obtenerPostEducacionales() {
-            return this.http.get('http://api.miscalleslimpiasrd.tecnolora.com/api/MisCallesLimpiasRD/ConsultarListadodePost');
+          value: function obtenerPostEducacionales(cod_ayuntamiento) {
+            return this.http.get('http://api.miscalleslimpiasrd.tecnolora.com/api/MisCallesLimpiasRD/ConsultarListadodePost?cod_ayuntamiento=' + cod_ayuntamiento + "");
           }
         }]);
 
@@ -228,7 +228,7 @@
       /* harmony import */
 
 
-      var tslib__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(
+      var tslib__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(
       /*! tslib */
       64762);
       /* harmony import */
@@ -246,7 +246,7 @@
       /* harmony import */
 
 
-      var _angular_core__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(
+      var _angular_core__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(
       /*! @angular/core */
       37716);
       /* harmony import */
@@ -255,6 +255,12 @@
       var _Services_informate_service__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(
       /*! ../Services/informate.service */
       51525);
+      /* harmony import */
+
+
+      var _variableglobal__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(
+      /*! ../variableglobal */
+      13296);
 
       var _InformatePage = /*#__PURE__*/function () {
         function InformatePage(servicio) {
@@ -268,7 +274,7 @@
           value: function ngOnInit() {
             var _this = this;
 
-            this.servicio.obtenerPostEducacionales().subscribe(function (data) {
+            this.servicio.obtenerPostEducacionales(_variableglobal__WEBPACK_IMPORTED_MODULE_3__.Variableglobal.cod_ayuntamiento).subscribe(function (data) {
               _this.posteducacionales = data;
             }, function (error) {
               console.log(error);
@@ -285,7 +291,7 @@
         }];
       };
 
-      _InformatePage = (0, tslib__WEBPACK_IMPORTED_MODULE_3__.__decorate)([(0, _angular_core__WEBPACK_IMPORTED_MODULE_4__.Component)({
+      _InformatePage = (0, tslib__WEBPACK_IMPORTED_MODULE_4__.__decorate)([(0, _angular_core__WEBPACK_IMPORTED_MODULE_5__.Component)({
         selector: 'app-informate',
         template: _raw_loader_informate_page_html__WEBPACK_IMPORTED_MODULE_0__["default"],
         styles: [_informate_page_scss__WEBPACK_IMPORTED_MODULE_1__["default"]]
@@ -313,7 +319,7 @@
       /* harmony default export */
 
 
-      __webpack_exports__["default"] = "<ion-header [translucent]=\"true\">\r\n  <ion-toolbar>\r\n      <ion-buttons slot=\"start\">\r\n          <ion-menu-button></ion-menu-button>\r\n      </ion-buttons>\r\n      <ion-title>Informate</ion-title>\r\n  </ion-toolbar>\r\n</ion-header>\r\n\r\n<ion-content [fullscreen]=\"true\">\r\n  <ion-header collapse=\"condense\">\r\n      <ion-toolbar>\r\n          <ion-title size=\"large\">Informate</ion-title>\r\n      </ion-toolbar>\r\n  </ion-header>\r\n\r\n  <ion-content>\r\n\r\n      <ion-card *ngFor=\"let posteducacional of posteducacionales\" style=\"padding: 20px;\">\r\n          <ion-card-header>\r\n              <ion-card-title size=\"small\"><b>{{posteducacional.titulo}}</b></ion-card-title>\r\n          </ion-card-header>\r\n\r\n          <ion-card-content>\r\n              <img src={{posteducacional.imagen}}>\r\n              <ion-label class=\"centrarlabel\">{{posteducacional.descripcion}}</ion-label>\r\n              <br>\r\n              <br>\r\n              <label style=\"font-size: small;\"><b>{{posteducacional.fecha}}</b></label>\r\n          </ion-card-content>\r\n\r\n\r\n      </ion-card>\r\n  </ion-content>";
+      __webpack_exports__["default"] = "<ion-header [translucent]=\"true\">\n  <ion-toolbar>\n      <ion-buttons slot=\"start\">\n          <ion-menu-button></ion-menu-button>\n      </ion-buttons>\n      <ion-title>Informate</ion-title>\n  </ion-toolbar>\n</ion-header>\n\n<ion-content [fullscreen]=\"true\">\n  <ion-header collapse=\"condense\">\n      <ion-toolbar>\n          <ion-title size=\"large\">Informate</ion-title>\n      </ion-toolbar>\n  </ion-header>\n\n  <ion-content>\n\n      <ion-card *ngFor=\"let posteducacional of posteducacionales\" style=\"padding: 20px;\">\n          <ion-card-header>\n              <ion-card-title size=\"small\"><b>{{posteducacional.titulo}}</b></ion-card-title>\n          </ion-card-header>\n\n          <ion-card-content>\n              <img src={{posteducacional.imagen}}>\n              <ion-label class=\"centrarlabel\">{{posteducacional.descripcion}}</ion-label>\n              <br>\n              <br>\n              <label style=\"font-size: small;\"><b>{{posteducacional.fecha}}</b></label>\n          </ion-card-content>\n\n\n      </ion-card>\n  </ion-content>";
       /***/
     }
   }]);

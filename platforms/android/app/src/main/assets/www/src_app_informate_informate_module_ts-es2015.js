@@ -21,8 +21,8 @@ let InformateService = class InformateService {
     constructor(http) {
         this.http = http;
     }
-    obtenerPostEducacionales() {
-        return this.http.get('http://api.miscalleslimpiasrd.tecnolora.com/api/MisCallesLimpiasRD/ConsultarListadodePost');
+    obtenerPostEducacionales(cod_ayuntamiento) {
+        return this.http.get('http://api.miscalleslimpiasrd.tecnolora.com/api/MisCallesLimpiasRD/ConsultarListadodePost?cod_ayuntamiento=' + cod_ayuntamiento + "");
     }
 };
 InformateService.ctorParameters = () => [
@@ -130,11 +130,13 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "InformatePage": function() { return /* binding */ InformatePage; }
 /* harmony export */ });
-/* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! tslib */ 64762);
+/* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! tslib */ 64762);
 /* harmony import */ var _raw_loader_informate_page_html__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! !raw-loader!./informate.page.html */ 91269);
 /* harmony import */ var _informate_page_scss__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./informate.page.scss */ 50477);
-/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! @angular/core */ 37716);
+/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! @angular/core */ 37716);
 /* harmony import */ var _Services_informate_service__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../Services/informate.service */ 51525);
+/* harmony import */ var _variableglobal__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../variableglobal */ 13296);
+
 
 
 
@@ -145,15 +147,15 @@ let InformatePage = class InformatePage {
         this.servicio = servicio;
     }
     ngOnInit() {
-        this.servicio.obtenerPostEducacionales()
+        this.servicio.obtenerPostEducacionales(_variableglobal__WEBPACK_IMPORTED_MODULE_3__.Variableglobal.cod_ayuntamiento)
             .subscribe((data) => { this.posteducacionales = data; }, (error) => { console.log(error); });
     }
 };
 InformatePage.ctorParameters = () => [
     { type: _Services_informate_service__WEBPACK_IMPORTED_MODULE_2__.InformateService }
 ];
-InformatePage = (0,tslib__WEBPACK_IMPORTED_MODULE_3__.__decorate)([
-    (0,_angular_core__WEBPACK_IMPORTED_MODULE_4__.Component)({
+InformatePage = (0,tslib__WEBPACK_IMPORTED_MODULE_4__.__decorate)([
+    (0,_angular_core__WEBPACK_IMPORTED_MODULE_5__.Component)({
         selector: 'app-informate',
         template: _raw_loader_informate_page_html__WEBPACK_IMPORTED_MODULE_0__.default,
         styles: [_informate_page_scss__WEBPACK_IMPORTED_MODULE_1__.default]
@@ -184,7 +186,7 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony default export */ __webpack_exports__["default"] = ("<ion-header [translucent]=\"true\">\r\n  <ion-toolbar>\r\n      <ion-buttons slot=\"start\">\r\n          <ion-menu-button></ion-menu-button>\r\n      </ion-buttons>\r\n      <ion-title>Informate</ion-title>\r\n  </ion-toolbar>\r\n</ion-header>\r\n\r\n<ion-content [fullscreen]=\"true\">\r\n  <ion-header collapse=\"condense\">\r\n      <ion-toolbar>\r\n          <ion-title size=\"large\">Informate</ion-title>\r\n      </ion-toolbar>\r\n  </ion-header>\r\n\r\n  <ion-content>\r\n\r\n      <ion-card *ngFor=\"let posteducacional of posteducacionales\" style=\"padding: 20px;\">\r\n          <ion-card-header>\r\n              <ion-card-title size=\"small\"><b>{{posteducacional.titulo}}</b></ion-card-title>\r\n          </ion-card-header>\r\n\r\n          <ion-card-content>\r\n              <img src={{posteducacional.imagen}}>\r\n              <ion-label class=\"centrarlabel\">{{posteducacional.descripcion}}</ion-label>\r\n              <br>\r\n              <br>\r\n              <label style=\"font-size: small;\"><b>{{posteducacional.fecha}}</b></label>\r\n          </ion-card-content>\r\n\r\n\r\n      </ion-card>\r\n  </ion-content>");
+/* harmony default export */ __webpack_exports__["default"] = ("<ion-header [translucent]=\"true\">\n  <ion-toolbar>\n      <ion-buttons slot=\"start\">\n          <ion-menu-button></ion-menu-button>\n      </ion-buttons>\n      <ion-title>Informate</ion-title>\n  </ion-toolbar>\n</ion-header>\n\n<ion-content [fullscreen]=\"true\">\n  <ion-header collapse=\"condense\">\n      <ion-toolbar>\n          <ion-title size=\"large\">Informate</ion-title>\n      </ion-toolbar>\n  </ion-header>\n\n  <ion-content>\n\n      <ion-card *ngFor=\"let posteducacional of posteducacionales\" style=\"padding: 20px;\">\n          <ion-card-header>\n              <ion-card-title size=\"small\"><b>{{posteducacional.titulo}}</b></ion-card-title>\n          </ion-card-header>\n\n          <ion-card-content>\n              <img src={{posteducacional.imagen}}>\n              <ion-label class=\"centrarlabel\">{{posteducacional.descripcion}}</ion-label>\n              <br>\n              <br>\n              <label style=\"font-size: small;\"><b>{{posteducacional.fecha}}</b></label>\n          </ion-card-content>\n\n\n      </ion-card>\n  </ion-content>");
 
 /***/ })
 

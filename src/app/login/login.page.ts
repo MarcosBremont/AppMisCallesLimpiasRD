@@ -43,6 +43,8 @@ export class LoginPage implements OnInit {
   }
 
   ngOnInit() {
+    console.log(Variableglobal.cod_usuario)
+    console.log(Variableglobal.cod_ayuntamiento)
   }
 
   async ErrorAlert() {

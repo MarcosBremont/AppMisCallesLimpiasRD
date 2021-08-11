@@ -16,26 +16,27 @@
 </ion-item> -->
 
         <ion-item>
-            <ion-input style="text-transform: uppercase;" required placeholder="Nombre de Usuario" maxlength="30" id="nombre" (keypress)="omit_special_char($event)" (keydown)="onKeydown($event)" [(ngModel)]="usuario"></ion-input>
+            <ion-input oninput="this.value = this.value.toUpperCase()" required placeholder="Nombre de Usuario" maxlength="30" id="nombre" (keypress)="omit_special_char($event)" (keydown)="onKeydown($event)" [(ngModel)]="usuario"></ion-input>
         </ion-item>
 
         <ion-item>
-            <ion-input style="text-transform: uppercase;"  required placeholder="Email" maxlength="100" (ngModelChange)="VerificarCorreoElectronico()" [(ngModel)]="email" id="email"></ion-input>
+            <ion-input oninput="this.value = this.value.toUpperCase()" required placeholder="Email" maxlength="100" (ngModelChange)="VerificarCorreoElectronico()" [(ngModel)]="email" id="email"></ion-input>
         </ion-item>
 
         <ion-item>
-            <ion-input style="text-transform: uppercase;" (keypress)="omit_special_char($event)" (keydown)="onKeydown($event)"  required [type]="getType()" [(ngModel)]="clave" id="password" maxlengh="50" placeholder="Contraseña"></ion-input>
+            <ion-input oninput="this.value = this.value.toUpperCase()" required [type]="getType()" [(ngModel)]="clave" id="password" maxlengh="50" placeholder="Contraseña"></ion-input>
             <ion-icon name="eye" (click)="toggleTextPassword()"></ion-icon>
         </ion-item>
 
         <ion-item>
-            <ion-input style="text-transform: uppercase;"  type="tel" maxlength="13" placeholder="CEDULA" required [(ngModel)]="cedula" id="cedula" (keypress)="restrictNumeric($event)"></ion-input>
+            <ion-input type="tel" maxlength="13" placeholder="Cedula" required [(ngModel)]="cedula" id="cedula" (keypress)="restrictNumeric($event)"></ion-input>
         </ion-item>
 
         <ion-item>
-            <ion-input style="text-transform: uppercase;"  type="tel" [(ngModel)]="telefono" required (keypress)="restrictNumeric($event)" maxlength="10" placeholder="TELÉFONO" id="telefono"></ion-input>
+            <ion-input type="tel" [(ngModel)]="telefono" required (keypress)="restrictNumeric($event)" maxlength="10" placeholder="Teléfono" id="telefono"></ion-input>
         </ion-item>
 
+        <ion-label style="color: brown; padding-left: 13px;" [ngClass]="{'hidden': isHidden}" id="labelya" [ngStyle]="{'color': (labelVisibility)? 'transparent': 'red'}">¡Este correo ya existe!</ion-label>
         <ion-list>
             <!-- <ion-list-header>
                 <ion-label>
@@ -44,7 +45,7 @@
             </ion-list-header> -->
 
             <ion-item>
-                <ion-label>SELECCIONE SU AYUNTAMIENTO</ion-label>
+                <ion-label>Seleccione su Ayuntamiento</ion-label>
                 <ion-select [compareWith]="compareWith" okText="Aceptar" cancelText="Cancelar" (ionChange)="checkValue($event)">
                     <ion-select-option *ngFor="let ayuntamiento of Ayuntamientos; let i = index" value="{{ayuntamiento.cod_ayuntamiento}}">
                         {{ayuntamiento.nombre }}
@@ -55,14 +56,7 @@
                 </ion-select>
 
             </ion-item>
-
-            <ion-label *ngIf="isShown" id="Labelhide" style="color: brown; padding-left: 13px;" [ngClass]="{'hidden': isHidden}" [ngStyle]="{'color': (labelVisibility)? 'transparent': 'red'}">¡Este correo ya existe!</ion-label>
-
         </ion-list>
-
-        <script>
-
-        </script>
 
 
 

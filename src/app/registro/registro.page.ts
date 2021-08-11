@@ -24,8 +24,6 @@ import {AyuntamientosService} from '../Services/ayuntamientos.service'
 })
 export class RegistroPage implements OnInit {
   usuario;
-  isShown: boolean = false ; // hidden by default
-
   email;
   clave;
   cedula;
@@ -145,13 +143,11 @@ this.Ayuntamiento.obtenerAyuntamientos()
       {
         this.btnDisabled = true;
         this.labelVisibility = false;
-        this.isShown = true;
       }
       else
       {
         this.btnDisabled = false;
         this.labelVisibility = true;
-        this.isShown = false;
       }
     });
   }
