@@ -186,9 +186,11 @@ __webpack_require__.r(__webpack_exports__);
 
 
 
+
 let OlvideMiContrasenaPage = class OlvideMiContrasenaPage {
-    constructor(http, emailComposer, servicio, servicio1, alertController) {
+    constructor(http, menuCtrl, emailComposer, servicio, servicio1, alertController) {
         this.http = http;
+        this.menuCtrl = menuCtrl;
         this.emailComposer = emailComposer;
         this.servicio = servicio;
         this.servicio1 = servicio1;
@@ -216,6 +218,9 @@ let OlvideMiContrasenaPage = class OlvideMiContrasenaPage {
         });
     }
     ngOnInit() {
+    }
+    ionViewWillEnter() {
+        this.menuCtrl.enable(false);
     }
     onKeydown(event) {
         if (event.keyCode === 32) {
@@ -313,6 +318,7 @@ let OlvideMiContrasenaPage = class OlvideMiContrasenaPage {
 };
 OlvideMiContrasenaPage.ctorParameters = () => [
     { type: _angular_common_http__WEBPACK_IMPORTED_MODULE_6__.HttpClient },
+    { type: _ionic_angular__WEBPACK_IMPORTED_MODULE_7__.MenuController },
     { type: _ionic_native_email_composer_ngx__WEBPACK_IMPORTED_MODULE_4__.EmailComposer },
     { type: _Services_olvidemicontrasena_service__WEBPACK_IMPORTED_MODULE_2__.OlvidemicontrasenaService },
     { type: _Services_enviar_correo_service__WEBPACK_IMPORTED_MODULE_3__.EnviarCorreoService },
@@ -350,7 +356,7 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony default export */ __webpack_exports__["default"] = ("<ion-content>\n  <!-- Back button with a default href -->\n  <ion-header>\n    <ion-toolbar>\n        <ion-buttons slot=\"start\">\n            <ion-back-button defaultHref=\"login\"></ion-back-button>\n        </ion-buttons>\n        <ion-title style=\"color: #1A202E; font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; font-size:16;\">Restablecer contraseña</ion-title>\n    </ion-toolbar>\n</ion-header>\n\n\n\n<div style=\"padding-left: 15px;padding-right: 15px; padding-bottom: 15px;\">\n  <!-- <ion-label style=\"color: #1A202E; font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; font-size:20px;\"><strong>Restablecer Contraseña</strong></ion-label> <br> -->\n  <br><span style=\"color: #647081; text-justify: auto; font-size: 14px;\">Introduzca el email asociado a su cuenta y le enviaremos un correo su nueva contraseña</span>\n</div>\n<ion-label style=\"color: #647081; padding: 15px; font-weight: bold;\">EMAIL</ion-label><br>\n\n\n\n<div style=\"padding: 5px;\">\n  <ion-card>\n      <!-- Agregar id para validar si está vacio -->\n      <ion-input oninput=\"this.value = this.value.toUpperCase()\" style=\"border-radius: 5px;\" maxlength=\"100\" [(ngModel)]=\"email\" id=\"emailContenido\"></ion-input>\n  </ion-card>\n</div>\n\n\n<div style=\"margin:auto; width:95%; padding-top: 20px;\">\n\n  <ion-button expand=\"block\"  style=\"font-weight: bold;\" (click)=\"onOlvideMiContrasena()\">Enviar Contraseña</ion-button>\n\n</div>\n\n\n</ion-content>\n");
+/* harmony default export */ __webpack_exports__["default"] = ("<ion-content>\r\n  <!-- Back button with a default href -->\r\n  <ion-header>\r\n    <ion-toolbar>\r\n        <ion-buttons slot=\"start\">\r\n            <ion-back-button defaultHref=\"login\"></ion-back-button>\r\n        </ion-buttons>\r\n        <ion-title style=\"color: #1A202E; font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; font-size:16;\">Restablecer contraseña</ion-title>\r\n    </ion-toolbar>\r\n</ion-header>\r\n\r\n\r\n\r\n<div style=\"padding-left: 15px;padding-right: 15px; padding-bottom: 15px;\">\r\n  <!-- <ion-label style=\"color: #1A202E; font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; font-size:20px;\"><strong>Restablecer Contraseña</strong></ion-label> <br> -->\r\n  <br><span style=\"color: #647081; text-justify: auto; font-size: 14px;\">Introduzca el email asociado a su cuenta y le enviaremos un correo su nueva contraseña</span>\r\n</div>\r\n<ion-label style=\"color: #647081; padding: 15px; font-weight: bold;\">EMAIL</ion-label><br>\r\n\r\n\r\n\r\n<div style=\"padding: 5px;\">\r\n  <ion-card>\r\n      <!-- Agregar id para validar si está vacio -->\r\n      <ion-input style=\"border-radius: 5px; text-transform: uppercase;\" maxlength=\"100\" [(ngModel)]=\"email\" id=\"emailContenido\"></ion-input>\r\n  </ion-card>\r\n</div>\r\n\r\n\r\n<div style=\"margin:auto; width:95%; padding-top: 20px;\">\r\n\r\n  <ion-button expand=\"block\"  style=\"font-weight: bold;\" (click)=\"onOlvideMiContrasena()\">Enviar Contraseña</ion-button>\r\n\r\n</div>\r\n\r\n\r\n</ion-content>\r\n");
 
 /***/ })
 

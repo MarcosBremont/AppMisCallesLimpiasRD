@@ -29,10 +29,10 @@
         </ion-item>
 
         <ion-item>
-            <ion-input type="tel" maxlength="13" placeholder="CEDULA" required [(ngModel)]="cedula" id="cedula" (keypress)="restrictNumeric($event)"></ion-input>
+            <ion-input type="tel" maxlength="11" placeholder="CEDULA" required [(ngModel)]="cedula" id="cedula" (keypress)="restrictNumeric($event)"></ion-input>
         </ion-item>
 
-        <ion-item>
+        <ion-item> 
             <ion-input type="tel" [(ngModel)]="telefono" required (keypress)="restrictNumeric($event)" maxlength="10" placeholder="TELÉFONO" id="telefono"></ion-input>
         </ion-item>
 

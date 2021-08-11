@@ -7,6 +7,8 @@ import { empty } from 'rxjs';
 import { EmailComposer } from '@ionic-native/email-composer/ngx';
 import { HttpClientModule } from '@angular/common/http';
 import { HttpClient } from '@angular/common/http';
+import {  MenuController } from '@ionic/angular';
+
 import { Observable, throwError } from 'rxjs';
 import { catchError, retry } from 'rxjs/operators';
 import { HttpHeaders } from '@angular/common/http';
@@ -24,6 +26,7 @@ export class OlvideMiContrasenaPage implements OnInit {
 
   constructor(
     private http: HttpClient,
+    public menuCtrl: MenuController,
     private emailComposer: EmailComposer,
     public servicio:OlvidemicontrasenaService,
     public servicio1:EnviarCorreoService,
@@ -62,6 +65,10 @@ export class OlvideMiContrasenaPage implements OnInit {
   
   }
 
+      
+  ionViewWillEnter() {
+    this.menuCtrl.enable(false);
+   }
     
   onKeydown(event) {
     if (event.keyCode === 32 ) {

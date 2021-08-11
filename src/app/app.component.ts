@@ -4,6 +4,7 @@ import { Platform } from '@ionic/angular';
 import { DatosnecesarioService } from './Services/datosnecesario.service';
 import { Router } from "@angular/router"; 
 import { Variableglobal } from './variableglobal';
+
 // import { Variableglobal } from './variableglobal';
 
 @Component({
@@ -29,7 +30,7 @@ export class AppComponent {
    codigo:any;
  
    // public labels = ['Family', 'Friends', 'Notes', 'Work', 'Travel', 'Reminders'];
-   constructor(platform: Platform,public servicio2:DatosnecesarioService){
+   constructor(platform: Platform,public servicio2:DatosnecesarioService, private router: Router){
      platform.ready().then(() => {
        console.log(Variableglobal.cod_ayuntamiento)
        // this.onVerificarPantalla() ;
@@ -43,12 +44,24 @@ export class AppComponent {
     }
 
     PruebaClick(){
-      Variableglobal.cod_ayuntamiento=0;
-      Variableglobal.cod_usuario=0;
+      
+      Variableglobal.cod_ayuntamiento=null;
+      Variableglobal.cod_usuario=null;
+      Variableglobal.nombre=null;
+      Variableglobal.nombre_usuario=null;
+      Variableglobal.cedula_usuario=null;
+      Variableglobal.telefono_Usuario=null;
+      Variableglobal.foto_usuario=null;
+      Variableglobal.cod_nivel=null;
+      
+      this.router.navigate(['/login'])
+      .then(() => {
+        window.location.reload();
+      });
 
       console.log(Variableglobal.cod_ayuntamiento)
     }
- 
+
    //  onVerificarPantalla() {
    //    this.codigo = Variableglobal.cod_nivel;
    //   if (this.codigo = 3)

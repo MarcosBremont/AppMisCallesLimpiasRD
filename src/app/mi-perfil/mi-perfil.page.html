@@ -25,21 +25,21 @@
             </div>
 
           <div class="ion-text-center">
-            <label id="lbl_usuario"><strong>{{nombre_usuario}}</strong></label>
+            <label style="text-transform: uppercase;" id="lbl_usuario"><strong>{{nombre_usuario}}</strong></label>
           </div>
 
           <div style="margin-left: -5px;">
-            <ion-label style="font-size: 15px; font-weight: bold; font-family: Arial, Helvetica, sans-serif;  margin-top: 5px; margin-left: 7px;">Correo</ion-label>
-            <ion-input style="text-transform: uppercase; "  [(ngModel)]="txt_correo_Usuario" placeholder="Correo"></ion-input>
-            <ion-label style="font-size: 15px; font-weight: bold; font-family: Arial, Helvetica, sans-serif;  margin-top: 5px; margin-left: 7px;">Telefono</ion-label>
-            <ion-input  [(ngModel)]="txt_Telefono_Usuario" placeholder="Telefono"  maxlength="10" (keypress)="restrictNumeric($event)"></ion-input>
+            <ion-label style="font-size: 15px; font-weight: bold; font-family: Arial, Helvetica, sans-serif;  margin-top: 5px; margin-left: 7px;">CORREO</ion-label>
+            <ion-input style="text-transform: uppercase;"  [(ngModel)]="txt_correo_Usuario" placeholder="CORREO"></ion-input>
+            <ion-label style="font-size: 15px; font-weight: bold; font-family: Arial, Helvetica, sans-serif;  margin-top: 5px; margin-left: 7px;">TELÉFONO</ion-label>
+            <ion-input  style="text-transform: uppercase;" [(ngModel)]="txt_Telefono_Usuario" placeholder="TELÉFONO"  maxlength="10" (keypress)="restrictNumeric($event)"></ion-input>
             <ion-label style="font-size: 15px; font-weight: bold; font-family: Arial, Helvetica, sans-serif;  margin-top: 5px; margin-left: 7px;">CEDULA</ion-label>
-            <ion-input [(ngModel)]="txt_Cedula_Usuario" placeholder="Cedula" maxlength="13" (keypress)="restrictNumeric($event)"></ion-input>
+            <ion-input style="text-transform: uppercase;" [(ngModel)]="txt_Cedula_Usuario" placeholder="Cedula" maxlength="13" (keypress)="restrictNumeric($event)"></ion-input>
             <ion-label style="font-size: 15px; font-weight: bold; font-family: Arial, Helvetica, sans-serif;  margin-top: 5px; margin-left: 7px;">CONTRASEÑA</ion-label>
           
             <div style="margin-left: 6px;">
 
-            <input  aria-describedby="basic-addon1" [type]="getType()" style="text-transform: uppercase; " type="text" style="margin-right: 3px;" class="css-input" placeholder="Contraseña" [(ngModel)]="txt_contrasena"/>
+            <input  aria-describedby="basic-addon1" [type]="getType()" style="text-transform: uppercase; " type="text" style="margin-right: 3px;" class="css-input" placeholder="CONTRASEÑA" [(ngModel)]="txt_contrasena"/>
             <ion-icon style="margin-left: 35px;" name="eye" (click)="toggleTextPassword()" class="input-group-addon" ></ion-icon >
          
             </div>

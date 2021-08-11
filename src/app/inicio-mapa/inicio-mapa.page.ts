@@ -307,7 +307,6 @@ btnRegistro
   
 
   onRegistroReporte(){
-
     this.ionLoaderService.simpleLoader();
 
     this.servicio3.StreetNameGoogle(this.latitude,this.longitud).subscribe((data)=>{
@@ -316,12 +315,13 @@ btnRegistro
       console.log(this.nombrecalle)
 
 
-    let cod_usuario, ubicacion, lat, lng, fotos;
+    let cod_usuario, ubicacion, lat, lng, fotos, cod_ayuntamiento;
     cod_usuario = Variableglobal.cod_usuario;
     ubicacion = this.nombrecalle;
     lat = this.latitude;
     lng = this.longitud;
     fotos = this.currentImage; 
+    cod_ayuntamiento = Variableglobal.cod_ayuntamiento
 
     
     let datos = {
@@ -329,7 +329,8 @@ btnRegistro
       "lat": lat,
       "lng": lng,
       "fotos":fotos,
-      "cod_usuario":cod_usuario
+      "cod_usuario":cod_usuario,
+      "cod_ayuntamiento":cod_ayuntamiento
     };
   
 
@@ -339,6 +340,8 @@ btnRegistro
       {
         this.SuccesAlert();
         this.isBtnRegistroVisible = false;
+        this.SlistaDatosInicio();
+
         // this.onLimpiar();
       }
       else
