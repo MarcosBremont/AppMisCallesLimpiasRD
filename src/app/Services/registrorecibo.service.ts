@@ -9,8 +9,8 @@ export class RegistroReciboService {
 
   constructor(public http: HttpClient) { }
 
-  IngresarRecibo(cod_usuario:any,cod_recompensa:any){
-    return this.http.get("http://api.miscalleslimpiasrd.tecnolora.com/api/MisCallesLimpiasRD/RegistrarRecibos?cod_usuario="+cod_usuario+"&cod_recompensa="+cod_recompensa+"");
+  IngresarRecibo(cod_usuario:any,cod_recompensa:any, cod_ayuntamiento:any){
+    return this.http.get("http://api.miscalleslimpiasrd.tecnolora.com/api/MisCallesLimpiasRD/RegistrarRecibos?cod_usuario="+cod_usuario+"&cod_recompensa="+cod_recompensa+"&cod_ayuntamiento="+cod_ayuntamiento+"");
     
   }
 

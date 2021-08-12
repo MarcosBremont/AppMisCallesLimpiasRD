@@ -219,7 +219,7 @@ export class RecompensasPage implements OnInit {
     if(this.datos.respuesta=="OK"){
       // this.ionLoaderService.dismissLoader();  No necesario en esta página
         this.AlertaRecompensaCambiada();
-        this.registroRecibo.IngresarRecibo(this.cod_usuario,this.cod_recompensas).subscribe((data)=>{
+        this.registroRecibo.IngresarRecibo(this.cod_usuario,this.cod_recompensas, Variableglobal.cod_ayuntamiento).subscribe((data)=>{
           this.datos = data; 
           console.log (this.datos);
 
