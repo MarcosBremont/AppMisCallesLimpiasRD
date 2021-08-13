@@ -620,7 +620,7 @@
                     // this.ionLoaderService.dismissLoader();  No necesario en esta página
                     _this2.AlertaRecompensaCambiada();
 
-                    _this2.registroRecibo.IngresarRecibo(_this2.cod_usuario, _this2.cod_recompensas).subscribe(function (data) {
+                    _this2.registroRecibo.IngresarRecibo(_this2.cod_usuario, _this2.cod_recompensas, _variableglobal__WEBPACK_IMPORTED_MODULE_7__.Variableglobal.cod_ayuntamiento).subscribe(function (data) {
                       _this2.datos = data;
                       console.log(_this2.datos);
                       document.getElementById('puntos').innerHTML = resultado + "";

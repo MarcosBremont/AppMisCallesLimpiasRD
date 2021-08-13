@@ -960,8 +960,8 @@
 
         _createClass(RegistroReciboService, [{
           key: "IngresarRecibo",
-          value: function IngresarRecibo(cod_usuario, cod_recompensa) {
-            return this.http.get("http://api.miscalleslimpiasrd.tecnolora.com/api/MisCallesLimpiasRD/RegistrarRecibos?cod_usuario=" + cod_usuario + "&cod_recompensa=" + cod_recompensa + "");
+          value: function IngresarRecibo(cod_usuario, cod_recompensa, cod_ayuntamiento) {
+            return this.http.get("http://api.miscalleslimpiasrd.tecnolora.com/api/MisCallesLimpiasRD/RegistrarRecibos?cod_usuario=" + cod_usuario + "&cod_recompensa=" + cod_recompensa + "&cod_ayuntamiento=" + cod_ayuntamiento + "");
           }
         }, {
           key: "MostrarRecibos",

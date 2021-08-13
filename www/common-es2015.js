@@ -600,8 +600,8 @@ let RegistroReciboService = class RegistroReciboService {
     constructor(http) {
         this.http = http;
     }
-    IngresarRecibo(cod_usuario, cod_recompensa) {
-        return this.http.get("http://api.miscalleslimpiasrd.tecnolora.com/api/MisCallesLimpiasRD/RegistrarRecibos?cod_usuario=" + cod_usuario + "&cod_recompensa=" + cod_recompensa + "");
+    IngresarRecibo(cod_usuario, cod_recompensa, cod_ayuntamiento) {
+        return this.http.get("http://api.miscalleslimpiasrd.tecnolora.com/api/MisCallesLimpiasRD/RegistrarRecibos?cod_usuario=" + cod_usuario + "&cod_recompensa=" + cod_recompensa + "&cod_ayuntamiento=" + cod_ayuntamiento + "");
     }
     MostrarRecibos(cod_usuario) {
         return this.http.get("http://api.miscalleslimpiasrd.tecnolora.com/api/MisCallesLimpiasRD/consultarrecibosporid?cod_usuario=" + cod_usuario + "");
